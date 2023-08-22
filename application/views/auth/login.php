@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!--	<link rel="shortcut icon" href="--><?php //echo base_url('back_assets/img/pkk_baru_dark.png') ?><!--" type="image/x-icon">-->
+	<!--	<link rel="shortcut icon" href="-->
+	<?php //echo base_url('back_assets/img/pkk_baru_dark.png') ?><!--" type="image/x-icon">-->
 	<title>Akses ke Sistem</title>
 	<!-- CCS utama -->
 	<link href="<?php echo base_url('back_assets/css/styles_sbadmin.css') ?>" rel="stylesheet">
@@ -65,7 +66,8 @@
 	</style>
 </head>
 
-<body style="background-color: #f5f5f5; user-select:none; -moz-user-select:none; -ms-user-select:none; -khtml-user-select:none; -webkit-user-select:none;">
+<body
+	style="background-color: #f5f5f5; user-select:none; -moz-user-select:none; -ms-user-select:none; -khtml-user-select:none; -webkit-user-select:none;">
 <div class="container">
 	<div class="mt-5">
 		<div class="row">
@@ -87,10 +89,13 @@
 			<div class="col-12 col-md-5 mx-auto mt-6">
 				<form action="<?php echo base_url('auth/login'); ?>" method="POST">
 					<div class="form-group">
-						<input type="text" class="form-control" minlength="2" maxlength="32" name="username" placeholder="Username" required autofocus />
+						<input type="text" class="form-control" minlength="2" maxlength="32" name="username"
+							   placeholder="Username" required autofocus/>
 					</div>
 					<div class="form-group">
-						<input type="password"  minlength="2" maxlength="32" title="Four characters is the minimum password" class="form-control" name="password" placeholder="Password" required />
+						<input type="password" minlength="2" maxlength="32"
+							   title="Four characters is the minimum password" class="form-control" name="password"
+							   placeholder="Password" required/>
 					</div>
 					<div class="form-group">
 						<div class="d-flex justify-content-between">
@@ -100,7 +105,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary w-100" value="Masuk" />
+						<input type="submit" class="btn btn-primary w-100" value="Masuk"/>
 					</div>
 				</form>
 			</div>
