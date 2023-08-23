@@ -2,18 +2,21 @@
 
 /**
  * @property Chanel_model $Chanel_model
+ * @property Feeds_model $Feeds_model
  */
-class Chanel extends  CI_Controller
+
+class Chanel extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Chanel_model');
+		$this->load->model('Feeds_model');
 	}
 
 	public function index(): void
 	{
-		$data['list_chanel']	= $this->Chanel_model->getChanel();
+		$data['list_chanel'] = $this->Chanel_model->getChanel();
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar');
@@ -33,7 +36,7 @@ class Chanel extends  CI_Controller
 
 	public function Detail($id): void
 	{
-		$data['detail_chanel']	= $this->Chanel_model->getById($id);
+		$data['detail_chanel'] = $this->Chanel_model->getById($id);
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar');
@@ -44,32 +47,71 @@ class Chanel extends  CI_Controller
 	public function Store(): void
 	{
 		$data = array(
-			'nama'			=> $this->input->post('nama'),
-			'description'	=> $this->input->post('description'),
-			'field1'		=> $this->input->post('field1'),
-			'field2'		=> $this->input->post('field2'),
-			'field3'		=> $this->input->post('field3'),
-			'field4'		=> $this->input->post('field4'),
-			'field5'		=> $this->input->post('field5'),
-			'field6'		=> $this->input->post('field6'),
-			'field7'		=> $this->input->post('field7'),
-			'field8'		=> $this->input->post('field8'),
-			'created_at'	=> date('Y-m-d H:i:s')
+			'nama' => $this->input->post('nama'),
+			'description' => $this->input->post('description'),
+			'field1' => $this->input->post('field1'),
+			'field2' => $this->input->post('field2'),
+			'field3' => $this->input->post('field3'),
+			'field4' => $this->input->post('field4'),
+			'field5' => $this->input->post('field5'),
+			'field6' => $this->input->post('field6'),
+			'field7' => $this->input->post('field7'),
+			'field8' => $this->input->post('field8'),
+			'created_at' => date('Y-m-d H:i:s')
 		);
 
 		$insert = $this->Chanel_model->InsertChanel($data);
 
-		if ($insert){
+		if ($insert) {
 			$this->session->set_flashdata('sukses', 'data chanel berhasil di tambahkan');
 			redirect(base_url('admin/chanel'));
-		}else{
+		} else {
 			$this->session->set_flashdata('gagal', 'data chanel gagal di tambahkan');
 			redirect(base_url('admin/chanel'));
 		}
 	}
 
-	public function generateApiKeys()
+	public function insertJson(): void
 	{
-		
+
+		$field1 = $this->input->post('field1');
+		$field2 = $this->input->post('field2');
+		$field3 = $this->input->post('field3');
+		$field4 = $this->input->post('field4');
+		$field5 = $this->input->post('field5');
+		$field6 = $this->input->post('field6');
+		$field7 = $this->input->post('field7');
+		$field8 = $this->input->post('field8');
+
+		$data = array(
+			'created_at' => date('Y-m-d H:i:s'),
+			'chanel_id' => '2',
+			'field1' => $field1,
+			'field2' => $field2,
+			'field3' => $field3,
+			'field4' => $field4,
+			'field5' => $field5,
+			'field6' => $field6,
+			'field7' => $field7,
+			'field8' => $field8,
+		);
+
+		$insert = $this->Feeds_model->insert($data);
+
+		if ($insert) {
+			$response = [
+				'status' => true,
+				'message' => 'Data has been Insert.',
+				'data' => $data
+			];
+		} else {
+			$response = [
+				'status' => true,
+				'message' => 'Data has been Insert.'
+			];
+		}
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
 	}
 }
