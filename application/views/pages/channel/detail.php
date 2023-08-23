@@ -58,10 +58,10 @@
 					<div class="tab-content" id="myTabContent">
 						<!-- menu pertama -->
 						<div class="tab-pane fade show active" id="umum" role="tabpanel" aria-labelledby="umum-tab">
-							<form action="<?php echo site_url('admin/konfig') ?>" method="post">
+							<form action="#" method="post">
 								<input type="hidden" name="id_konfigurasi">
 								<div class="row">
-									<form action="<?= base_url('admin/channelStore') ?>" method="post">
+									<form action="#" method="post">
 										<?php if (isset($detail_chanel)) {
 											foreach ($detail_chanel as $item) { ?>
 												<div class="col-md-6 order-md-1">
@@ -234,7 +234,7 @@
 								<div class="col-md-6">
 									<div class="import">
 										<h3 class="col-md-12 order-md-1">Import</h3>
-										<form action="<?php echo site_url('admin/konfig/icon') ?>" method="post"
+										<form action="#" method="post"
 											  enctype="multipart/form-data">
 											<input type="hidden" name="id_konfigurasi">
 											<div class="form-group col-md-12">
@@ -251,7 +251,7 @@
 									</div>
 									<div class="export">
 										<h3 class="col-md-12 order-md-1">Export</h3>
-										<form action="<?php echo site_url('admin/konfig/icon') ?>" method="post"
+										<form action="#" method="post"
 											  enctype="multipart/form-data">
 											<input type="hidden" name="id_konfigurasi">
 											<div class="form-group col-md-12">

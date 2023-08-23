@@ -22,8 +22,8 @@
 		<!-- Sidebar Menu -->
 		<nav class="mt-2">
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-				<li class="nav-item menu-open">
-					<a href="<?= base_url('admin/dashboard') ?>" class="nav-link active">
+				<li class="nav-item">
+					<a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
 						<i class="nav-icon fas fa-tachometer-alt"></i>
 						<p>
 							Dashboard
@@ -43,3 +43,19 @@
 	</div>
 	<!-- /.sidebar -->
 </aside>
+
+<script>
+	const navLinks = document.querySelectorAll('.nav-link'); // Select all nav links
+
+	navLinks.forEach(link => {
+		link.addEventListener('click', function () {
+			// Remove 'active' class from all nav links
+			navLinks.forEach(link => {
+				link.classList.remove('active');
+			});
+
+			// Add 'active' class to the clicked nav link
+			this.classList.add('active');
+		});
+	});
+</script>
