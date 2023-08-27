@@ -12,6 +12,11 @@ class Chanel extends CI_Controller
 		parent::__construct();
 		$this->load->model('Chanel_model');
 		$this->load->model('Feeds_model');
+		//		cek login
+		if (!$this->session->userdata('login')) {
+			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
+			redirect(base_url('auth'));
+		}
 	}
 
 	public function index(): void
@@ -73,15 +78,14 @@ class Chanel extends CI_Controller
 
 	public function insertJson(): void
 	{
-
-		$field1 = $this->input->post('field1');
-		$field2 = $this->input->post('field2');
-		$field3 = $this->input->post('field3');
-		$field4 = $this->input->post('field4');
-		$field5 = $this->input->post('field5');
-		$field6 = $this->input->post('field6');
-		$field7 = $this->input->post('field7');
-		$field8 = $this->input->post('field8');
+		$field1 = $this->input->get('field1');
+		$field2 = $this->input->get('field2');
+		$field3 = $this->input->get('field3');
+		$field4 = $this->input->get('field4');
+		$field5 = $this->input->get('field5');
+		$field6 = $this->input->get('field6');
+		$field7 = $this->input->get('field7');
+		$field8 = $this->input->get('field8');
 
 		$data = array(
 			'created_at' => date('Y-m-d H:i:s'),
