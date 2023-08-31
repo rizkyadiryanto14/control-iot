@@ -57,7 +57,7 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">My Chanel</h1>
+					<h1 class="m-0">List Chanel</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
@@ -95,7 +95,7 @@
 												<td>
 													<em class="fa fa-unlock fa-fw"></em>
 													<div class="channel_title_small">
-														<a href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?></a>
+														<a href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
 													</div>
 													<div class="btn-group btn-group-sm hidden-xs hidden-sm hidden-md"
 														 style="margin-top:5px">

@@ -23,7 +23,7 @@ class  Auth extends CI_Controller
 			'password' => $this->input->post('password')
 		];
 
-		$check = $this->Auth_model->getUser();
+		$check = $this->Auth_model->getUserById($data['username']);
 
 		if ($check['username'] == $data['username']) {
 			if (password_verify($data['password'], $check['password'])) {
@@ -31,12 +31,14 @@ class  Auth extends CI_Controller
 					'username' => $check['username'],
 					'id_user' => $check['id'],
 					'role' => $check['role'],
-					'login' => true
+					'login' => true,
 				];
 				$this->session->set_userdata($userSession);
 
 				if ($userSession['role'] == 'admin') {
 					redirect(base_url('admin/dashboard'));
+				} elseif ($userSession['role'] == 'user') {
+					redirect(base_url('user/dashboard'));
 				} else {
 					show_404();
 				}
@@ -53,8 +55,7 @@ class  Auth extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-
-
 		redirect(base_url('home'));
 	}
+
 }

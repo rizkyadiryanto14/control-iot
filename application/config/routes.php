@@ -14,4 +14,9 @@ $route['admin/insertChanel'] = 'Backend/Chanel/Insert';
 $route['admin/channelStore'] = 'Backend/Chanel/Store';
 $route['admin/chanelDetail/(:num)'] = 'Backend/Chanel/Detail/$1';
 
-$route['insertChanel'] = 'Backend/Chanel/insertJson';
+$route['insertChanel'] = 'Backend/Token/insertJson';
+
+$route['backend/token_generate'] = 'Backend/Token/generate';
+
+//user
+$route['user/dashboard'] = 'User/Dashboard';

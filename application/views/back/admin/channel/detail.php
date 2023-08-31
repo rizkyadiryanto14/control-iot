@@ -1,7 +1,7 @@
 <style>
 	pre {
 		display: block;
-		padding: 9.5px;
+		padding: 10px;
 		margin: 0 0 10px;
 		font-size: 13px;
 		line-height: 1.42857143;
@@ -19,15 +19,23 @@
 	<div class="content-header">
 		<div class="container-fluid">
 			<div class="row mb-2">
-				<div class="col-sm-6">
-					<h1 class="m-0">Detail Settings</h1>
-				</div><!-- /.col -->
-				<div class="col-sm-6">
-					<ol class="breadcrumb float-sm-right">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Detail Settings</li>
-					</ol>
-				</div><!-- /.col -->
+				<?php if (isset($detail_chanel)) {
+					foreach ($detail_chanel as $item) { ?>
+						<div class="col-sm-6">
+							<h1 class="m-0"><?= $item['nama'] ?></h1>
+							<table>
+								<td>Chanel ID</td>
+								<td>: <?= $item['id_chanel'] ?></td>
+							</table>
+						</div><!-- /.col -->
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="#">Home</a></li>
+								<li class="breadcrumb-item active">Detail Settings</li>
+							</ol>
+						</div><!-- /.col -->
+					<?php }
+				} ?>
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
@@ -67,52 +75,52 @@
 												<div class="col-md-6 order-md-1">
 													<h3 class="col-md-12 order-md-1">Channel Settings</h3>
 													<div class="form-group">
-														<label for="">Nama</label>
+														<label for="nama">Nama</label>
 														<input type="text" name="nama" value="<?= $item['nama'] ?>"
 															   id="nama" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Description</label>
+														<label for="description">Description</label>
 														<input type="text" name="description" id="description"
 															   value="<?= $item['description'] ?>" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 1</label>
+														<label for="field1">Field 1</label>
 														<input type="text" name="field1" id="field1"
 															   value="<?= $item['field1'] ?>" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 2</label>
+														<label for="field2">Field 2</label>
 														<input type="text" name="field2" id="field2"
 															   value="<?= $item['field2'] ?>" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 3</label>
+														<label for="field3">Field 3</label>
 														<input type="text" name="field3" id="field3"
 															   value="<?= $item['field3'] ?>" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 4</label>
+														<label for="field4">Field 4</label>
 														<input type="text" name="field4" value="<?= $item['field4'] ?>"
 															   id="field4" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 5</label>
+														<label for="field5">Field 5</label>
 														<input type="text" name="field5" value="<?= $item['field5'] ?>"
 															   id="field5" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 6</label>
+														<label for="field6">Field 6</label>
 														<input type="text" name="field6" value="<?= $item['field6'] ?>"
 															   id="field6" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 7</label>
+														<label for="field7">Field 7</label>
 														<input type="text" name="field7" value="<?= $item['field7'] ?>"
 															   id="field7" class="form-control">
 													</div>
 													<div class="form-group">
-														<label for="">Field 8</label>
+														<label for="field8">Field 8</label>
 														<input type="text" name="field8" value="<?= $item['field8'] ?>"
 															   id="field8" class="form-control">
 													</div>
@@ -154,14 +162,18 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-2">
-												<label for="">Key</label>
+												<label for="token">Key</label>
 											</div>
 											<div class="col-md-6">
 												<input type="text" name="token" id="token" class="form-control"
-													   value="3255M9TDREGG5ZHP"
+													   value="<?= /** @var TYPE_NAME $token */
+													   $token['token'] ?>"
 													   readonly>
-												<button class="btn btn-warning mt-3">Generate New Write API Keys
-												</button>
+												<form action="<?= base_url('backend/token_generate') ?>" method="post">
+													<button class="btn btn-warning mt-3" type="submit">Generate New
+														Write API Keys
+													</button>
+												</form>
 											</div>
 										</div>
 									</div>
@@ -209,20 +221,20 @@
 									<h3 class="col-md-12 order-md-1">API Request</h3>
 									<div class="col-pad">
 										<a href="#">Write a Channel Feed</a>
-										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode">3255M9TDREGG5ZHP</span>&amp;field1=<span
+										<pre>GET <span class="str"><?= base_url() ?>insertChanel?api_key=<span
+													class="customcode"><?= $token['token'] ?></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 										<a href="#">Read a Channel Feed</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode">3255M9TDREGG5ZHP</span>&amp;field1=<span
+													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 										<a href="#">Read a Channel Field</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode">3255M9TDREGG5ZHP</span>&amp;field1=<span
+													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 										<a href="#">Read Channel Status Updates</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode">3255M9TDREGG5ZHP</span>&amp;field1=<span
+													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 									</div>
 								</div>
