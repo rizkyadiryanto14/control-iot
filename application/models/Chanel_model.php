@@ -39,5 +39,11 @@ class  Chanel_model extends CI_Model
 		return $this->db->get('chanel')->result();
 	}
 
+	public function getByUser($user_id)
+	{
+		$this->db->where('id_users', $user_id);
+		return $this->db->get('chanel')->result_array();
+	}
+
 
 }

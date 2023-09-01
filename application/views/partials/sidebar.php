@@ -39,6 +39,12 @@
 							<small class="badge badge-danger">Beta</small>
 						</a>
 					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('admin/user') ?>" class="nav-link pl-3">
+							<i class="fas fa-user pl-2"></i>
+							<p>User</p>
+						</a>
+					</li>
 				</ul>
 			</nav>
 		<?php } else if ($listing_role['role'] == 'user') { ?>

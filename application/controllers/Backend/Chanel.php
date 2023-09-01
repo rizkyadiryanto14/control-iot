@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 /**
  * @property Chanel_model $Chanel_model
  * @property Feeds_model $Feeds_model
@@ -26,6 +25,7 @@ class Chanel extends CI_Controller
 	public function index(): void
 	{
 		$data['list_chanel'] = $this->Chanel_model->getChanel();
+		$data['chanel_user'] = $this->Chanel_model->getByUser($this->session->userdata('id_user'));
 		$listing = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
@@ -126,5 +126,8 @@ class Chanel extends CI_Controller
 		return $randomString;
 	}
 
+	public function getChanelById()
+	{
+	}
 
 }

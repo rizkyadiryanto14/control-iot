@@ -2,12 +2,10 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use Firebase\JWT\JWT;
-
 /**
  * @property Token_model $Token_model
  * @property Feeds_model $Feeds_model
  * @property Chanel_model $Chanel_model
- *
  */
 class Token extends CI_Controller
 {

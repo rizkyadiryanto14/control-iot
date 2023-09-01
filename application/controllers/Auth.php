@@ -1,8 +1,10 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @property Auth_model $Auth_model
  */
+
 class  Auth extends CI_Controller
 {
 	public function __construct()
@@ -51,8 +53,7 @@ class  Auth extends CI_Controller
 			redirect(base_url('auth'));
 		}
 	}
-
-	public function logout()
+	public function logout(): void
 	{
 		$this->session->sess_destroy();
 		redirect(base_url('home'));

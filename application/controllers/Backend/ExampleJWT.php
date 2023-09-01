@@ -1,11 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 require APPPATH . 'libraries/JWT.php';
 
 class Api extends CI_Controller
 {
-
 	function __construct()
 	{
 		parent::__construct();
@@ -53,7 +51,6 @@ class Api extends CI_Controller
 			'email' => $this->input->post('email')
 		];
 
-		// Insert data
 		if ($this->User_model->insert($data, $user_id)) {
 			$this->output->set_status_header(200);
 		} else {

@@ -61,7 +61,7 @@
 						</li>
 					</ul>
 				</div>
-
+	
 				<div class="card-body">
 					<div class="tab-content" id="myTabContent">
 						<!-- menu pertama -->
@@ -166,9 +166,8 @@
 											</div>
 											<div class="col-md-6">
 												<input type="text" name="token" id="token" class="form-control"
-													   value="<?= /** @var TYPE_NAME $token */
-													   $token['token'] ?>"
-													   readonly>
+												   value="<?php echo empty($token['token']) ? '' : $token['token']; ?>"
+												   readonly>
 												<form action="<?= base_url('backend/token_generate') ?>" method="post">
 													<button class="btn btn-warning mt-3" type="submit">Generate New
 														Write API Keys
@@ -222,19 +221,19 @@
 									<div class="col-pad">
 										<a href="#">Write a Channel Feed</a>
 										<pre>GET <span class="str"><?= base_url() ?>insertChanel?api_key=<span
-													class="customcode"><?= $token['token'] ?></span>&amp;field1=<span
+													class="customcode"><?php echo empty($token['token']) ? '' : $token['token']; ?></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 										<a href="#">Read a Channel Feed</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
+													class="customcode"><?php echo empty($token['token']) ? '' : $token['token']; ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
-										<a href="#">Read a Channel Field</a>
+										<a href="#">Read a Channel 	Field</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
+													class="customcode"><?php echo empty($token['token']) ? '' : $token['token']; ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 										<a href="#">Read Channel Status Updates</a>
 										<pre>GET <span class="str">https://api.thingspeak.com/update?api_key=<span
-													class="customcode"><?= $token['token'] ?>></span>&amp;field1=<span
+													class="customcode"><?php echo empty($token['token']) ? '' : $token['token']; ?>></span>&amp;field1=<span
 													class="customcode">0</span></span></pre>
 									</div>
 								</div>

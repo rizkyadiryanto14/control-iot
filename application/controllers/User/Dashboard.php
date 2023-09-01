@@ -1,7 +1,7 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- *
  * $@property Listing_model $Listing_model
  */
 
@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
 		$this->load->model('Listing_model');
 	}
 
-	public function index()
+	public function index(): void
 	{
 		$listing = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))

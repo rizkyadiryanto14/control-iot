@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!--	<link rel="shortcut icon" href="-->
 	<?php //echo base_url('back_assets/img/pkk_baru_dark.png') ?><!--" type="image/x-icon">-->
-	<title>Akses ke Sistem</title>
+	<title>OCC-IoT-Platform</title>
 	<!-- CCS utama -->
 	<link href="<?php echo base_url('back_assets/css/styles_sbadmin.css') ?>" rel="stylesheet">
 	<!-- Script -->

@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	<meta name="description" content=""/>
 	<meta name="author" content=""/>
-	<title>HerfandiSpeak</title>
+	<title>OCC-IoT-Platform</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="<?= base_url() ?>back_assets/home/assets/favicon.ico"/>
 	<!-- Custom Google font-->
@@ -25,7 +25,7 @@
 	<nav class="navbar navbar-expand-lg shadow-lg navbar-light bg-white py-3">
 		<div class="container px-5">
 			<a class="navbar-brand" href="">
-				<span class="fw-bolder text-primary">HerfandiSpeak</span>
+				<span class="fw-bolder text-primary">OCC-IoT-Platform</span>
 			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
