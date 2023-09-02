@@ -34,7 +34,7 @@ class Chanel extends CI_Controller
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
-		$this->load->view('back/admin/channel/list', $data);
+		$this->load->view('back/user/channel/list', $data);
 		$this->load->view('partials/footer');
 	}
 
@@ -47,7 +47,7 @@ class Chanel extends CI_Controller
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
-		$this->load->view('back/admin/channel/insert', $data);
+		$this->load->view('back/user/channel/insert', $data);
 		$this->load->view('partials/footer');
 	}
 
@@ -64,7 +64,7 @@ class Chanel extends CI_Controller
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $role);
-		$this->load->view('back/admin/channel/detail', $data);
+		$this->load->view('back/user/channel/detail', $data);
 		$this->load->view('partials/footer');
 	}
 
@@ -73,7 +73,7 @@ class Chanel extends CI_Controller
 		$data = array(
 			'nama' => $this->input->post('nama'),
 			'description' => $this->input->post('description'),
-			'id_users' => $this->input->post('id_user'),
+			'id_users' => $this->session->userdata('id_user'),
 			'field1' => $this->input->post('field1'),
 			'field2' => $this->input->post('field2'),
 			'field3' => $this->input->post('field3'),
@@ -91,10 +91,41 @@ class Chanel extends CI_Controller
 
 		if ($insert) {
 			$this->session->set_flashdata('sukses', 'data chanel berhasil di tambahkan');
-			redirect(base_url('admin/chanel'));
+			redirect(base_url('user/chanel'));
 		} else {
 			$this->session->set_flashdata('gagal', 'data chanel gagal di tambahkan');
-			redirect(base_url('admin/chanel'));
+			redirect(base_url('user/chanel'));
+		}
+	}
+
+	public function update()
+	{
+		$id_chanel = $this->input->post('id_chanel');
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'description' => $this->input->post('description'),
+			'id_users' => $this->session->userdata('id_user'),
+			'field1' => $this->input->post('field1'),
+			'field2' => $this->input->post('field2'),
+			'field3' => $this->input->post('field3'),
+			'field4' => $this->input->post('field4'),
+			'field5' => $this->input->post('field5'),
+			'field6' => $this->input->post('field6'),
+			'field7' => $this->input->post('field7'),
+			'field8' => $this->input->post('field8'),
+			'created_at' => date('Y-m-d H:i:s')
+		);
+
+		$insert = $this->Chanel_model->update_chanel($id_chanel,$data);
+
+//		$this->generate($data['id_users']);
+
+		if ($insert) {
+			$this->session->set_flashdata('sukses', 'data chanel berhasil di update');
+			redirect(base_url('user/chanel'));
+		} else {
+			$this->session->set_flashdata('gagal', 'data chanel gagal di update');
+			redirect(base_url('user/chanel'));
 		}
 	}
 
@@ -135,10 +166,10 @@ class Chanel extends CI_Controller
 
 		if ($delete){
 			$this->session->set_flashdata('sukses', 'Data Chanel Berhasil Di hapus');
-			redirect(base_url('admin/chanel'));
+			redirect(base_url('user/chanel'));
 		}else {
 			$this->session->set_flashdata('gagal', 'Data Chanel Gagal di Hapus');
-			redirect(base_url('admin/chanel'));
+			redirect(base_url('user/chanel'));
 		}
 	}
 

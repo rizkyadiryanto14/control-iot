@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property User_model $User_model
  * @property Chanel_model $Chanel_model
  */
+
 class User extends CI_Controller
 {
 	public function __construct()
@@ -27,10 +28,8 @@ class User extends CI_Controller
 		];
 		$data	= [
 			'list_users'	=> $this->User_model->getAllData(),
-			'list_chanel'	=> $this->Chanel_model->getByUser($this->session->userdata('id_user'))
+			'list_chanel'	=> $this->Chanel_model->getByUser()
 		];
-//		var_dump($data);
-//		die();
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar',$listing);
@@ -41,9 +40,10 @@ class User extends CI_Controller
 	public function insert(): void
 	{
 		$data = [
-			'username'	=> $this->input->post('username'),
-			'password'	=> $this->input->post('password'),
-			'role'		=> $this->input->post('role')
+			'username'		=> $this->input->post('username'),
+			'password'		=> password_hash($this->input->post('password'),PASSWORD_DEFAULT),
+			'role'			=> $this->input->post('role'),
+			'created_at'	=> date('Y-m-d H:i:s')
 		];
 
 		$insert = $this->User_model->insert_user($data);
@@ -73,6 +73,18 @@ class User extends CI_Controller
 			redirect(base_url('admin/user'));
 		}else{
 			$this->session->set_flashdata('gagal', 'Data user gagal di update');
+			redirect(base_url('admin/user'));
+		}
+	}
+
+	public function delete()
+	{
+		$id = $this->input->post('id');
+
+		$delete = $this->User_model->delete_user($id);
+
+		if ($delete){
+			$this->session->set_flashdata('sukses', 'Data User Berhasil di hapus');
 			redirect(base_url('admin/user'));
 		}
 	}

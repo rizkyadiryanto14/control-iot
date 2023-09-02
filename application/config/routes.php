@@ -5,19 +5,29 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['auth/login'] = 'Auth/Login';
-$route['logout'] = 'Auth/logout';
-$route['admin/dashboard'] = 'Backend/Dashboard';
+$route['auth/login'] 				= 'Auth/Login';
+$route['logout'] 					= 'Auth/logout';
+$route['admin/dashboard'] 			= 'Backend/Dashboard';
 
-$route['admin/chanel'] = 'Backend/Chanel';
-$route['admin/insertChanel'] = 'Backend/Chanel/Insert';
-$route['admin/channelStore'] = 'Backend/Chanel/Store';
+$route['admin/chanel'] 				= 'Backend/Chanel';
+$route['admin/insertChanel'] 		= 'Backend/Chanel/Insert';
+$route['admin/channelStore'] 		= 'Backend/Chanel/Store';
 $route['admin/chanelDetail/(:num)'] = 'Backend/Chanel/Detail/$1';
-$route['admin/user']	= 'Backend/User';
+$route['admin/user']				= 'Backend/User';
+$route['admin/tambah_user']			= 'Backend/User/insert';
+$route['admin/delete_user']			= 'Backend/User/delete';
+$route['insertChanel'] 				= 'Backend/Token/insertJson';
+$route['backend/token_generate'] 	= 'Backend/Token/generate';
+$route['admin/hapus_chanel']		= 'Backend/Chanel/delete_chanel';
+$route['chart_data']				= 'Backend/Dashboard/chart_data';
 
-$route['insertChanel'] = 'Backend/Token/insertJson';
-
-$route['backend/token_generate'] = 'Backend/Token/generate';
+$route['documentation']				= 'Documentation/Documentation';
 
 //user
-$route['user/dashboard'] = 'User/Dashboard';
+$route['user/dashboard'] 			= 'User/Dashboard';
+$route['user/chanel']				= 'User/Chanel';
+$route['user/insertChanel']			= 'User/Chanel/Insert';
+$route['user/channelStore']			= 'User/Chanel/Store';
+$route['user/hapus_chanel']			= 'User/Chanel/delete_chanel';
+$route['user/chanelDetail/(:num)'] = 'User/Chanel/Detail/$1';
+$route['user/update_chanel']		= 'User/Chanel/update';

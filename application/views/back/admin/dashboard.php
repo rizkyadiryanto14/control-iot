@@ -41,145 +41,152 @@
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-info">
-						<div class="inner">
-							<h3>
-								<div class="total_entry"></div>
-							</h3>
-							<p>Entry Data</p>
-						</div>
-						<div class="icon">
-							<i class="fas fa-sort-amount-asc"></i>
-						</div>
-					</div>
-				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-success">
-						<div class="inner">
-							<h3>
-								<div class="heartRateChar"></div>
-							</h3>
-							<p>heartRateChar</p>
-						</div>
-						<div class="icon">
-							<i class="fas fa-air-freshener"></i>
-						</div>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box">
+						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-					</div>
-				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-warning">
-						<div class="inner">
-							<h3>
-								<div class="temperatureChar"></div>
-							</h3>
-							<p>temperatureChar</p>
+						<div class="info-box-content">
+							<span class="info-box-text">Total Users</span>
+							<span class="info-box-number">
+							  <?php if (!empty($users)) {
+								  echo $users;
+							  } ?>
+                			</span>
 						</div>
-						<div class="icon">
-							<i class="fas fa-temperature-high"></i>
-						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-danger">
-						<div class="inner">
-							<h3>
-								<div class="oxygen"></div>
-							</h3>
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Total Chanel</span>
+							<span class="info-box-number">
+								<?php if (!empty($chanel)) {
+									echo $chanel;
+								} ?>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
 
-							<p>Oxygen</p>
+				<!-- fix for small devices only -->
+				<div class="clearfix hidden-md-up"></div>
+
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Token Write</span>
+							<span class="info-box-number">
+								<?php if (!empty($token_write)) {
+									echo $token_write;
+								} ?>
+							</span>
 						</div>
-						<div class="icon">
-							<i class="ion ion-pie-graph"></i>
-						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Token Read</span>
+							<span class="info-box-number">
+								<?php if (!empty($token_read)) {
+									echo $token_read;
+								}else { ?>
+									0
+								<?php } ?>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
 			</div>
-			<!-- /.row -->
+
 			<div class="row">
-
-				<!-- Area Chart -->
-				<div class="col-xl-6 col-lg-6">
-					<div class="card shadow-lg">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Temperature</h6>
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title">Report</h5>
+							<div class="card-tools">
+								<button type="button" class="btn btn-tool" data-card-widget="collapse">
+									<i class="fas fa-minus"></i>
+								</button>
+							</div>
 						</div>
-						<!-- Card Body -->
+						<!-- /.card-header -->
 						<div class="card-body">
-							<div class="chart-area">
-								<!-- Chart_temperature -->
-								<div class="temperature">
-									<canvas id="temperatureChart"></canvas>
+							<div class="row">
+								<div class="col-md-8">
+									<p class="text-center">
+										<strong>Waktu Report : <?php echo date('Y-m-d H:i:s')?></strong>
+									</p>
+									<div class="chart">
+										<!-- Sales Chart Canvas -->
+										<canvas id="salesChart"></canvas>
+									</div>
+									<!-- /.chart-responsive -->
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xl-6 col-lg-6">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Heart Rate Chart</h6>
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<!-- Heart Rate Chart -->
-								<div class="heartRateChart">
-									<canvas id="heartRateChartCanvas"></canvas>
+								<!-- /.col -->
+								<div class="col-md-4">
+									<p class="text-center">
+										<strong>Total</strong>
+									</p>
+									<div class="progress-group">
+										Users
+										<span class="float-right"><b><?php echo $users ?></span>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-primary" style="width: <?= $users/100?>%">
+											</div>
+										</div>
+									</div>
+									<!-- /.progress-group -->
+									<div class="progress-group">
+										Chanel
+										<span class="float-right"><b><?php echo $chanel?></span>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-danger" style="width: <?= $chanel/100?>%"></div>
+										</div>
+									</div>
+									<!-- /.progress-group -->
+									<div class="progress-group">
+										<span class="progress-text">Token Read</span>
+										<span class="float-right"><?php echo $token_read?></span>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-success" style="width: <?= $token_read/100?>%"></div>
+										</div>
+									</div>
+									<!-- /.progress-group -->
+									<div class="progress-group">
+										Token Write
+										<span class="float-right"><?= $token_write ?></span>
+										<div class="progress progress-sm">
+											<div class="progress-bar bg-warning" style="width: <?= $token_write/100?>%"></div>
+										</div>
+									</div>
+									<!-- /.progress-group -->
 								</div>
+								<!-- /.col -->
 							</div>
+							<!-- /.row -->
 						</div>
+						<!-- ./card-body -->
 					</div>
+					<!-- /.card -->
 				</div>
-
-				<div class="col-xl-6 col-lg-6">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Oxygen</h6>
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<!-- Heart Rate Chart -->
-								<div class="oxygenChartCanvas">
-									<canvas id="oxygenChart"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-xl-6 col-lg-5">
-					<div class="card shadow mb-4">
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Channel Location</h6>
-						</div>
-						<div class="card-body">
-							<div class="chart-area responsive-iframe">
-								<iframe
-									src="https://thingspeak.com/channels/2244680/maps/channel_show"
-									allowfullscreen
-								></iframe>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- /.row (main row) -->
-			</div><!-- /.container-fluid -->
+				<!-- /.col -->
+			</div>
 	</section>
 	<!-- /.content -->
 </div>
@@ -192,184 +199,65 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script>
-	$(document).ready(function () {
-		setInterval(function () {
-			$.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?', function (data) {
-				$(".total_entry").html(data.entry_id);
-				$(".heartRateChar").html(data.field2);
-				$(".temperatureChar").html(data.field3);
-				$(".oxygen").html(data.field1);
-			});
-
-			// $.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?api_key=QE9WPKO0SVJK17BO', function(data) {
-			// 	$(".temperature").html(data.field1);
-			// });
-		}, 100);
-	});
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-	const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
-	const temperatureGradient = temperatureCtx.createLinearGradient(0, 0, 0, 400);
-	temperatureGradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)'); // Warna transparan biru
-	temperatureGradient.addColorStop(1, 'rgba(255, 0, 0, 0.2)'); // Warna transparan merah
+// Get canvas element
+const ctx = document.getElementById('salesChart').getContext('2d');
+const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, 'rgba(135, 206, 250, 0.5)');
+gradient.addColorStop(1, 'rgba(0, 0, 128, 0.5)');
 
-	const temperatureChart = new Chart(temperatureCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Temperature",
-				data: [],
-				backgroundColor: temperatureGradient,
-				borderColor: "rgba(75, 192, 192, 1)", // Warna garis biru
-				borderWidth: 2,
-			}],
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-				},
-			},
-		},
-	});
+// Chart.js setup
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Users', 'Channels', 'Write Tokens', 'Read Tokens'],
+    datasets: [{
+      data: [],
+		backgroundColor: gradient,
+      	borderColor: '#1e90ff',
+      	borderWidth: 2
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Metrics'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Value'
+        }
+      }
+    }
+  }
+});
 
-	function updateTemperatureChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
+// Fetch data and update chart
+async function updateChart() {
 
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const temperature = parseFloat(data.field3); // Mengambil data temperatur dari field1
+  const response = await fetch('http://localhost/control-iot/chart_data');
+  const data = await response.json();
 
-				// Mendapatkan waktu dari created_at
-				const createdDate = new Date(data.created_at);
-				const timeLabel = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
+  chart.data.datasets[0].data = [
+    data.users,
+    data.chanel,
+    data.token_write,
+    data.token_read
+  ];
 
-				temperatureChart.data.labels.push(timeLabel);
-				temperatureChart.data.datasets[0].data.push(temperature);
-				temperatureChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
+  chart.update();
+}
 
-	setInterval(updateTemperatureChart, 1500);
+// Update every 5 seconds
+setInterval(updateChart, 1000);
 </script>
-
-
-<script>
-	const ekgCanvas = document.getElementById('heartRateChartCanvas');
-	const ekgCtx = ekgCanvas.getContext('2d');
-	const ekgChart = new Chart(ekgCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Heart Rate",
-				data: [],
-				backgroundColor: "transparent",
-				borderColor: "red",
-				borderWidth: 2,
-				pointRadius: 0, // Tidak ada titik pada setiap data
-				borderJoinStyle: 'miter', // Tidak ada penjajaran di sudut titik
-				tension: 0.1 // Tegangan kurva yang rendah
-			}],
-		},
-		options: {
-			animation: false, // Nonaktifkan animasi untuk tampilan yang lebih cepat
-			scales: {
-				y: {
-					beginAtZero: false, // Biarkan skala Y mulai dari angka yang lebih realistis
-				},
-			},
-			plugins: {
-				legend: {
-					display: false // Nonaktifkan keterangan di sudut kanan atas
-				}
-			}
-		},
-	});
-
-	function updateHeartRateChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const heartRate = parseFloat(data.field2);
-				const createdDate = new Date(data.created_at);
-				const timeLabel = createdDate.getSeconds(); // Gunakan detik sebagai label
-
-				ekgChart.data.labels.push(timeLabel);
-				ekgChart.data.datasets[0].data.push(heartRate);
-				ekgChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
-
-	setInterval(updateHeartRateChart, 1000); // Ubah interval ke 1 detik
-</script>
-
-<script>
-	const oxygenCtx = document.getElementById('oxygenChart').getContext('2d');
-	const oxygenGradient = oxygenCtx.createLinearGradient(0, 0, 0, 400);
-	oxygenGradient.addColorStop(0, 'rgba(0, 255, 0, 0.2)'); // Warna transparan hijau
-
-	const oxygenChart = new Chart(oxygenCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Oxygen",
-				data: [],
-				backgroundColor: oxygenGradient,
-				borderColor: "rgba(0, 255, 0, 1)", // Warna garis hijau
-				borderWidth: 2,
-			}],
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-				},
-			},
-		},
-	});
-
-	function updateOxygenChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
-
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const oxygen = parseFloat(data.field1); // Mengambil data oxygen dari field1
-
-				// Mendapatkan waktu dari created_at
-				const createdDate = new Date(data.created_at);
-				const timeLabel = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
-
-				oxygenChart.data.labels.push(timeLabel);
-				oxygenChart.data.datasets[0].data.push(oxygen);
-				oxygenChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
-
-	setInterval(updateOxygenChart, 1500);
-</script>
-
-
 
 
 

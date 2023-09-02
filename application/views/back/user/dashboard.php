@@ -14,6 +14,22 @@
 		height: 100%;
 		border: 1px solid #cccccc;
 	}
+
+	@keyframes ekgAnimation {
+		0% {
+			background-position: 100% 50%;
+		}
+		50% {
+			background-position: 0% 50%;
+		}
+		100% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.ekg-animation {
+		animation: ekgAnimation 1s linear infinite;
+	}
 </style>
 
 <!-- Content Wrapper. Contains page content -->
@@ -41,74 +57,71 @@
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-info">
-						<div class="inner">
-							<h3>
-								<div class="total_entry"></div>
-							</h3>
-							<p>Entry Data</p>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box">
+						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Total Entry</span>
+							<span class="info-box-number">
+							 	<div class="total_entry"></div>
+                			</span>
 						</div>
-						<div class="icon">
-							<i class="fas fa-sort-amount-asc"></i>
-						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-success">
-						<div class="inner">
-							<h3>
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">heartRateChar</span>
+							<span class="info-box-number">
 								<div class="heartRateChar"></div>
-							</h3>
-							<p>heartRateChar</p>
+							</span>
 						</div>
-						<div class="icon">
-							<i class="fas fa-air-freshener"></i>
-						</div>
-
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-warning">
-						<div class="inner">
-							<h3>
+				<!-- /.col -->
+
+				<!-- fix for small devices only -->
+				<div class="clearfix hidden-md-up"></div>
+
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">temperatureChar</span>
+							<span class="info-box-number">
 								<div class="temperatureChar"></div>
-							</h3>
-							<p>temperatureChar</p>
+							</span>
 						</div>
-						<div class="icon">
-							<i class="fas fa-temperature-high"></i>
-						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-6">
-					<!-- small box -->
-					<div class="small-box bg-danger">
-						<div class="inner">
-							<h3>
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Oxygen</span>
+							<span class="info-box-number">
 								<div class="oxygen"></div>
-							</h3>
-
-							<p>Oxygen</p>
+							</span>
 						</div>
-						<div class="icon">
-							<i class="ion ion-pie-graph"></i>
-						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- ./col -->
+				<!-- /.col -->
 			</div>
 			<!-- /.row -->
 			<div class="row">
-
 				<!-- Area Chart -->
-				<div class="col-xl-6 col-lg-6">
+				<div class="col-xl-4 col-lg-4">
 					<div class="card shadow-lg">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -119,14 +132,13 @@
 							<div class="chart-area">
 								<!-- Chart_temperature -->
 								<div class="temperature">
-									<canvas id="temperatureChart"></canvas>
+									<canvas id="temperatureChart" class="ekg-animation"></canvas>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-xl-6 col-lg-6">
+				<div class="col-xl-4 col-lg-4">
 					<div class="card shadow mb-4">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -143,8 +155,7 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-xl-6 col-lg-6">
+				<div class="col-xl-4 col-lg-4">
 					<div class="card shadow mb-4">
 						<!-- Card Header - Dropdown -->
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -161,24 +172,20 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-xl-6 col-lg-5">
-					<div class="card shadow mb-4">
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Channel Location</h6>
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<h6>Location</h6>
 						</div>
 						<div class="card-body">
-							<div class="chart-area responsive-iframe">
-								<iframe
-									src="https://thingspeak.com/channels/2244680/maps/channel_show"
-									allowfullscreen
-								></iframe>
+							<div class="chart-area">
+								<div class="location">
+									<iframe style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2244680/maps/channel_show"></iframe>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- /.row (main row) -->
 			</div><!-- /.container-fluid -->
 	</section>
 	<!-- /.content -->
@@ -204,9 +211,6 @@
 				$(".oxygen").html(data.field1);
 			});
 
-			// $.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?api_key=QE9WPKO0SVJK17BO', function(data) {
-			// 	$(".temperature").html(data.field1);
-			// });
 		}, 100);
 	});
 </script>
@@ -215,9 +219,10 @@
 
 <script>
 	const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
+	temperatureCtx.canvas.classList.add('ekg-animation');
 	const temperatureGradient = temperatureCtx.createLinearGradient(0, 0, 0, 400);
-	temperatureGradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)'); // Warna transparan biru
-	temperatureGradient.addColorStop(1, 'rgba(255, 0, 0, 0.2)'); // Warna transparan merah
+	temperatureGradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)');
+	temperatureGradient.addColorStop(1, 'rgba(255, 0, 0, 0.2)');
 
 	const temperatureChart = new Chart(temperatureCtx, {
 		type: 'line',
@@ -226,19 +231,39 @@
 			datasets: [{
 				label: "Temperature",
 				data: [],
-				backgroundColor: temperatureGradient,
-				borderColor: "rgba(75, 192, 192, 1)", // Warna garis biru
-				borderWidth: 2,
+				backgroundColor: 'rgba(60,141,188,0.9)',
+				borderColor: 'rgba(60,141,188,0.8)',
+				pointRadius: false,
+				pointColor: '#3b8bba',
+				pointStrokeColor: 'rgba(60,141,188,1)',
+				pointHighlightFill: '#fff',
+				pointHighlightStroke: 'rgba(60,141,188,1)',
 			}],
 		},
 		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-				},
-			},
+			salesChartOptions
 		},
 	});
+
+	var salesChartOptions = {
+			maintainAspectRatio: false,
+			responsive: true,
+			legend: {
+				display: false
+			},
+			scales: {
+				xAxes: [{
+					gridLines: {
+						display: false
+					}
+				}],
+				yAxes: [{
+					gridLines: {
+						display: false
+					}
+				}]
+			}
+		}
 
 	function updateTemperatureChart() {
 		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
@@ -246,7 +271,7 @@
 		fetch(apiUrl)
 			.then(response => response.json())
 			.then(data => {
-				const temperature = parseFloat(data.field3); // Mengambil data temperatur dari field1
+				const temperature = parseFloat(data.field3);
 
 				// Mendapatkan waktu dari created_at
 				const createdDate = new Date(data.created_at);
@@ -264,7 +289,6 @@
 	setInterval(updateTemperatureChart, 1500);
 </script>
 
-
 <script>
 	const ekgCanvas = document.getElementById('heartRateChartCanvas');
 	const ekgCtx = ekgCanvas.getContext('2d');
@@ -275,24 +299,24 @@
 			datasets: [{
 				label: "Heart Rate",
 				data: [],
-				backgroundColor: "transparent",
+				backgroundColor: 'rgb(255,9,132)',
 				borderColor: "red",
 				borderWidth: 2,
-				pointRadius: 0, // Tidak ada titik pada setiap data
-				borderJoinStyle: 'miter', // Tidak ada penjajaran di sudut titik
-				tension: 0.1 // Tegangan kurva yang rendah
+				pointRadius: 0,
+				borderJoinStyle: 'miter',
+				tension: 0.1
 			}],
 		},
 		options: {
-			animation: false, // Nonaktifkan animasi untuk tampilan yang lebih cepat
+			animation: true,
 			scales: {
 				y: {
-					beginAtZero: false, // Biarkan skala Y mulai dari angka yang lebih realistis
+					beginAtZero: false,
 				},
 			},
 			plugins: {
 				legend: {
-					display: false // Nonaktifkan keterangan di sudut kanan atas
+					display: false
 				}
 			}
 		},
@@ -305,7 +329,7 @@
 			.then(data => {
 				const heartRate = parseFloat(data.field2);
 				const createdDate = new Date(data.created_at);
-				const timeLabel = createdDate.getSeconds(); // Gunakan detik sebagai label
+				const timeLabel = createdDate.getSeconds();
 
 				ekgChart.data.labels.push(timeLabel);
 				ekgChart.data.datasets[0].data.push(heartRate);
@@ -316,13 +340,13 @@
 			});
 	}
 
-	setInterval(updateHeartRateChart, 1000); // Ubah interval ke 1 detik
+	setInterval(updateHeartRateChart, 1000);
 </script>
 
 <script>
 	const oxygenCtx = document.getElementById('oxygenChart').getContext('2d');
 	const oxygenGradient = oxygenCtx.createLinearGradient(0, 0, 0, 400);
-	oxygenGradient.addColorStop(0, 'rgba(0, 255, 0, 0.2)'); // Warna transparan hijau
+	oxygenGradient.addColorStop(0, 'rgba(0, 255, 0, 0.2)');
 
 	const oxygenChart = new Chart(oxygenCtx, {
 		type: 'line',
@@ -332,8 +356,10 @@
 				label: "Oxygen",
 				data: [],
 				backgroundColor: oxygenGradient,
-				borderColor: "rgba(0, 255, 0, 1)", // Warna garis hijau
-				borderWidth: 2,
+				borderColor: "rgba(0, 255, 0, 1)",
+				pointRadius: 0,
+				borderJoinStyle: 'miter',
+				tension: 0.1
 			}],
 		},
 		options: {
@@ -351,7 +377,7 @@
 		fetch(apiUrl)
 			.then(response => response.json())
 			.then(data => {
-				const oxygen = parseFloat(data.field1); // Mengambil data oxygen dari field1
+				const oxygen = parseFloat(data.field1);
 
 				// Mendapatkan waktu dari created_at
 				const createdDate = new Date(data.created_at);
@@ -365,7 +391,6 @@
 				console.error('Error fetching data:', error);
 			});
 	}
-
 	setInterval(updateOxygenChart, 1500);
 </script>
 

@@ -1,5 +1,4 @@
 <?php
-
 class Listing_model extends CI_Model
 {
 	public function listing_role($role)

@@ -25,19 +25,8 @@
 						<div class="card-header">
 							<h3 class="card-title">New Channel</h3>
 						</div>
-						<form action="<?= base_url('admin/channelStore') ?>" method="post">
+						<form action="<?= base_url('user/channelStore') ?>" method="post">
 							<div class="card-body">
-								<div class="form-group">
-									<label for="id_user">Choose User</label>
-									<select name="id_user" id="id_user" class="form-control">
-										<option selected disabled>Choose User</option>
-										<?php if (!empty($list_users)) {
-											foreach ($list_users as $item) { ?>
-												<option value="<?= $item->id ?>"><?= $item->username ?></option>
-											<?php }
-										} ?>
-									</select>
-								</div>
 								<div class="form-group">
 									<label for="">Nama</label>
 									<input type="text" name="nama" id="nama" class="form-control">

@@ -66,15 +66,15 @@
 					<div class="tab-content" id="myTabContent">
 						<!-- menu pertama -->
 						<div class="tab-pane fade show active" id="umum" role="tabpanel" aria-labelledby="umum-tab">
-							<form action="#" method="post">
-								<input type="hidden" name="id_konfigurasi">
+							<form action="<?= base_url('user/update_chanel') ?>" method="post">
 								<div class="row">
-									<form action="#" method="post">
+
 										<?php if (isset($detail_chanel)) {
 											foreach ($detail_chanel as $item) { ?>
 												<div class="col-md-6 order-md-1">
-													<h3 class="col-md-12 order-md-1">Channel Settings</h3>
+													<h3 class="col-md-6 order-md-1">Channel Settings</h3>
 													<div class="form-group">
+														<input type="hidden" name="id_chanel" id="id_chanel" value="<?= $item['id_chanel'] ?>">
 														<label for="nama">Nama</label>
 														<input type="text" name="nama" value="<?= $item['nama'] ?>"
 															   id="nama" class="form-control">
@@ -124,10 +124,13 @@
 														<input type="text" name="field8" value="<?= $item['field8'] ?>"
 															   id="field8" class="form-control">
 													</div>
+													<div class="row col-md-12">
+													<button class="btn btn-primary" type="submit">Simpan Perubahan</button>
+													</div>
 												</div>
 											<?php }
 										} ?>
-									</form>
+
 									<div class="col-md-6 order-md-1">
 										<h3 class="col-md-12 order-md-1">Help</h3>
 										<span>Channels store all the data that a ThingSpeak application collects. Each channel includes eight fields that can hold any type of data, plus three fields for location data and one for status data. Once you collect data in a channel, you can use ThingSpeak apps to analyze and visualize it.</span>
@@ -146,11 +149,6 @@
 											</li>
 										</ul>
 									</div>
-								</div>
-								<div class="row col-md-12">
-									<input type="reset" name="reset" value="Reset" class="btn btn-secondary mr-2">
-									<input type="submit" name="submit" value="Simpan Konfigurasi"
-										   class="btn btn-primary">
 								</div>
 							</form>
 						</div>

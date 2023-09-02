@@ -28,9 +28,15 @@
 <!-- daterangepicker -->
 <script src="<?= base_url() ?>back_assets/plugins/moment/moment.min.js"></script>
 <script src="<?= base_url() ?>back_assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
 
+<script src="<?= base_url() ?>back_assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="<?= base_url() ?>back_assets/plugins/raphael/raphael.min.js"></script>
+<script src="<?= base_url() ?>back_assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="<?= base_url() ?>back_assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
+
+<!-- Tempusdominus Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <?php if ($this->session->flashdata('sukses')) : ?>
 	<script>
 		Swal.fire({
@@ -52,13 +58,15 @@
 		});
 	</script>
 <?php endif; ?>
-<script
-	src="<?= base_url() ?>back_assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<script src="<?= base_url() ?>back_assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Summernote -->
 <script src="<?= base_url() ?>back_assets/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?= base_url() ?>back_assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url() ?>back_assets/dist/js/adminlte.js"></script>
+<!--<script src="--><?php //= base_url()?><!--back_assets/dist/js/pages/dashboard2.js"></script>-->
+<!--<script src="--><?php //= base_url()?><!--back_assets/dist/js/pages/dashboard.js"></script>-->
 </body>
 </html>

@@ -75,7 +75,7 @@
 				<div class="col-md-8">
 					<div class="card">
 						<div class="card-header">
-							<a href="<?= base_url('admin/insertChanel') ?>" class="btn btn-primary">New Channel</a>
+							<a href="<?= base_url('user/insertChanel') ?>" class="btn btn-primary">New Channel</a>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -95,17 +95,17 @@
 												<td>
 													<em class="fa fa-unlock fa-fw"></em>
 													<div class="channel_title_small">
-														<a href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
+														<a href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
 													</div>
 													<div class="btn-group btn-group-sm hidden-xs hidden-sm hidden-md"
 														 style="margin-top:5px">
 														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Settings</a>
+														   href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>">Settings</a>
 														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">API
+														   href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>">API
 															Keys</a>
 														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Data
+														   href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>">Data
 															Import /
 															Export</a>
 													</div>
@@ -153,7 +153,7 @@
 			<div class="modal-header">
 				<h3 class="modal-title">Konfirmasi</h3>
 			</div>
-			<form action="<?= base_url('admin/hapus_chanel') ?>" method="post">
+			<form action="<?= base_url('user/hapus_chanel') ?>" method="post">
 				<div class="modal-body">
 					<div class="form-group">
 						<input type="hidden" name="id_chanel" value="<?= $item->id_chanel ?> " id="id_chanel">

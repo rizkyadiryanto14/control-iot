@@ -6,7 +6,6 @@
 			 class="brand-image img-circle elevation-3" style="opacity: .8">
 		<span class="brand-text font-weight-light">Dashboard Panel</span>
 	</a>
-
 	<!-- Sidebar -->
 	<div class="sidebar">
 		<!-- Sidebar user panel (optional) -->
@@ -20,49 +19,77 @@
 			</div>
 		</div>
 		<!-- Sidebar Menu -->
-		<?php if ($listing_role['role'] == 'admin') { ?>
-			<nav class="mt-2">
-				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-					data-accordion="false">
-					<li class="nav-item">
-						<a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
-							<i class="nav-icon fas fa-tachometer-alt"></i>
-							<p>
-								Dashboard
-							</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?= base_url('admin/chanel') ?>" class="nav-link pl-3">
-							<i class="fas fa-book-open pl-2"></i>
-							<p>Chanel</p>
-							<small class="badge badge-danger">Beta</small>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?= base_url('admin/user') ?>" class="nav-link pl-3">
-							<i class="fas fa-user pl-2"></i>
-							<p>User</p>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		<?php } else if ($listing_role['role'] == 'user') { ?>
-			<nav class="mt-2">
-				<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-					data-accordion="false">
-					<li class="nav-item">
-						<a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
-							<i class="nav-icon fas fa-tachometer-alt"></i>
-							<p>
-								Dashboard
-							</p>
-						</a>
-					</li>
-				</ul>
-			</nav>
-		<?php } ?>
-
+		<?php if (isset($listing_role)) {
+			if ($listing_role['role'] == 'admin') { ?>
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+						data-accordion="false">
+						<li class="nav-item">
+							<a href="<?= base_url('admin/dashboard') ?>" class="nav-link">
+								<i class="nav-icon fas fa-tachometer-alt"></i>
+								<p>
+									Dashboard
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/chanel') ?>" class="nav-link">
+								<i class="nav-icon fas fa-book-open pl-2"></i>
+								<p>
+									Chanel
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('admin/user') ?>" class="nav-link">
+								<i class="nav-icon fas fa-user pl-2"></i>
+								<p>
+									User
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('documentation') ?>" class="nav-link">
+								<i class="nav-icon fas fa-book-reader pl-2"></i>
+								<p>
+									Documentation
+								</p>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			<?php } else if ($listing_role['role'] == 'user') { ?>
+				<nav class="mt-2">
+					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+						data-accordion="false">
+						<li class="nav-item">
+							<a href="<?= base_url('user/dashboard') ?>" class="nav-link">
+								<i class="nav-icon fas fa-tachometer-alt"></i>
+								<p>
+									Dashboard
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('user/chanel') ?>" class="nav-link">
+								<i class="nav-icon fas fa-book-open pl-2"></i>
+								<p>
+									Chanel
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('documentation') ?>" class="nav-link">
+								<i class="nav-icon fas fa-book-reader pl-2"></i>
+								<p>
+									Documentation
+								</p>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			<?php }
+		} ?>
 		<!-- /.sidebar-menu -->
 	</div>
 	<!-- /.sidebar -->
@@ -77,8 +104,6 @@
 			navLinks.forEach(link => {
 				link.classList.remove('active');
 			});
-
-			// Add 'active' class to the clicked nav link
 			this.classList.add('active');
 		});
 	});
