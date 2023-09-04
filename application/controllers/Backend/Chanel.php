@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 /**
  * @property Chanel_model $Chanel_model
  * @property Feeds_model $Feeds_model
@@ -26,8 +27,7 @@ class Chanel extends CI_Controller
 
 	public function index(): void
 	{
-		$data['list_chanel'] = $this->Chanel_model->getByUser();
-		$data['chanel_user'] = $this->Chanel_model->getByUser($this->session->userdata('id_user'));
+		$data['list_chanel'] = $this->Chanel_model->getChanel();
 		$listing = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
@@ -43,7 +43,7 @@ class Chanel extends CI_Controller
 		$listing = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
-		$data['list_users']	= $this->User_model->getAllData();
+		$data['list_users'] = $this->User_model->getAllData();
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
@@ -133,10 +133,10 @@ class Chanel extends CI_Controller
 
 		$delete = $this->Chanel_model->Delete($id_chanel);
 
-		if ($delete){
+		if ($delete) {
 			$this->session->set_flashdata('sukses', 'Data Chanel Berhasil Di hapus');
 			redirect(base_url('admin/chanel'));
-		}else {
+		} else {
 			$this->session->set_flashdata('gagal', 'Data Chanel Gagal di Hapus');
 			redirect(base_url('admin/chanel'));
 		}

@@ -1,3 +1,27 @@
+<style>
+	.pagination {
+		display: flex;
+		padding: 1em 0;
+	}
+
+	.pagination a,
+	.pagination strong {
+		border: 1px solid silver;
+		border-radius: 8px;
+		color: black;
+		padding: 0.5em;
+		margin-right: 0.5em;
+		text-decoration: none;
+	}
+
+	.pagination a:hover,
+	.pagination strong {
+		border: 1px solid #008cba;
+		background-color: #008cba;
+		color: white;
+	}
+</style>
+
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<div class="content-header">
@@ -143,7 +167,7 @@
 								$no = 1;
 								foreach ($grafik as $item) { ?>
 									<td><?= $no++ ?></td>
-									<td><?= $item->field1 ?></td>
+									<td class="channel" data-id="<?= $item->chanel_id ?>"><?= $item->field1 ?></td>
 									<td><?= $item->field2 ?></td>
 									<td><?= $item->field3 ?></td>
 									<td><?= $item->field4 ?></td>
@@ -159,7 +183,7 @@
 						</table>
 					</div>
 					<div id="pagination" class="pagination">
-						<!-- Tombol pagination akan ditambahkan di sini -->
+						<?= $this->pagination->create_links(); ?>
 					</div>
 				</div>
 			</div>

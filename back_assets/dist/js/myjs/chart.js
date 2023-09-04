@@ -58,7 +58,11 @@ createChart('field7Chart', 'Field 7', 'rgba(0,255,255,0.9)', 'rgba(0,255,255,0.8
 createChart('field8Chart', 'Field 8', 'rgba(128,128,128,0.9)', 'rgba(128,128,128,0.8)');
 
 function updateAllCharts() {
-	const apiUrl = `http://localhost/control-iot/getJsonData/14`;
+	const channelLinks = document.querySelector('.channel');
+	const dataId = channelLinks.getAttribute('data-id');
+	// console.log('data-id : ', dataId);
+
+	const apiUrl = `http://localhost/control-iot/getJsonData/${dataId}`;
 
 	fetch(apiUrl)
 		.then(response => response.json())

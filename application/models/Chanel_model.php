@@ -4,7 +4,10 @@ class  Chanel_model extends CI_Model
 {
 	public function getChanel()
 	{
-		return $this->db->get('chanel')->result();
+		$this->db->select('*');
+		$this->db->from('chanel');
+		$this->db->join('users', 'chanel.id_users=users.id');
+		return $this->db->get()->result();
 	}
 
 	public function InsertChanel($data)
@@ -40,11 +43,12 @@ class  Chanel_model extends CI_Model
 		return $this->db->get('chanel')->result_array();
 	}
 
-	public function getByUser()
+	public function getByUser($id_users)
 	{
 		$this->db->select('*');
 		$this->db->from('chanel');
 		$this->db->join('users', 'chanel.id_users = users.id');
+		$this->db->where('chanel.id_users', $id_users);
 		return $this->db->get()->result();
 	}
 

@@ -19,7 +19,7 @@ class Grafik extends CI_Controller
 	public function index(): void
 	{
 		$listing['listing_role'] = $this->Listing_model->listing_role($this->session->userdata('role'));
-		$data['list_chanel'] = $this->Chanel_model->getByUser();
+		$data['list_chanel'] = $this->Chanel_model->getByUser($this->session->userdata('id_user'));
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
@@ -31,14 +31,17 @@ class Grafik extends CI_Controller
 	{
 		$listing['listing_role'] = $this->Listing_model->listing_role($this->session->userdata('role'));
 
-		$config['base_url'] = site_url("nama_controller/Grafik/$id_chanel");
+		$config['base_url'] = base_url("User/Grafik/Grafik/$id_chanel");
 		$config['total_rows'] = $this->Feeds_model->countFeedsById($id_chanel);
 		$config['per_page'] = 10;
-		$config['uri_segment'] = 4;
+		$config['uri_segment'] = 5;
+
+		$config['full_tag_open'] = '<div class="pagination">';
+		$config['full_tag_close'] = '</div>';
 
 		$this->pagination->initialize($config);
 
-		$page = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+		$page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 0;
 
 		$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
 
