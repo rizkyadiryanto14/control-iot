@@ -38,6 +38,10 @@
 			background: rgba(0, 0, 0, 0.8);
 		}
 	</style>
+
+	<script>
+		const baseUrl = '<?= base_url() ?>';
+	</script>
 </head>
 <body class="hold-transition  sidebar-mini layout-fixed">
 <div class="wrapper">

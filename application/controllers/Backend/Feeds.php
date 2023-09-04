@@ -1,9 +1,10 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
 /**
  * @property Feeds_model $Feeds_model
  * @property Token_model $Token_model
  */
-
 class Feeds extends CI_Controller
 {
 	public function __construct()
@@ -27,17 +28,19 @@ class Feeds extends CI_Controller
 		} else {
 			$this->output->set_status_header(200);
 			$data = $this->Feeds_model->getFeedsById($id_chanel);
-			$response = [
-				'created_at' => $data['created_at'],
-				'field1' => $data['field1'],
-				'field2' => $data['field2'],
-				'field3' => $data['field3'],
-				'field4' => $data['field4'],
-				'field5' => $data['field5'],
-				'field6' => $data['field6'],
-				'field7' => $data['field7'],
-				'field8' => $data['field8']
-			];
+			foreach ($data as $item) {
+				$response = [
+					'created_at' => $item->created_at,
+					'field1' => $item->field1,
+					'field2' => $item->field2,
+					'field3' => $item->field3,
+					'field4' => $item->field4,
+					'field5' => $item->field5,
+					'field6' => $item->field6,
+					'field7' => $item->field7,
+					'field8' => $item->field8
+				];
+			}
 		}
 		$this->output
 			->set_content_type('application/json')

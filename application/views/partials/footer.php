@@ -9,7 +9,8 @@
 <!-- jQuery -->
 <script src="<?= base_url() ?>back_assets/plugins/jquery/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!--<script src="--><?php //= base_url() ?><!--back_assets/dist/js/myjs/chart.js"></script>-->
+<script src="<?= base_url() ?>back_assets/dist/js/myjs/chart.js"></script>
+<script src="<?= base_url() ?>back_assets/dist/js/myjs/table_feeds.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url() ?>back_assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
