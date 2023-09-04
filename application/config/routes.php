@@ -35,3 +35,5 @@ $route['user/hapus_chanel'] = 'User/Chanel/delete_chanel';
 $route['user/chanelDetail/(:num)'] = 'User/Chanel/Detail/$1';
 $route['user/grafik'] = 'User/Grafik';
 $route['user/update_chanel'] = 'User/Chanel/update';
+$route['user/grafikId/(:num)'] = 'User/Grafik/Grafik/$1';
+$route['getJsonData/(:num)'] = 'User/Grafik/getJsonData/$1';
