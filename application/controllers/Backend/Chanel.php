@@ -18,7 +18,7 @@ class Chanel extends CI_Controller
 		$this->load->model('User_model');
 		$this->load->model('Listing_model');
 //				cek login
-		if (!$this->session->userdata('login')) {
+		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
 			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
 		}

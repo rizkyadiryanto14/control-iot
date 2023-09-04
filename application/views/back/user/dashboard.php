@@ -14,22 +14,6 @@
 		height: 100%;
 		border: 1px solid #cccccc;
 	}
-
-	@keyframes ekgAnimation {
-		0% {
-			background-position: 100% 50%;
-		}
-		50% {
-			background-position: 0% 50%;
-		}
-		100% {
-			background-position: 100% 50%;
-		}
-	}
-
-	.ekg-animation {
-		animation: ekgAnimation 1s linear infinite;
-	}
 </style>
 
 <!-- Content Wrapper. Contains page content -->

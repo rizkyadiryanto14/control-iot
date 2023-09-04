@@ -15,6 +15,10 @@ class Dashboard extends CI_Controller
 		$this->load->model('Listing_model');
 		$this->load->model('Dashboard_model');
 		$this->load->model('Chanel_model');
+		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'user') {
+			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
+			redirect(base_url('auth'));
+		}
 	}
 
 	public function index(): void

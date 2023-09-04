@@ -16,6 +16,6 @@ class Feeds_model extends CI_Model
 		$this->db->where('chanel_id', $id_chanel);
 		$this->db->order_by('id', 'DESC');
 		$this->db->limit(1);
-		return $this->db->get('feeds')->row();
+		return $this->db->get('feeds')->row_array();
 	}
 }

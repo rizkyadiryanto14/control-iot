@@ -287,7 +287,7 @@
 				<div class="col-xxl-8">
 					<div class="text-center my-5">
 						<h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About</span></h2>
-						<p class="lead fw-light mb-4">HerfandiSpeak Platform</p>
+						<p class="lead fw-light mb-4">OCC-IoT-Platform</p>
 						<p class="text-muted">This platform is an IoT monitoring platform that is developed to be
 							similar to Thinkspeak, but with a simpler version. Hope you enjoy</p>
 						<div class="d-flex justify-content-center fs-2 gap-4">
@@ -306,7 +306,7 @@
 	<div class="container px-5">
 		<div class="row align-items-center justify-content-between flex-column flex-sm-row">
 			<div class="col-auto">
-				<div class="small m-0">Copyright &copy; HerfandiSpean <?= date('Y') ?></div>
+				<div class="small m-0">Copyright &copy; OCC-IoT-Platform <?= date('Y') ?></div>
 			</div>
 			<div class="col-auto">
 				<a class="small" href="#!">Privacy</a>

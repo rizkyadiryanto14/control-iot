@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 /**
  * @property Chanel_model $Chanel_model
  * @property Feeds_model $Feeds_model
@@ -18,7 +19,7 @@ class Chanel extends CI_Controller
 		$this->load->model('User_model');
 		$this->load->model('Listing_model');
 //				cek login
-		if (!$this->session->userdata('login')) {
+		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'user') {
 			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
 		}
@@ -43,7 +44,7 @@ class Chanel extends CI_Controller
 		$listing = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
-		$data['list_users']	= $this->User_model->getAllData();
+		$data['list_users'] = $this->User_model->getAllData();
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
@@ -58,7 +59,6 @@ class Chanel extends CI_Controller
 		];
 		$listing = $this->Chanel_model->listing($id);
 		$data['detail_chanel'] = $this->Chanel_model->getById($id);
-		//$data['feeds'] = $this->Feeds_model->getFeedsById($listing);
 		$data['token'] = $this->Token_model->getTokenById($listing['id_chanel']);
 
 		$this->load->view('partials/header');
@@ -116,9 +116,7 @@ class Chanel extends CI_Controller
 			'created_at' => date('Y-m-d H:i:s')
 		);
 
-		$insert = $this->Chanel_model->update_chanel($id_chanel,$data);
-
-//		$this->generate($data['id_users']);
+		$insert = $this->Chanel_model->update_chanel($id_chanel, $data);
 
 		if ($insert) {
 			$this->session->set_flashdata('sukses', 'data chanel berhasil di update');
@@ -164,10 +162,10 @@ class Chanel extends CI_Controller
 
 		$delete = $this->Chanel_model->Delete($id_chanel);
 
-		if ($delete){
+		if ($delete) {
 			$this->session->set_flashdata('sukses', 'Data Chanel Berhasil Di hapus');
 			redirect(base_url('user/chanel'));
-		}else {
+		} else {
 			$this->session->set_flashdata('gagal', 'Data Chanel Gagal di Hapus');
 			redirect(base_url('user/chanel'));
 		}

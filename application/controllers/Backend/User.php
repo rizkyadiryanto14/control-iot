@@ -15,8 +15,8 @@ class User extends CI_Controller
 		$this->load->model('Listing_model');
 		$this->load->model('User_model');
 		$this->load->model('Chanel_model');
-		if (!$this->session->userdata('login')){
-			$this->session->set_flashdata('gagal', 'session tidak terbaca');
+		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
+			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
 		}
 	}

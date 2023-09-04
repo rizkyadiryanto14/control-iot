@@ -12,8 +12,8 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->model('Listing_model');
 		$this->load->model('Dashboard_model');
-		if (!$this->session->userdata('login')) {
-			$this->session->set_flashdata('gagal', 'Session anda tidak ditemukan');
+		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
+			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
 		}
 	}

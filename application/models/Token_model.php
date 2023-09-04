@@ -13,6 +13,12 @@ class Token_model extends CI_Model
 		return $this->db->get('token')->result_array();
 	}
 
+	public function getReadToken($id_chanel)
+	{
+		$this->db->where('id_chanel', $id_chanel);
+		return $this->db->get('token_read')->result_array();
+	}
+
 	public function insertToken($data)
 	{
 		return $this->db->insert('token', $data);
@@ -30,4 +36,5 @@ class Token_model extends CI_Model
 		$this->db->where('id_chanel', $id_chanel);
 		return $this->db->get('token')->row_array();
 	}
+
 }

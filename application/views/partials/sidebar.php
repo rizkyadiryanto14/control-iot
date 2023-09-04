@@ -49,6 +49,14 @@
 							</a>
 						</li>
 						<li class="nav-item">
+							<a href="<?= base_url('admin/token') ?>" class="nav-link">
+								<i class="nav-icon fas fa-pencil-alt"></i>
+								<p>
+									Token
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
 							<a href="<?= base_url('documentation') ?>" class="nav-link">
 								<i class="nav-icon fas fa-book-reader pl-2"></i>
 								<p>
@@ -75,6 +83,14 @@
 								<i class="nav-icon fas fa-book-open pl-2"></i>
 								<p>
 									Chanel
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('user/grafik') ?>" class="nav-link">
+								<i class="nav-icon fas fa-pencil-alt pl-2"></i>
+								<p>
+									Grafik
 								</p>
 							</a>
 						</li>
