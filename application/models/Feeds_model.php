@@ -19,11 +19,18 @@ class Feeds_model extends CI_Model
 		return $this->db->get('feeds')->result();
 	}
 
-	public function getFeedsByIdWithLimit($id_chanel, $limit, $offset)
+	public function getFeedsByIdWithLimit($id_chanel, $limit, $offset, $start_date = null, $end_date = null)
 	{
-		$this->db->where('chanel_id', $id_chanel);
-		$this->db->limit($limit, $offset);
-		$query = $this->db->get('feeds');
+		if ($start_date && $end_date) {
+			$this->db->where('created_at >=', $start_date);
+			$this->db->where('created_at <=', $end_date);
+			$this->db->limit($limit, $offset);
+			$query = $this->db->get('feeds');
+		} else {
+			$this->db->where('chanel_id', $id_chanel);
+			$this->db->limit($limit, $offset);
+			$query = $this->db->get('feeds');
+		}
 
 		if ($query->num_rows() > 0) {
 			return $query->result();
@@ -36,6 +43,13 @@ class Feeds_model extends CI_Model
 	{
 		$this->db->where('chanel_id', $id_chanel);
 		return $this->db->count_all_results('feeds');
+	}
+
+	public function FilterChanel($start_date, $end_date)
+	{
+		$this->db->where('created_at >=', $start_date);
+		$this->db->where('created_at <=', $end_date);
+		return $this->db->get('feeds');
 	}
 
 }

@@ -7,6 +7,7 @@ use Firebase\JWT\JWT;
  * @property Token_model $Token_model
  * @property Feeds_model $Feeds_model
  * @property Chanel_model $Chanel_model
+ * @property Listing_model $Listing_model
  */
 class Token extends CI_Controller
 {
@@ -15,6 +16,17 @@ class Token extends CI_Controller
 		parent::__construct();
 		$this->load->model('Token_model');
 		$this->load->model('Feeds_model');
+		$this->load->model('Listing_model');
+	}
+
+	public function index()
+	{
+		$listing['listing_role'] = $this->Listing_model->listing_role($this->session->userdata('role'));
+		$this->load->view('partials/header');
+		$this->load->view('partials/navbar');
+		$this->load->view('partials/sidebar', $listing);
+		$this->load->view('back/admin/token/list');
+		$this->load->view('partials/header');
 	}
 
 	public function generate(): void

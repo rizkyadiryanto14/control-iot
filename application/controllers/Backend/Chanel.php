@@ -100,7 +100,6 @@ class Chanel extends CI_Controller
 
 	public function generate($id_users): void
 	{
-
 		$key = $this->generateSecretKey();
 		$id_chanel = $this->Chanel_model->getByIdDesc($id_users);
 		$token = array(

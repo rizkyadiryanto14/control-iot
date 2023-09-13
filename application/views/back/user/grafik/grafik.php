@@ -143,14 +143,30 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="form-group">
-						<label for="datetimeFilter">Filter</label>
-						<input type="datetime-local" class="form-control" id="datetimeFilter">
-					</div>
+					<?php if (!empty($grafik)){
+					foreach ($grafik
+
+					as $item) { ?>
+					<form action="<?= base_url('user/grafikId/' . $item->chanel_id) ?>" method="post">
+						<?php }
+						} ?>
+						<div class="form-group">
+							<label for="datetimeFilter">Mulai</label>
+							<input type="datetime-local" class="form-control" name="mulai" id="datetimeFilter">
+						</div>
+						<div class="form-group">
+							<label for="datetimeFilter">End</label>
+							<input type="datetime-local" class="form-control" name="end" id="datetimeFilter">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary" type="submit">Filter</button>
+						</div>
+					</form>
 					<div class="table-responsive">
 						<table class="table table-bordered">
 							<thead class="table-primary">
 							<tr>
+								<th>No</th>
 								<th>Field1</th>
 								<th>Field2</th>
 								<th>Field3</th>

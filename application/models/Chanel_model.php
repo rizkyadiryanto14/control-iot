@@ -10,6 +10,13 @@ class  Chanel_model extends CI_Model
 		return $this->db->get()->result();
 	}
 
+	public function FilterChanel($start_date, $end_date)
+	{
+		$this->db->where('created_at >=', $start_date);
+		$this->db->where('created_at <=', $end_date);
+		return $this->db->get('feeds');
+	}
+
 	public function InsertChanel($data)
 	{
 		return $this->db->insert('chanel', $data);
