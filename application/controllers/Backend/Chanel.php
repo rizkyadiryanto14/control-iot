@@ -58,7 +58,6 @@ class Chanel extends CI_Controller
 		];
 		$listing = $this->Chanel_model->listing($id);
 		$data['detail_chanel'] = $this->Chanel_model->getById($id);
-		//$data['feeds'] = $this->Feeds_model->getFeedsById($listing);
 		$data['token'] = $this->Token_model->getTokenById($listing['id_chanel']);
 
 		$this->load->view('partials/header');

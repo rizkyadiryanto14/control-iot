@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Feeds_model extends CI_Model
 {
@@ -6,6 +7,7 @@ class Feeds_model extends CI_Model
 	 * @param $data
 	 * @return bool
 	 */
+
 	public function insert($data)
 	{
 		return $this->db->insert('feeds', $data);
@@ -14,8 +16,6 @@ class Feeds_model extends CI_Model
 	public function getFeedsById($id_chanel)
 	{
 		$this->db->where('chanel_id', $id_chanel);
-//		$this->db->order_by('id', 'DESC');
-//		$this->db->limit(1);
 		return $this->db->get('feeds')->result();
 	}
 
@@ -43,13 +43,6 @@ class Feeds_model extends CI_Model
 	{
 		$this->db->where('chanel_id', $id_chanel);
 		return $this->db->count_all_results('feeds');
-	}
-
-	public function FilterChanel($start_date, $end_date)
-	{
-		$this->db->where('created_at >=', $start_date);
-		$this->db->where('created_at <=', $end_date);
-		return $this->db->get('feeds');
 	}
 
 }

@@ -31,22 +31,24 @@ class Grafik extends CI_Controller
 	{
 		$mulai = $this->input->post('mulai');
 		$end = $this->input->post('end');
-		
+
 		$listing['listing_role'] = $this->Listing_model->listing_role($this->session->userdata('role'));
 		$config['base_url'] = base_url("User/Grafik/Grafik/$id_chanel");
 		$config['total_rows'] = $this->Feeds_model->countFeedsById($id_chanel);
-		$config['per_page'] = 10;
 		$config['uri_segment'] = 5;
 		$config['full_tag_open'] = '<div class="pagination">';
 		$config['full_tag_close'] = '</div>';
 
 		$this->pagination->initialize($config);
 		$page = ($this->uri->segment(5)) ? $this->uri->segment(5) : 0;
+
 		if ($mulai && $end) {
+			$config['per_page'] = 15;
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page, $mulai, $end);
-			var_dump($mulai);
-			die();
+//			var_dump($data);
+//			die();
 		} else {
+			$config['per_page'] = 10;
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
 		}
 

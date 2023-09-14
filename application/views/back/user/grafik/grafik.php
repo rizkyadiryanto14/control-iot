@@ -151,12 +151,12 @@
 						<?php }
 						} ?>
 						<div class="form-group">
-							<label for="datetimeFilter">Mulai</label>
-							<input type="datetime-local" class="form-control" name="mulai" id="datetimeFilter">
+							<label for="datetimeFilterMulai">Mulai</label>
+							<input type="datetime-local" class="form-control" name="mulai" id="datetimeFilterMulai">
 						</div>
 						<div class="form-group">
-							<label for="datetimeFilter">End</label>
-							<input type="datetime-local" class="form-control" name="end" id="datetimeFilter">
+							<label for="datetimeFilterEnd">End</label>
+							<input type="datetime-local" class="form-control" name="end" id="datetimeFilterEnd">
 						</div>
 						<div class="form-group">
 							<button class="btn btn-primary" type="submit">Filter</button>
