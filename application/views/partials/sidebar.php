@@ -102,6 +102,14 @@
 								</p>
 							</a>
 						</li>
+						<li class="nav-item">
+							<a href="<?= base_url('setting') ?>" class="nav-link">
+								<i class="nav-icon fas fa-cog pl-2"></i>
+								<p>
+									Setting
+								</p>
+							</a>
+						</li>
 					</ul>
 				</nav>
 			<?php }

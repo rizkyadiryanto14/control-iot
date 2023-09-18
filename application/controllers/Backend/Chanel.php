@@ -8,6 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property User_model $User_model
  * @property Listing_model $Listing_model
  */
+
 class Chanel extends CI_Controller
 {
 	public function __construct()

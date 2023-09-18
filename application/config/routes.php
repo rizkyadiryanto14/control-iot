@@ -37,3 +37,7 @@ $route['user/grafik'] = 'User/Grafik';
 $route['user/update_chanel'] = 'User/Chanel/update';
 $route['user/grafikId/(:num)'] = 'User/Grafik/Grafik/$1';
 $route['getJsonData/(:num)'] = 'User/Grafik/getJsonData/$1';
+
+//settting
+$route['setting']		= 'Setting/Umum';
+$route['setting/add']	= 'Setting/store';
