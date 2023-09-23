@@ -129,7 +129,6 @@ class Chanel extends CI_Controller
 	public function delete_chanel()
 	{
 		$id_chanel = $this->input->post('id_chanel');
-
 		$delete = $this->Chanel_model->Delete($id_chanel);
 
 		if ($delete) {

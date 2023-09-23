@@ -9,6 +9,7 @@ use Firebase\JWT\JWT;
  * @property Chanel_model $Chanel_model
  * @property Listing_model $Listing_model
  */
+
 class Token extends CI_Controller
 {
 	public function __construct()

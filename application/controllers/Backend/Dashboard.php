@@ -5,6 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property Listing_model $Listing_model
  * @property Dashboard_model $Dashboard_model
  */
+
 class Dashboard extends CI_Controller
 {
 	public function __construct()
