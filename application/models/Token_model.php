@@ -20,6 +20,24 @@ class Token_model extends CI_Model
 		return $this->db->get('token_read')->result_array();
 	}
 
+	public function GetAllReadToken()
+	{
+		$this->db->select('*');
+		$this->db->from('token_read');
+		$this->db->join('chanel', 'token_read.id_chanel=chanel.id_chanel');
+		$this->db->join('users', 'token_read.id_users=users.id');
+		return $this->db->get()->result();
+	}
+
+	public function GetAllWriteToken()
+	{
+		$this->db->select('*');
+		$this->db->from('token');
+		$this->db->join('chanel', 'token.id_chanel=chanel.id_chanel', 'left');
+		$this->db->join('users', 'token.id_users=users.id', 'left');
+		return $this->db->get()->result();
+	}
+
 	public function insertToken($data)
 	{
 		return $this->db->insert('token', $data);

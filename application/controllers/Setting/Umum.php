@@ -38,7 +38,6 @@ class Umum extends CI_Controller
 		];
 
 		$insert = $this->Setting_model->insertSetting($data);
-
 		if ($insert){
 			$this->session->set_flashdata('sukses', 'Data waktu berhasil di tambahkan');
 			redirect(base_url('setting'));
@@ -46,7 +45,6 @@ class Umum extends CI_Controller
 			$this->session->set_flashdata('gagal', 'Data waktu gagal di tambahkan');
 			redirect(base_url('setting'));
 		}
-
 	}
 
 	public function update()
@@ -84,6 +82,21 @@ class Umum extends CI_Controller
 			redirect(base_url('setting'));
 		}else {
 			$this->session->set_flashdata('gagal', 'Data Setting gagal di reset');
+			redirect(base_url('setting'));
+		}
+	}
+
+	public function DeleteSetting($id)
+	{
+		$id = $this->input->post('id');
+
+		$delete = $this->Setting_model->DeleteSetting($id);
+
+		if ($delete){
+			$this->session->set_flashdata('sukses', 'Data Setting Berhasil di Hapus');
+			redirect(base_url('setting'));
+		}else{
+			$this->session->set_flashdata('gagal', 'Data Setting Gagal di hapus');
 			redirect(base_url('setting'));
 		}
 	}

@@ -45,14 +45,16 @@
 					<div class="info-box">
 						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-						<div class="info-box-content">
-							<span class="info-box-text">Total Users</span>
-							<span class="info-box-number">
+						<a href="<?= base_url('admin/user') ?>">
+							<div class="info-box-content">
+								<span class="info-box-text" style="color: black">Total Users</span>
+								<span class="info-box-number">
 							  <?php if (!empty($users)) {
 								  echo $users;
 							  } ?>
                 			</span>
-						</div>
+							</div>
+						</a>
 						<!-- /.info-box-content -->
 					</div>
 					<!-- /.info-box -->
@@ -61,14 +63,16 @@
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Total Chanel</span>
-							<span class="info-box-number">
+						<a href="<?=  base_url('admin/chanel')?>">
+							<div class="info-box-content">
+								<span class="info-box-text" style="color: black">Total Chanel</span>
+								<span class="info-box-number">
 								<?php if (!empty($chanel)) {
 									echo $chanel;
 								} ?>
 							</span>
-						</div>
+							</div>
+						</a>
 						<!-- /.info-box-content -->
 					</div>
 					<!-- /.info-box -->
@@ -81,14 +85,17 @@
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Token Write</span>
-							<span class="info-box-number">
+
+						<a href="<?= base_url('admin/token') ?>">
+							<div class="info-box-content">
+								<span class="info-box-text" style="color: black">Token Write</span>
+								<span class="info-box-number">
 								<?php if (!empty($token_write)) {
 									echo $token_write;
 								} ?>
 							</span>
-						</div>
+							</div>
+						</a>
 						<!-- /.info-box-content -->
 					</div>
 					<!-- /.info-box -->
@@ -97,16 +104,18 @@
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Token Read</span>
-							<span class="info-box-number">
+						<a href="<?= base_url('admin/token') ?>">
+							<div class="info-box-content">
+								<span class="info-box-text" style="color: black">Token Read</span>
+								<span class="info-box-number">
 								<?php if (!empty($token_read)) {
 									echo $token_read;
 								}else { ?>
 									0
 								<?php } ?>
 							</span>
-						</div>
+							</div>
+						</a>
 						<!-- /.info-box-content -->
 					</div>
 					<!-- /.info-box -->
@@ -130,12 +139,19 @@
 							<div class="row">
 								<div class="col-md-8">
 									<p class="text-center">
-										<strong>Waktu Report : <?php echo date('Y-m-d H:i:s')?></strong>
+										<strong>Times Report : <?php echo date('Y-m-d H:i:s')?></strong>
 									</p>
-									<div class="chart">
-										<!-- Sales Chart Canvas -->
-										<canvas id="salesChart"></canvas>
+									<div>
+										<label for="chartType">Choose Chart Type:</label>
+										<div class="col-md-4">
+											<select id="chartType" class="form-control">
+												<option value="line">Line Chart</option>
+												<option value="bar">Bar Chart</option>
+											</select>
+										</div>
+<!--										<button onclick="updateChart()">Update Chart</button>-->
 									</div>
+									<canvas id="salesChart" width="400" height="200"></canvas>
 									<!-- /.chart-responsive -->
 								</div>
 								<!-- /.col -->
@@ -187,7 +203,7 @@
 				</div>
 				<!-- /.col -->
 			</div>
-	</section>
+	</section>]
 	<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
@@ -201,62 +217,76 @@
 <!-- ./wrapper -->
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
 
 <script>
-// Get canvas element
-const ctx = document.getElementById('salesChart').getContext('2d');
-const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-gradient.addColorStop(0, 'rgba(135, 206, 250, 0.5)');
-gradient.addColorStop(1, 'rgba(0, 0, 128, 0.5)');
+	// app.js
 
-// Chart.js setup
-const chart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Users', 'Channels', 'Write Tokens', 'Read Tokens'],
-    datasets: [{
-      data: [],
-		backgroundColor: gradient,
-      	borderColor: '#1e90ff',
-      	borderWidth: 2
-    }]
-  },
-  options: {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'Metrics'
-        }
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Value'
-        }
-      }
-    }
-  }
-});
+	// Get canvas element
+	const ctx = document.getElementById('salesChart').getContext('2d');
+	const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+	gradient.addColorStop(0, 'rgba(135, 206, 250, 0.5)');
+	gradient.addColorStop(1, 'rgba(0, 0, 128, 0.5)');
 
-// Fetch data and update chart
-async function updateChart() {
+	// Chart.js setup
+	let chartType = 'line'; // Default chart type
 
-  const response = await fetch('http://localhost/control-iot/chart_data');
-  const data = await response.json();
+	const chart = new Chart(ctx, {
+		type: chartType, // Initially set to 'line'
+		data: {
+			labels: ['Users', 'Channels', 'Write Tokens', 'Read Tokens'],
+			datasets: [{
+				data: [],
+				backgroundColor: gradient,
+				borderColor: '#1e90ff',
+				borderWidth: 2
+			}]
+		},
+		options: {
+			scales: {
+				x: {
+					title: {
+						display: true,
+						text: 'Metrics'
+					}
+				},
+				y: {
+					title: {
+						display: true,
+						text: 'Value'
+					}
+				}
+			}
+		}
+	});
 
-  chart.data.datasets[0].data = [
-    data.users,
-    data.chanel,
-    data.token_write,
-    data.token_read
-  ];
+	// Fetch data and update chart
+	async function updateChart() {
+		const response = await fetch('http://localhost/control-iot/chart_data');
+		const data = await response.json();
 
-  chart.update();
-}
+		chart.config.type = chartType; // Update chart type based on user selection
 
-// Update every 5 seconds
-setInterval(updateChart, 1000);
+		chart.data.datasets[0].data = [
+			data.users,
+			data.chanel,
+			data.token_write,
+			data.token_read
+		];
+
+		chart.update();
+	}
+
+	// Event listener for chart type selection
+	const chartTypeSelect = document.getElementById('chartType');
+	chartTypeSelect.addEventListener('change', () => {
+		chartType = chartTypeSelect.value;
+		updateChart(); // Update the chart when the user selects a different chart type
+	});
+
+	// Initial chart update
+	updateChart();
+
 </script>
 
 

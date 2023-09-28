@@ -8,6 +8,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property User_model $User_model
  * @property Listing_model $Listing_model
  */
+
 class Chanel extends CI_Controller
 {
 	public function __construct()
@@ -53,7 +54,7 @@ class Chanel extends CI_Controller
 
 	public function Detail($id)
 	{
-		$role = [
+		$role=[
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
 		$listing = $this->Chanel_model->listing($id);
@@ -85,7 +86,6 @@ class Chanel extends CI_Controller
 		);
 
 		$insert = $this->Chanel_model->InsertChanel($data);
-
 		$this->generate($data['id_users']);
 
 		if ($insert) {
@@ -112,11 +112,10 @@ class Chanel extends CI_Controller
 			'field6' => $this->input->post('field6'),
 			'field7' => $this->input->post('field7'),
 			'field8' => $this->input->post('field8'),
-			'created_at' => date('Y-m-d H:i:s')
+			'updated_at' => date('Y-m-d H:i:s')
 		);
 
 		$insert = $this->Chanel_model->update_chanel($id_chanel, $data);
-
 		if ($insert) {
 			$this->session->set_flashdata('sukses', 'data chanel berhasil di update');
 			redirect(base_url('user/chanel'));
@@ -128,7 +127,6 @@ class Chanel extends CI_Controller
 
 	public function generate($id_users): void
 	{
-
 		$key = $this->generateSecretKey();
 		$id_chanel = $this->Chanel_model->getByIdDesc($id_users);
 		$token = array(
@@ -155,6 +153,19 @@ class Chanel extends CI_Controller
 		return $randomString;
 	}
 
+	public function ChanelBarGrafik($id_user)
+	{
+		$data = $this->Chanel_model->getAllChanelByUser($id_user);
+		foreach ($data as $item) {
+			$response = [
+				'chanel_id'	=> $item->id_chanel
+			];
+		}
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($response));
+	}
+
 	public function delete_chanel()
 	{
 		$id_chanel = $this->input->post('id_chanel');
@@ -169,5 +180,4 @@ class Chanel extends CI_Controller
 			redirect(base_url('user/chanel'));
 		}
 	}
-
 }

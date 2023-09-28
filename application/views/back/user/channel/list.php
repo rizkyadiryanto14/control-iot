@@ -84,6 +84,7 @@
 										<tr>
 											<th>Name</th>
 											<th>Created</th>
+											<th>Updated</th>
 											<th>Users</th>
 											<th>Action</th>
 										</tr>
@@ -111,6 +112,7 @@
 													</div>
 												</td>
 												<td><?= $item->created_at ?></td>
+												<td><?= $item->updated_at ?></td>
 												<td><?= $item->username ?></td>
 												<td>
 													<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusChanel<?= $item->id_chanel ?>"><i class="fas fa-trash"></i></button>

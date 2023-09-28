@@ -23,10 +23,14 @@ class Token extends CI_Controller
 	public function index()
 	{
 		$listing['listing_role'] = $this->Listing_model->listing_role($this->session->userdata('role'));
+		$data = [
+			'token_read'	=> $this->Token_model->GetAllReadToken(),
+			'token_write'	=> $this->Token_model->GetAllWriteToken()
+		];
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
-		$this->load->view('back/admin/token/list');
+		$this->load->view('back/admin/token/list', $data);
 		$this->load->view('partials/header');
 	}
 
