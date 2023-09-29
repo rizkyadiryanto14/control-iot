@@ -60,6 +60,21 @@ class  Chanel_model extends CI_Model
 		return $this->db->get()->result();
 	}
 
+	public function getTotalChanelByUser($id_users)
+	{
+		$this->db->where('id_users', $id_users);
+		return $this->db->count_all_results('chanel');
+	}
+
+	public function getAllChanelByUser($id_user)
+	{
+		$this->db->select('*');
+		$this->db->from('chanel');
+		$this->db->join('feeds', 'chanel.id_chanel=feeds.chanel_id');
+		$this->db->where('chanel.id_users', $id_user);
+		return $this->db->get()->result();
+	}
+
 	public function Delete($id_chanel)
 	{
 		$this->db->where('id_chanel', $id_chanel);

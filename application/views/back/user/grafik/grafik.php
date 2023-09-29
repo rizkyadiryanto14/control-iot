@@ -40,9 +40,70 @@
 		</div><!-- /.container-fluid -->
 	</div>
 	<!-- /.content-header -->
-
 	<section class="content">
 		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box">
+						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Total Entry</span>
+							<span class="info-box-number">
+							 	<div class="total_entry"></div>
+                			</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">heartRateChar</span>
+							<span class="info-box-number">
+								<div class="heartRateChar"></div>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
+
+				<!-- fix for small devices only -->
+				<div class="clearfix hidden-md-up"></div>
+
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">temperatureChar</span>
+							<span class="info-box-number">
+								<div class="temperatureChar"></div>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text">Oxygen</span>
+							<span class="info-box-number">
+								<div class="oxygen"></div>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
+			</div>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="col-md-12">
@@ -144,9 +205,7 @@
 				</div>
 				<div class="col-md-6">
 					<?php if (!empty($grafik)){
-					foreach ($grafik
-
-					as $item) { ?>
+					foreach ($grafik as $item) { ?>
 					<form action="<?= base_url('user/grafikId/' . $item->chanel_id) ?>" method="post">
 						<?php }
 						} ?>
@@ -159,7 +218,8 @@
 							<input type="datetime-local" class="form-control" name="end" id="datetimeFilterEnd">
 						</div>
 						<div class="form-group">
-							<button class="btn btn-primary" type="submit">Filter</button>
+							<button class="btn btn-success" name="choice" value="0" type="submit">No, Show only filter data</button>
+							<button class="btn btn-primary" name="choice" value="1" type="submit" formtarget="_blank">Yes, Show Graphics</button>
 						</div>
 					</form>
 					<div class="table-responsive">
@@ -206,6 +266,22 @@
 		</div>
 	</section>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+		setInterval(function () {
+			$.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?', function (data) {
+				$(".total_entry").html(data.entry_id);
+				$(".heartRateChar").html(data.field2);
+				$(".temperatureChar").html(data.field3);
+				$(".oxygen").html(data.field1);
+			});
+
+		}, 100);
+	});
+</script>
 
 
 

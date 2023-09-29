@@ -19,9 +19,19 @@ class Feeds_model extends CI_Model
 		return $this->db->get('feeds')->result();
 	}
 
+	public function getFeedsByIdFIlter($id_chanel, $start_date, $end_date)
+	{
+		$this->db->where('chanel_id', $id_chanel);
+		$this->db->where('created_at >=', $start_date);
+		$this->db->where('created_at <=', $end_date);
+		$this->db->order_by('created_at', 'ASC');
+		return $this->db->get('feeds')->result();
+	}
+
 	public function getFeedsByIdWithLimit($id_chanel, $limit, $offset, $start_date = null, $end_date = null)
 	{
 		if ($start_date && $end_date) {
+			$this->db->where('chanel_id', $id_chanel);
 			$this->db->where('created_at >=', $start_date);
 			$this->db->where('created_at <=', $end_date);
 			$this->db->limit($limit, $offset);

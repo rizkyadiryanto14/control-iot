@@ -40,7 +40,6 @@
 		</div><!-- /.container-fluid -->
 	</div>
 	<!-- /.content-header -->
-
 	<section class="content">
 		<div class="container-fluid">
 			<!-- sekarang masuk ke kolom isi konten -->
@@ -298,4 +297,5 @@
 			</div> <!-- akhir div card -->
 		</div>
 	</section>
+
 </div>

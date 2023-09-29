@@ -35,7 +35,6 @@
 		</div><!-- /.container-fluid -->
 	</div>
 	<!-- /.content-header -->
-
 	<!-- Main content -->
 	<section class="content">
 		<div class="container-fluid">
@@ -59,9 +58,10 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">heartRateChar</span>
+							<span class="info-box-text">Total Chanel</span>
 							<span class="info-box-number">
-								<div class="heartRateChar"></div>
+								<?= /** @var TYPE_NAME $chanelByUser */
+								$chanelByUser ?>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -72,12 +72,13 @@
 
 				<!-- fix for small devices only -->
 				<div class="clearfix hidden-md-up"></div>
+				<!-- fix for small devices only -->
 
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">temperatureChar</span>
+							<span class="info-box-text">Hit API</span>
 							<span class="info-box-number">
 								<div class="temperatureChar"></div>
 							</span>
@@ -104,73 +105,35 @@
 			</div>
 			<!-- /.row -->
 			<div class="row">
-				<!-- Area Chart -->
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow-lg">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Temperature</h6>
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<!-- Chart_temperature -->
-								<div class="temperature">
-									<canvas id="temperatureChart" class="ekg-animation"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Heart Rate Chart</h6>
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<!-- Heart Rate Chart -->
-								<div class="heartRateChart">
-									<canvas id="heartRateChartCanvas"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-4">
-					<div class="card shadow mb-4">
-						<!-- Card Header - Dropdown -->
-						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h6 class="m-0 font-weight-bold text-primary">Oxygen</h6>
-						</div>
-						<!-- Card Body -->
-						<div class="card-body">
-							<div class="chart-area">
-								<!-- Heart Rate Chart -->
-								<div class="oxygenChartCanvas">
-									<canvas id="oxygenChart"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
-							<h6>Location</h6>
+							<h5 class="card-title">Report</h5>
+							<div class="card-tools">
+								<button type="button" class="btn btn-tool" data-card-widget="collapse">
+									<i class="fas fa-minus"></i>
+								</button>
+							</div>
 						</div>
+						<!-- /.card-header -->
 						<div class="card-body">
-							<div class="chart-area">
-								<div class="location">
-									<iframe style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2244680/maps/channel_show"></iframe>
+							<div class="row">
+								<div class="col-md-8">
+									<p class="text-center">
+										<strong>Times Report : <?php echo date('Y-m-d H:i:s')?></strong>
+									</p>
+								</div>
+								<div class="col-md-8">
+										<canvas id="myChart"></canvas>
 								</div>
 							</div>
 						</div>
+						<!-- ./card-body -->
 					</div>
+					<!-- /.card -->
 				</div>
-			</div><!-- /.container-fluid -->
+				<!-- /.col -->
+			</div>
 	</section>
 	<!-- /.content -->
 </div>
@@ -199,184 +162,8 @@
 	});
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
-	const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
-	temperatureCtx.canvas.classList.add('ekg-animation');
-	const temperatureGradient = temperatureCtx.createLinearGradient(0, 0, 0, 400);
-	temperatureGradient.addColorStop(0, 'rgba(75, 192, 192, 0.2)');
-	temperatureGradient.addColorStop(1, 'rgba(255, 0, 0, 0.2)');
 
-	const temperatureChart = new Chart(temperatureCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Temperature",
-				data: [],
-				backgroundColor: 'rgba(60,141,188,0.9)',
-				borderColor: 'rgba(60,141,188,0.8)',
-				pointRadius: false,
-				pointColor: '#3b8bba',
-				pointStrokeColor: 'rgba(60,141,188,1)',
-				pointHighlightFill: '#fff',
-				pointHighlightStroke: 'rgba(60,141,188,1)',
-			}],
-		},
-		options: {
-			salesChartOptions
-		},
-	});
-
-	var salesChartOptions = {
-			maintainAspectRatio: false,
-			responsive: true,
-			legend: {
-				display: false
-			},
-			scales: {
-				xAxes: [{
-					gridLines: {
-						display: false
-					}
-				}],
-				yAxes: [{
-					gridLines: {
-						display: false
-					}
-				}]
-			}
-		}
-
-	function updateTemperatureChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
-
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const temperature = parseFloat(data.field3);
-
-				// Mendapatkan waktu dari created_at
-				const createdDate = new Date(data.created_at);
-				const timeLabel = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
-
-				temperatureChart.data.labels.push(timeLabel);
-				temperatureChart.data.datasets[0].data.push(temperature);
-				temperatureChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
-
-	setInterval(updateTemperatureChart, 1500);
-</script>
-
-<script>
-	const ekgCanvas = document.getElementById('heartRateChartCanvas');
-	const ekgCtx = ekgCanvas.getContext('2d');
-	const ekgChart = new Chart(ekgCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Heart Rate",
-				data: [],
-				backgroundColor: 'rgb(255,9,132)',
-				borderColor: "red",
-				borderWidth: 2,
-				pointRadius: 0,
-				borderJoinStyle: 'miter',
-				tension: 0.1
-			}],
-		},
-		options: {
-			animation: true,
-			scales: {
-				y: {
-					beginAtZero: false,
-				},
-			},
-			plugins: {
-				legend: {
-					display: false
-				}
-			}
-		},
-	});
-
-	function updateHeartRateChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const heartRate = parseFloat(data.field2);
-				const createdDate = new Date(data.created_at);
-				const timeLabel = createdDate.getSeconds();
-
-				ekgChart.data.labels.push(timeLabel);
-				ekgChart.data.datasets[0].data.push(heartRate);
-				ekgChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
-
-	setInterval(updateHeartRateChart, 1000);
-</script>
-
-<script>
-	const oxygenCtx = document.getElementById('oxygenChart').getContext('2d');
-	const oxygenGradient = oxygenCtx.createLinearGradient(0, 0, 0, 400);
-	oxygenGradient.addColorStop(0, 'rgba(0, 255, 0, 0.2)');
-
-	const oxygenChart = new Chart(oxygenCtx, {
-		type: 'line',
-		data: {
-			labels: [],
-			datasets: [{
-				label: "Oxygen",
-				data: [],
-				backgroundColor: oxygenGradient,
-				borderColor: "rgba(0, 255, 0, 1)",
-				pointRadius: 0,
-				borderJoinStyle: 'miter',
-				tension: 0.1
-			}],
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true,
-				},
-			},
-		},
-	});
-
-	function updateOxygenChart() {
-		const apiUrl = 'https://api.thingspeak.com/channels/2244680/feeds/last.json';
-
-		fetch(apiUrl)
-			.then(response => response.json())
-			.then(data => {
-				const oxygen = parseFloat(data.field1);
-
-				// Mendapatkan waktu dari created_at
-				const createdDate = new Date(data.created_at);
-				const timeLabel = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
-
-				oxygenChart.data.labels.push(timeLabel);
-				oxygenChart.data.datasets[0].data.push(oxygen);
-				oxygenChart.update();
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
-	}
-	setInterval(updateOxygenChart, 1500);
-</script>
 
 
 

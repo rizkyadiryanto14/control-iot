@@ -27,10 +27,10 @@ class Dashboard extends CI_Controller
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
 		$data =[
-			'chanel'	=> $this->Chanel_model->getChanelById($this->session->userdata('id_user'))
+			'chanel'	=> $this->Chanel_model->getChanelById($this->session->userdata('id_user')),
+			'chanelByUser'	=> $this->Chanel_model->getTotalChanelByUser($this->session->userdata('id_user'))
 		];
-//		var_dump($data);
-//		die();
+
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);

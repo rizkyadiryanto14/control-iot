@@ -44,7 +44,6 @@ function createChart(canvasId, label, backgroundColor, borderColor) {
 			}]
 		}
 	}
-
 	charts.push(chart);
 }
 
@@ -60,8 +59,6 @@ createChart('field8Chart', 'Field 8', 'rgba(128,128,128,0.9)', 'rgba(128,128,128
 function updateAllCharts() {
 	const channelLinks = document.querySelector('.channel');
 	const dataId = channelLinks.getAttribute('data-id');
-	// console.log('data-id : ', dataId);
-
 	const apiUrl = `http://localhost/control-iot/getJsonData/${dataId}`;
 
 	fetch(apiUrl)
@@ -69,7 +66,6 @@ function updateAllCharts() {
 		.then(data => {
 			const createdDate = new Date(data.created_at);
 			const timeLabel = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
-
 			const fieldData = [
 				parseFloat(data.field1),
 				parseFloat(data.field2),
@@ -80,7 +76,6 @@ function updateAllCharts() {
 				parseFloat(data.field7),
 				parseFloat(data.field8)
 			];
-
 			charts.forEach((chart, index) => {
 				chart.data.labels.push(timeLabel);
 				chart.data.datasets[0].data.push(fieldData[index]);

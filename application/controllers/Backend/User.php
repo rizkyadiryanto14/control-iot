@@ -78,7 +78,6 @@ class User extends CI_Controller
 	public function delete()
 	{
 		$id = $this->input->post('id');
-
 		$delete = $this->User_model->delete_user($id);
 
 		if ($delete) {

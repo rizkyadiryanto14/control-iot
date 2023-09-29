@@ -35,6 +35,7 @@ class  Auth extends CI_Controller
 					'role' => $check['role'],
 					'login' => true,
 				];
+				echo json_encode($userSession);
 				$this->session->set_userdata($userSession);
 
 				if ($userSession['role'] == 'admin') {

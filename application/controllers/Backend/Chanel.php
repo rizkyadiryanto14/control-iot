@@ -86,7 +86,6 @@ class Chanel extends CI_Controller
 		);
 
 		$insert = $this->Chanel_model->InsertChanel($data);
-
 		$this->generate($data['id_users']);
 
 		if ($insert) {

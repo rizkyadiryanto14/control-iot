@@ -30,6 +30,7 @@ class Dashboard extends CI_Controller
 			'token_write'	=> $this->Dashboard_model->getTotalTokenWrite(),
 			'token_read'	=> $this->Dashboard_model->getTotalTokenRead()
 		];
+
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);
