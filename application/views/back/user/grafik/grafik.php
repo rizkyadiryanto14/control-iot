@@ -61,7 +61,7 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">heartRateChar</span>
+							<span class="info-box-text"><?= $chanel['field1'] ?></span>
 							<span class="info-box-number">
 								<div class="heartRateChar"></div>
 							</span>
@@ -79,7 +79,7 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">temperatureChar</span>
+							<span class="info-box-text"><?=$chanel['field2'] ?></span>
 							<span class="info-box-number">
 								<div class="temperatureChar"></div>
 							</span>
@@ -93,7 +93,7 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">Oxygen</span>
+							<span class="info-box-text"><?= $chanel['field3'] ?></span>
 							<span class="info-box-number">
 								<div class="oxygen"></div>
 							</span>
@@ -101,6 +101,17 @@
 						<!-- /.info-box-content -->
 					</div>
 					<!-- /.info-box -->
+				</div>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text"><?= $chanel['field4'] ?></span>
+							<span class="info-box-number">
+								<div class="oxygen"></div>
+							</span>
+						</div>
+					</div>
 				</div>
 				<!-- /.col -->
 			</div>

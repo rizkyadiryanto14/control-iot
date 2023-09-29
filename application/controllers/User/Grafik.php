@@ -32,7 +32,6 @@ class Grafik extends CI_Controller
 
 	public function Grafik($id_chanel)
 	{
-
 		$choice = $this->input->post('choice');
 		$mulai = $this->input->post('mulai');
 		$end = $this->input->post('end');
@@ -62,6 +61,7 @@ class Grafik extends CI_Controller
 			}else{
 				$data = [
 					'grafik'		=>  $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page, $mulai, $end),
+					'chanel'		=> $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel)
 				];
 				$this->load->view('partials/header');
 				$this->load->view('partials/navbar');
@@ -72,7 +72,9 @@ class Grafik extends CI_Controller
 		} else {
 			$config['per_page'] = 10;
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
-
+			$data['chanel']	= $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel);
+//			var_dump($data);
+//			die();
 			$this->load->view('partials/header');
 			$this->load->view('partials/navbar');
 			$this->load->view('partials/sidebar', $listing);
