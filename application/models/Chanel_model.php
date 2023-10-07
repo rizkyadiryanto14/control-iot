@@ -35,7 +35,6 @@ class  Chanel_model extends CI_Model
 		return $this->db->get('chanel')->row_array();
 	}
 
-
 	public function getByIdDesc($id_users)
 	{
 		$this->db->select('id_chanel');
@@ -96,5 +95,4 @@ class  Chanel_model extends CI_Model
 		$this->db->where('id_chanel', $id_chanel);
 		return $this->db->update('chanel', $data);
 	}
-
 }

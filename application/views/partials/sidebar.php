@@ -14,7 +14,7 @@
 				<img src="<?= base_url() ?>back_assets/img/default.jpg" class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="<?= base_url('admin/dashboard') ?>"
+				<a href="#"
 				   class="d-block"> <?= $this->session->userdata('username') ?></a>
 			</div>
 		</div>

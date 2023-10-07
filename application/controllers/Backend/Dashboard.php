@@ -46,7 +46,6 @@ class Dashboard extends CI_Controller
 			'token_write'	=> $this->Dashboard_model->getTotalTokenWrite(),
 			'token_read'	=> $this->Dashboard_model->getTotalTokenRead()
 		];
-
 		echo json_encode($data);
 	}
 }

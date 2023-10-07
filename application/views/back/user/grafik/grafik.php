@@ -74,7 +74,6 @@
 
 				<!-- fix for small devices only -->
 				<div class="clearfix hidden-md-up"></div>
-
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
@@ -120,7 +119,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field1</h3>
+								<h3 class="card-title"><?= $var = $chanel['field1'] ? $chanel['field1'] : 'field1' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -132,7 +131,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field2</h3>
+								<h3 class="card-title"><?= $var = $chanel['field2'] ? $chanel['field2'] : 'field2' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -144,7 +143,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field3</h3>
+								<h3 class="card-title"><?= $var = $chanel['field3'] ? $chanel['field3'] : 'field3' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -156,7 +155,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field4</h3>
+								<h3 class="card-title"><?= $var = $chanel['field4'] ? $chanel['field4'] : 'field4' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -168,7 +167,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field5</h3>
+								<h3 class="card-title"><?= $var = $chanel['field5'] ? $chanel['field5'] : 'field5' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -180,7 +179,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field6</h3>
+								<h3 class="card-title"><?= $var = $chanel['field6'] ? $chanel['field6'] : 'field6' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -192,7 +191,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field7</h3>
+								<h3 class="card-title"><?= $var = $chanel['field7'] ? $chanel['field7'] : 'field7' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -204,7 +203,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Field8</h3>
+								<h3 class="card-title"><?= $var = $chanel['field8'] ? $chanel['field8'] : 'field8' ?></h3>
 							</div>
 							<div class="card-body">
 								<div class="form-group">
@@ -237,16 +236,16 @@
 						<table class="table table-bordered">
 							<thead class="table-primary">
 							<tr>
-								<th>No</th>
-								<th>Field1</th>
-								<th>Field2</th>
-								<th>Field3</th>
-								<th>Field4</th>
-								<th>Field5</th>
-								<th>Field6</th>
-								<th>Field7</th>
-								<th>Field8</th>
-								<th>Datetime</th>
+									<th>No</th>
+									<th><?= $var = $chanel['field1'] ? $chanel['field1'] : 'field1' ?></th>
+									<th><?= $var = $chanel['field2'] ? $chanel['field2'] : 'field2' ?></th>
+									<th><?= $var = $chanel['field3'] ? $chanel['field3'] : 'field3'?></th>
+									<th><?= $var = $chanel['field4'] ? $chanel['field4'] : 'field4'?></th>
+									<th><?= $var = $chanel['field5'] ? $chanel['field5'] : 'field5'?></th>
+									<th><?= $var = $chanel['field6'] ? $chanel['field6'] : 'field6'?></th>
+									<th><?= $var = $chanel['field7'] ? $chanel['field7'] : 'field7'?></th>
+									<th><?= $var = $chanel['field8'] ? $chanel['field8'] : 'field8'?></th>
+									<th>Datetime</th>
 							</tr>
 							</thead>
 							<tbody>
