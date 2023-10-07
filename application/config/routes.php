@@ -37,6 +37,7 @@ $route['user/update_chanel'] 		= 'User/Chanel/update';
 $route['user/grafikId/(:num)'] 		= 'User/Grafik/Grafik/$1';
 $route['getJsonData/(:num)'] 		= 'User/Grafik/getJsonData/$1';
 $route['chanelDataBar/(:num)']		= 'User/Chanel/ChanelBarGrafik/$1';
+$route['user/token_generate']		= 'User/Token/generate';
 
 //settting
 $route['setting']					= 'Setting/Umum';

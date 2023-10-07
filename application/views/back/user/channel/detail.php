@@ -48,7 +48,8 @@
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
 						<li class="nav-item">
 							<a class="nav-link active" id="umum-tab" data-toggle="tab" href="#umum" role="tab"
-							   aria-controls="umum" aria-selected="true">Channel Settings</a>
+							   aria-controls="umum" aria-selected="true">Channel Settings
+							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab"
@@ -57,11 +58,11 @@
 						<li class="nav-item">
 							<a class="nav-link" id="icon-tab" data-toggle="tab" href="#icon" role="tab"
 							   aria-controls="icon" aria-selected="false">Data Import/Export <small
-									class="badge badge-danger">Beta</small></a>
+									class="badge badge-danger">Beta</small>
+							</a>
 						</li>
 					</ul>
 				</div>
-
 				<div class="card-body">
 					<div class="tab-content" id="myTabContent">
 						<!-- menu pertama -->
@@ -167,7 +168,10 @@
 												<input type="text" name="token" id="token" class="form-control"
 													   value="<?php echo empty($token['token']) ? '' : $token['token']; ?>"
 													   readonly>
-												<form action="<?= base_url('backend/token_generate') ?>" method="post">
+												<form action="<?= base_url('user/token_generate') ?>" method="post">
+													<?php foreach ($detail_chanel as $item) { ?>
+														<input type="hidden" name="id_chanel" id="id_chanel" value="<?= $item['id_chanel'] ?>">
+													<?php } ?>
 													<button class="btn btn-warning mt-3" type="submit">Generate New
 														Write API Keys
 													</button>
@@ -297,5 +301,4 @@
 			</div> <!-- akhir div card -->
 		</div>
 	</section>
-
 </div>

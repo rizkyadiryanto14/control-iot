@@ -56,4 +56,10 @@ class Token_model extends CI_Model
 		return $this->db->get('token')->row_array();
 	}
 
+	public function UpdateToken($id_chanel, $data)
+	{
+		$this->db->where('id_chanel', $id_chanel);
+		return $this->db->update('token', $data);
+	}
+
 }
