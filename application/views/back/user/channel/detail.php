@@ -262,15 +262,14 @@
 									</div>
 									<div class="export">
 										<h3 class="col-md-12 order-md-1">Export</h3>
-										<form action="#" method="post"
+										<form action="<?= base_url('export') ?>" method="post"
 											  enctype="multipart/form-data">
 											<input type="hidden" name="id_konfigurasi">
 											<div class="form-group col-md-12">
 												<label>Download all of this Channel's feeds in CSV format.</label>
 											</div>
 											<div class="form-group col-md-12">
-												<input type="submit" name="submit" value="Download"
-													   class="btn btn-success">
+												<button class="btn btn-success" type="submit">Export</button>
 											</div>
 										</form>
 									</div>

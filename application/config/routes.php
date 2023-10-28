@@ -39,6 +39,7 @@ $route['getJsonData/(:num)'] 		= 'User/Grafik/getJsonData/$1';
 $route['chanelDataBar/(:num)']		= 'User/Chanel/ChanelBarGrafik/$1';
 $route['user/token_generate']		= 'User/Token/generate';
 $route['import']					= 'User/Import/import';
+$route['export']					= 'User/Export/export';
 
 //settting
 $route['setting']					= 'Setting/Umum';
