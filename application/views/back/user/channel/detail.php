@@ -250,18 +250,13 @@
 								<div class="col-md-6">
 									<div class="import">
 										<h3 class="col-md-12 order-md-1">Import</h3>
-										<form action="#" method="post"
-											  enctype="multipart/form-data">
-											<input type="hidden" name="id_konfigurasi">
+										<form action="<?= base_url('import') ?>" method="POST" enctype="multipart/form-data">
 											<div class="form-group col-md-12">
-												<label>Upload a CSV file to import data into this channel.</label>
-												<input type="file" name="icon" class="form-control" id="file2">
-												<div id="imagePreview"></div>
+												<label for="file">Upload a CSV file to import data into this channel.</label>
+												<input type="file" name="file" id="file" class="form-control">
 											</div>
-
 											<div class="form-group col-md-12">
-												<input type="submit" name="submit" value="Upload"
-													   class="btn btn-success">
+												<button class="btn btn-success" type="submit">Import</button>
 											</div>
 										</form>
 									</div>

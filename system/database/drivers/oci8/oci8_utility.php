@@ -55,7 +55,7 @@ class CI_DB_oci8_utility extends CI_DB_utility {
 	protected $_list_databases	= 'SELECT username FROM dba_users'; // Schemas are actual usernames
 
 	/**
-	 * Export
+	 * ExportModel
 	 *
 	 * @param	array	$params	Preferences
 	 * @return	mixed

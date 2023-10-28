@@ -64,7 +64,7 @@ class CI_DB_mssql_utility extends CI_DB_utility {
 	protected $_optimize_table	= 'ALTER INDEX all ON %s REORGANIZE';
 
 	/**
-	 * Export
+	 * ExportModel
 	 *
 	 * @param	array	$params	Preferences
 	 * @return	bool

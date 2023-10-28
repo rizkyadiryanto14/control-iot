@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class CI_DB_pdo_utility extends CI_DB_utility {
 
 	/**
-	 * Export
+	 * ExportModel
 	 *
 	 * @param	array	$params	Preferences
 	 * @return	mixed

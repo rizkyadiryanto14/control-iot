@@ -74,8 +74,7 @@ class Grafik extends CI_Controller
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
 			$data['chanel']	= $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel);
 
-//			var_dump($data);
-//			die();
+
 
 			$this->load->view('partials/header');
 			$this->load->view('partials/navbar');

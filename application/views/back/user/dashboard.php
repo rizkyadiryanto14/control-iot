@@ -40,6 +40,14 @@
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-success" role="alert">
+						Selamat Datang <?= $this->session->userdata('username') ?>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box">
 						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
@@ -105,34 +113,7 @@
 			</div>
 			<!-- /.row -->
 			<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">Report</h5>
-							<div class="card-tools">
-								<button type="button" class="btn btn-tool" data-card-widget="collapse">
-									<i class="fas fa-minus"></i>
-								</button>
-							</div>
-						</div>
-						<!-- /.card-header -->
-						<div class="card-body">
-							<div class="row">
-								<div class="col-md-8">
-									<p class="text-center">
-										<strong>Times Report : <?php echo date('Y-m-d H:i:s')?></strong>
-									</p>
-								</div>
-								<div class="col-md-8">
-										<canvas id="myChart"></canvas>
-								</div>
-							</div>
-						</div>
-						<!-- ./card-body -->
-					</div>
-					<!-- /.card -->
-				</div>
-				<!-- /.col -->
+
 			</div>
 	</section>
 	<!-- /.content -->

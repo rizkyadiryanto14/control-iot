@@ -73,7 +73,7 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Export
+	 * ExportModel
 	 *
 	 * @param	array	$params	Preferences
 	 * @return	mixed

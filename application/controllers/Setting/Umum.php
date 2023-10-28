@@ -100,4 +100,5 @@ class Umum extends CI_Controller
 			redirect(base_url('setting'));
 		}
 	}
+
 }

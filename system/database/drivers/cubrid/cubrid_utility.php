@@ -65,7 +65,7 @@ class CI_DB_cubrid_utility extends CI_DB_utility {
 	// --------------------------------------------------------------------
 
 	/**
-	 * CUBRID Export
+	 * CUBRID ExportModel
 	 *
 	 * @param	array	Preferences
 	 * @return	mixed
