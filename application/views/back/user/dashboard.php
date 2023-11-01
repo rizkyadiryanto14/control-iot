@@ -40,7 +40,7 @@
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div class="col-md-12">
+				<div id="alert" class="col-md-12">
 					<div class="alert alert-success" role="alert">
 						Selamat Datang <?= $this->session->userdata('username') ?>
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -48,23 +48,16 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="info-box">
-						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Total Entry</span>
-							<span class="info-box-number">
-							 	<div class="total_entry"></div>
-                			</span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
+				<div class="col-md-12 pb-2">
+					<form action="<?= base_url('bazzerStatus') ?>" method="post">
+						<input type="hidden" name="id" id="id" value="<?= $bazzer_status['id'] ?>">
+						<button class="btn btn-primary <?= $var = $bazzer_status['status'] == 1 ? 'btn btn-primary ' : 'btn btn-danger' ?>">Button Danger</button>
+					</form>
 				</div>
 				<!-- /.col -->
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
-						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
+						<span class="info-box-icon bg-gradient-gray elevation-1"><i class="fas fa-users-cog"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text">Total Chanel</span>
 							<span class="info-box-number">
@@ -77,11 +70,9 @@
 					<!-- /.info-box -->
 				</div>
 				<!-- /.col -->
-
 				<!-- fix for small devices only -->
 				<div class="clearfix hidden-md-up"></div>
 				<!-- fix for small devices only -->
-
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
@@ -96,24 +87,6 @@
 					<!-- /.info-box -->
 				</div>
 				<!-- /.col -->
-				<div class="col-12 col-sm-6 col-md-3">
-					<div class="info-box mb-3">
-						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
-						<div class="info-box-content">
-							<span class="info-box-text">Oxygen</span>
-							<span class="info-box-number">
-								<div class="oxygen"></div>
-							</span>
-						</div>
-						<!-- /.info-box-content -->
-					</div>
-					<!-- /.info-box -->
-				</div>
-				<!-- /.col -->
-			</div>
-			<!-- /.row -->
-			<div class="row">
-
 			</div>
 	</section>
 	<!-- /.content -->
@@ -141,6 +114,13 @@
 
 		}, 100);
 	});
+</script>
+
+<script>
+	// Menghilangkan alert setelah 15 detik
+	setTimeout(function() {
+		$('#alert').fadeOut('slow');
+	}, 1500);
 </script>
 
 

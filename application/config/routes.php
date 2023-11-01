@@ -7,6 +7,8 @@ $route['translate_uri_dashes'] 		= FALSE;
 
 $route['auth/login'] 				= 'Auth/Login';
 $route['logout'] 					= 'Auth/logout';
+$route['register']					= 'Auth/register_view';
+$route['proses_register']			= 'Auth/Register';
 $route['admin/dashboard'] 			= 'Backend/Dashboard';
 
 $route['admin/chanel'] 				= 'Backend/Chanel';
@@ -41,8 +43,12 @@ $route['user/token_generate']		= 'User/Token/generate';
 $route['import']					= 'User/Import/import';
 $route['export']					= 'User/Export/export';
 
+$route['bazzerStatus']				= 'Bazzer/Bazzer_setting/changeStatus';
+
 //settting
 $route['setting']					= 'Setting/Umum';
 $route['setting/add']				= 'Setting/Umum/store';
 $route['setting/update']			= 'Setting/Umum/update';
 $route['setting/reset']				=' Setting/Umum/reset';
+
+$route['home_setting']						= 'Backend/Home';

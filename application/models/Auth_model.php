@@ -16,4 +16,9 @@ class  Auth_model extends CI_Model
 		$this->db->where('username', $username);
 		return $this->db->get('users')->row_array();
 	}
+
+	public function insertuser($data)
+	{
+		return $this->db->insert('users', $data);
+	}
 }

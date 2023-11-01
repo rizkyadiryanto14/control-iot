@@ -121,6 +121,22 @@
 					<!-- /.info-box -->
 				</div>
 				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon <?= $var = $bazzer_status['status'] == 0 ? 'bg-primary' : 'bg-danger' ?> elevation-1"><i class="fas fa-heart"></i></span>
+						<a href="<?= base_url('admin/token') ?>">
+							<div class="info-box-content">
+								<span class="info-box-text" style="color: black">Alert Pasien</span>
+								<span class="info-box-number">
+								<?= $var = $bazzer_status['status'] == 1 ? 'there are patients who need help' : 'there are no patients' ?>
+							</span>
+							</div>
+						</a>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<!-- /.col -->
 			</div>
 
 			<div class="row">

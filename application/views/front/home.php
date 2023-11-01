@@ -10,7 +10,7 @@
 	<link rel="icon" type="image/x-icon" href="<?= base_url() ?>back_assets/home/assets/favicon.ico"/>
 	<!-- Custom Google font-->
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link rel="preconnect" href="https://fonts.gstat999999999ic.com" crossorigin/>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 		rel="stylesheet"/>
@@ -58,7 +58,7 @@
 							<a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
 							   href="<?= base_url('auth') ?>">Let's Start</a>
 							<a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder"
-							   href="<?= base_url('auth') ?>">Projects</a>
+							   href="<?= base_url('auth') ?>">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -288,18 +288,57 @@
 					<div class="text-center my-5">
 						<h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About</span></h2>
 						<p class="lead fw-light mb-4">OCC-IoT-Platform</p>
-						<p class="text-muted">This platform is an IoT monitoring platform that is developed to be
-							similar to Thinkspeak, but with a simpler version. Hope you enjoy</p>
-						<div class="d-flex justify-content-center fs-2 gap-4">
-							<a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>
-							<a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
-							<a class="text-gradient" href="#!"><i class="bi bi-github"></i></a>
-						</div>
+						<p class="text-left">Occ-iot-platform is a dashboard app on the lot that can be used to monitor the suspension project on all of you, this platform is under development and will remain an open source</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+<!--	<section class="bg-gradient-primary py-5">-->
+<!--		<div class="container px-5">-->
+<!--			<div class="row gx-5 justify-content-center">-->
+<!--				<div class="col-xxl-12">-->
+<!--					<div class="text-center my-5">-->
+<!--						<h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">Featured Project and Customer Stories</span></h2>-->
+<!--						<div class="row">-->
+<!--							<div class="col-xs-12 col-md-6 col-lg-3 p-2">-->
+<!--								<div class="card">-->
+<!--									<img src="--><?php //= base_url('back_assets/img/background.jpg') ?><!--" class="card-img-top" alt="...">-->
+<!--									<div class="card-body">-->
+<!--										<p class="card-text">Cadmus used MATLAB and ThinkSpeak to deploy a system of cloud-connected sensors for the near-real-time measurement and analysis of energy data. The system use off-the-shelf hardware to monitor and analyze loads of HVAC systems and large appliances</p>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-xs-12 col-md-6 col-lg-3 p-2">-->
+<!--								<div class="card">-->
+<!--									<img src="--><?php //= base_url('back_assets/img/background.jpg') ?><!--" class="card-img-top" alt="...">-->
+<!--									<div class="card-body">-->
+<!--										<p class="card-text">This project shows how to prototype and deploy an IoT system with data analytics without developing custom web software.  Specifically, a tidal forecasting system that uses neural networks to predict the effect of wind on water levels is described. </p>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-xs-12 col-md-6 col-lg-3 p-2">-->
+<!--								<div class="card">-->
+<!--									<img src="--><?php //= base_url('back_assets/img/background.jpg') ?><!--" class="card-img-top" alt="...">-->
+<!--									<div class="card-body">-->
+<!--										<p class="card-text">This project shows how to build a traffic monitor with a Raspberry Pi and a webcam.  Simulink is used to design and deploy an algorithm onto the Raspberry Pi that calculates the density of cars on a busy highway.  The traffic information is sent to ThingSpeak, and MATLAB is used to analyze and visualize the traffic patterns.</p>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--							<div class="col-xs-12 col-md-6 col-lg-3 p-2">-->
+<!--								<div class="card">-->
+<!--									<img src="--><?php //= base_url('back_assets/img/background.jpg') ?><!--" class="card-img-top" alt="...">-->
+<!--									<div class="card-body">-->
+<!--										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</section>-->
 </main>
 <!-- Footer-->
 <footer class="bg-white py-4 mt-auto">

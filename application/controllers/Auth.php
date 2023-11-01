@@ -61,4 +61,30 @@ class  Auth extends CI_Controller
 		redirect(base_url('home'));
 	}
 
+	public function register_view()
+	{
+		$this->load->view('auth/register');
+	}
+
+
+	public function Register()
+	{
+		$data  = [
+			'username'		=> $this->input->post('username'),
+			'nama_lengkap'	=> $this->input->post('nama_lengkap'),
+			'email'			=> $this->input->post('email'),
+			'password'		=> password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+			'role'			=> 'user'
+		];
+
+		$register = $this->Auth_model->insertuser($data);
+
+		if ($register){
+			$this->session->set_flashdata('sukses', 'Register Success');
+			redirect(base_url('auth'));
+		}else{
+			$this->session->set_flashdata('gagal', 'Register failed, Please Contact Support');
+			redirect(base_url('auth'));
+		}
+	}
 }

@@ -74,8 +74,6 @@ class Grafik extends CI_Controller
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
 			$data['chanel']	= $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel);
 
-
-
 			$this->load->view('partials/header');
 			$this->load->view('partials/navbar');
 			$this->load->view('partials/sidebar', $listing);
@@ -89,15 +87,15 @@ class Grafik extends CI_Controller
 		$data = $this->Feeds_model->getFeedsByIdFIlter($id_chanel, $mulai, $end);
 		foreach ($data as $item){
 			$response = [
-				'created_at' => $item->created_at,
-				'field1' => $item->field1,
-				'field2' => $item->field2,
-				'field3' => $item->field3,
-				'field4' => $item->field4,
-				'field5' => $item->field5,
-				'field6' => $item->field6,
-				'field7' => $item->field7,
-				'field8' => $item->field8
+				'created_at' 	=> $item->created_at,
+				'field1' 		=> $item->field1,
+				'field2' 		=> $item->field2,
+				'field3' 		=> $item->field3,
+				'field4' 		=> $item->field4,
+				'field5' 		=> $item->field5,
+				'field6' 		=> $item->field6,
+				'field7' 		=> $item->field7,
+				'field8' 		=> $item->field8
 			];
 		}
 		$this->output
@@ -111,15 +109,15 @@ class Grafik extends CI_Controller
 		$data = $this->Feeds_model->getFeedsById($id_chanel);
 		foreach ($data as $item) {
 			$response = [
-				'created_at' => $item->created_at,
-				'field1' => $item->field1,
-				'field2' => $item->field2,
-				'field3' => $item->field3,
-				'field4' => $item->field4,
-				'field5' => $item->field5,
-				'field6' => $item->field6,
-				'field7' => $item->field7,
-				'field8' => $item->field8
+				'created_at' 	=> $item->created_at,
+				'field1' 		=> $item->field1,
+				'field2' 		=> $item->field2,
+				'field3' 		=> $item->field3,
+				'field4' 		=> $item->field4,
+				'field5' 		=> $item->field5,
+				'field6' 		=> $item->field6,
+				'field7' 		=> $item->field7,
+				'field8' 		=> $item->field8
 			];
 		}
 		$this->output

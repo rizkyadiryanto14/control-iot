@@ -57,8 +57,8 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="icon-tab" data-toggle="tab" href="#icon" role="tab"
-							   aria-controls="icon" aria-selected="false">Data Import/Export <small
-									class="badge badge-danger">Beta</small>
+							   aria-controls="icon" aria-selected="false">
+								Data Import/Export
 							</a>
 						</li>
 					</ul>

@@ -64,6 +64,14 @@
 								</p>
 							</a>
 						</li>
+<!--						<li class="nav-item">-->
+<!--							<a href="--><?php //= base_url('home_setting') ?><!--" class="nav-link">-->
+<!--								<i class="nav-icon fas fa-cog pl-2"></i>-->
+<!--								<p>-->
+<!--									Home-->
+<!--								</p>-->
+<!--							</a>-->
+<!--						</li>-->
 					</ul>
 				</nav>
 			<?php } else if ($listing_role['role'] == 'user') { ?>

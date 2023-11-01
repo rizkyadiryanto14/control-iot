@@ -23,4 +23,11 @@ class Dashboard_model extends CI_Model
 	{
 		return $this->db->get('token_read')->num_rows();
 	}
+
+	public function GetLastFeeds($chanel_id)
+	{
+		$this->db->select('id');
+		$this->db->where('chanel_id', $chanel_id);
+		return $this->db->get('feeds')->row_array();
+	}
 }

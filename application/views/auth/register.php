@@ -87,10 +87,22 @@
 
 		<div class="row">
 			<div class="col-12 col-md-5 mx-auto mt-6">
-				<form action="<?php echo base_url('auth/login'); ?>" method="POST">
+				<form action="<?php echo base_url('proses_register'); ?>" method="POST">
+					<div class="form-group">
+						<input type="text" class="form-control" minlength="2" maxlength="32" name="nama_lengkap"
+							   placeholder="Full Name" required autofocus/>
+					</div>
+					<div class="form-group">
+						<input type="email" class="form-control" minlength="2" maxlength="32" name="email"
+							   placeholder="Email" required autofocus/>
+					</div>
 					<div class="form-group">
 						<input type="text" class="form-control" minlength="2" maxlength="32" name="username"
 							   placeholder="Username" required autofocus/>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" minlength="2" maxlength="32" name="alamat"
+							   placeholder="Address" required autofocus/>
 					</div>
 					<div class="form-group">
 						<input type="password" minlength="2" maxlength="32"
@@ -101,11 +113,12 @@
 						<div class="d-flex justify-content-between">
 							<div class="custom-control custom-checkbox">
 							</div>
-							 <a href="<?= base_url('register') ?>" target="_blank">create account?</a>
+							<a href="<?= base_url('auth') ?>" target="_blank">
+								already have an account</a>
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary w-100" value="Masuk"/>
+						<input type="submit" class="btn btn-primary w-100" value="Sign Up"/>
 					</div>
 				</form>
 			</div>

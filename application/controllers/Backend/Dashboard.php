@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * @property Listing_model $Listing_model
  * @property Dashboard_model $Dashboard_model
+ * @property Bazzer_model $Bazzer_model
  */
 
 class Dashboard extends CI_Controller
@@ -13,6 +14,7 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->model('Listing_model');
 		$this->load->model('Dashboard_model');
+		$this->load->model('Bazzer_model');
 		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
 			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
@@ -28,7 +30,8 @@ class Dashboard extends CI_Controller
 			'users'			=> $this->Dashboard_model->getTotalUser(),
 			'chanel'		=> $this->Dashboard_model->getTotalChanel(),
 			'token_write'	=> $this->Dashboard_model->getTotalTokenWrite(),
-			'token_read'	=> $this->Dashboard_model->getTotalTokenRead()
+			'token_read'	=> $this->Dashboard_model->getTotalTokenRead(),
+			'bazzer_status'	=> $this->Bazzer_model->getStatusBazzer()
 		];
 
 		$this->load->view('partials/header');

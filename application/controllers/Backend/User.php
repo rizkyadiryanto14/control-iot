@@ -28,6 +28,7 @@ class User extends CI_Controller
 		$data = [
 			'list_users' => $this->User_model->getAllData(),
 		];
+
 		$this->load->view('partials/header');
 		$this->load->view('partials/navbar');
 		$this->load->view('partials/sidebar', $listing);

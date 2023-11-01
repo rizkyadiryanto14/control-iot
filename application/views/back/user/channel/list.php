@@ -1,18 +1,18 @@
 <style>
-	@media (min-width: 768px) and (max-width: 991px)
 
-	.hidden-sm {
-		display: none !important;
+	@media (max-width: 767px) {
+		.btn-group {
+			display: none !important;
+		}
 	}
 
-	.btn-group, .btn-group-vertical {
+	.btn-group {
 		position: relative;
 		display: inline-block;
 		vertical-align: middle;
 	}
 
 	a {
-		font-family: 'Source Sans Pro', serif;
 		font-size: 14px;
 		line-height: 25px;
 		color: #22ac3c;
@@ -37,16 +37,7 @@
 	}
 
 	table {
-
 		border-spacing: 0;
-	}
-
-	body {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 14px;
-		line-height: 1.42857143;
-		color: #333;
-		background-color: #fff;
 	}
 </style>
 
@@ -98,7 +89,7 @@
 													<div class="channel_title_small">
 														<a href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
 													</div>
-													<div class="btn-group btn-group-sm hidden-xs hidden-sm hidden-md"
+													<div class="btn-group btn-group-sm  hidden-xs hidden-sm hidden-md"
 														 style="margin-top:5px">
 														<a class="btn btn-default"
 														   href="<?= base_url('user/chanelDetail/' . $item->id_chanel) ?>">Settings</a>
@@ -114,7 +105,7 @@
 												<td><?= $item->created_at ?></td>
 												<td><?= $item->updated_at ?></td>
 												<td><?= $item->username ?></td>
-												<td>
+												<td class="text-center">
 													<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusChanel<?= $item->id_chanel ?>"><i class="fas fa-trash"></i></button>
 												</td>
 											</tr>

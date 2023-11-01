@@ -14,7 +14,6 @@
 			</div><!-- /.row -->
 		</div><!-- /.container-fluid -->
 	</div>
-
 	<section class="content">
 		<div class="container-fluid">
 			<div class="card shadow-lg">
@@ -53,6 +52,7 @@
 											<td><?= $no++ ?></td>
 											<td><?= $item->username ?></td>
 											<td><?= $item->created_at ?></td>
+											<!--bug bagian sini-->
 											<td>
 												<button class="btn btn-primary" data-target="#edit<?= $item->id ?>" data-toggle="modal"><i class="fas fa-edit"></i></button>
 												<button class="btn btn-danger" data-target="#hapus<?= $item->id ?>" data-toggle="modal"><i class="fas fa-trash"></i></button>

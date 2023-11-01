@@ -31,14 +31,13 @@
 <!-- daterangepicker -->
 <script src="<?= base_url() ?>back_assets/plugins/moment/moment.min.js"></script>
 <script src="<?= base_url() ?>back_assets/plugins/daterangepicker/daterangepicker.js"></script>
-
 <script src="<?= base_url() ?>back_assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
 <script src="<?= base_url() ?>back_assets/plugins/raphael/raphael.min.js"></script>
 <script src="<?= base_url() ?>back_assets/plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="<?= base_url() ?>back_assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-<script src="<?= base_url('back_assets/js/user/dashboard_users.js') ?>"></script>
+<!--<script src="--><?php //= base_url('back_assets/js/user/dashboard_users.js') ?><!--"></script>-->
 
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
