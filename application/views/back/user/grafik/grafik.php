@@ -76,7 +76,7 @@
 				<div class="clearfix hidden-md-up"></div>
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
-						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-pencil-alt"></i></span>
+						<span class="info-box-icon bg-success elevation-1"><i class="fas fa-heart"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text"><?=$chanel['field2'] ?></span>
 							<span class="info-box-number">
@@ -90,7 +90,7 @@
 				<!-- /.col -->
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
-						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
 						<div class="info-box-content">
 							<span class="info-box-text"><?= $chanel['field3'] ?></span>
 							<span class="info-box-number">
@@ -103,28 +103,56 @@
 				</div>
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
-						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-hospital-alt"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text"><?= $chanel['field4'] ?></span>
+							<span class="info-box-text">Help</span>
 							<span class="info-box-number">
-								<div class="oxygen"></div>
+								<?= $var = $bazzer_status['status'] == 0 ? 'There\'s no Help' : 'Help' ?>
 							</span>
 						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
-						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text"><?= $chanel['field5'] ?></span>
+							<span class="info-box-text"><?= $var =  $chanel['field6'] ? $chanel['field6'] : 'Zero' ?></span>
 							<span class="info-box-number">
-								<div class="oxygen"></div>
+
 							</span>
 						</div>
+						<!-- /.info-box-content -->
 					</div>
+					<!-- /.info-box -->
 				</div>
-				<!-- /.col -->
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text"><?= $var = $chanel['field7'] ? $chanel['field7'] : 'Zero' ?></span>
+							<span class="info-box-number">
+
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text"><?= $var = $chanel['field8'] != null ? $chanel['field8'] : 'Zero' ?></span>
+							<span class="info-box-number">
+
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -224,6 +252,45 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Map</h3>
+							</div>
+							<div class="card-body">
+								<div class="form-group">
+									<div id='map' style='width: 100%; height: 300px;'></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Longitude & Latitude</h3>
+							</div>
+							<form action="<?= base_url('user/updateMap') ?>" method="post">
+							<div class="card-body">
+								<?php if (!empty($peta)) {
+									foreach ($peta as $item) { ?>
+										<div class="form-group">
+											<input type="hidden" name="chanel_id" id="chanel_id" value="<?= $chanel['id_chanel'] ?>">
+											<label for="longitude">Longitude</label>
+											<input type="text" name="longitude" id="longitude" class="form-control" value="<?= $item->longitude ?>">
+										</div>
+										<div class="form-group">
+											<label for="latitude">Latitude</label>
+											<input type="text" name="latitude" id="latitude" class="form-control" value="<?= $item->latitude ?>">
+										</div>
+									<?php }
+								} ?>
+							</div>
+								<div class="card-footer">
+									<button class="btn btn-primary" type="submit">Simpan</button>
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<?php if (!empty($grafik)){
@@ -290,6 +357,8 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="<?= base_url('back_assets/dist/js/myjs/mapbox.js') ?>"></script>
+
 
 <script>
 	$(document).ready(function () {
@@ -304,6 +373,9 @@
 		}, 100);
 	});
 </script>
+
+
+
 
 
 

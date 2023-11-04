@@ -27,6 +27,14 @@
 	<link rel="stylesheet" href="<?= base_url() ?>back_assets/plugins/daterangepicker/daterangepicker.css">
 	<!-- summernote -->
 	<link rel="stylesheet" href="<?= base_url() ?>back_assets/plugins/summernote/summernote-bs4.min.css">
+
+<!--	mapbox-->
+
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+
+	<!--	end mapbox-->
 	<style>
 		* {
 			transition: all 0.5s;

@@ -5,6 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @property Listing_model $Listing_model
  * @property Feeds_model $Feeds_model
  * @property Chanel_model $Chanel_model
+ * @property Bazzer_model $Bazzer_model
  */
 class Grafik extends CI_Controller
 {
@@ -14,6 +15,7 @@ class Grafik extends CI_Controller
 		$this->load->model('Listing_model');
 		$this->load->model('Feeds_model');
 		$this->load->model('Chanel_model');
+		$this->load->model('Bazzer_model');
 	}
 
 	public function index(): void
@@ -52,6 +54,8 @@ class Grafik extends CI_Controller
 				$data = [
 					'grafik'		=>  $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page, $mulai, $end),
 					'filterGrafik'	=> 	$this->Feeds_model->getFeedsByIdFIlter($id_chanel,$mulai,$end),
+					'chanel'		=> 	$this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel),
+					'peta'			=> 	$this->Feeds_model->get_peta($id_chanel)
 				];
 				$this->load->view('partials/header');
 				$this->load->view('partials/navbar');
@@ -61,7 +65,9 @@ class Grafik extends CI_Controller
 			}else{
 				$data = [
 					'grafik'		=>  $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page, $mulai, $end),
-					'chanel'		=> $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel)
+					'chanel'		=> $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel),
+					'bazzer_status'	=> $this->Bazzer_model->getStatusBazzer(),
+					'peta'			=> 	$this->Feeds_model->get_peta($id_chanel)
 				];
 				$this->load->view('partials/header');
 				$this->load->view('partials/navbar');
@@ -73,7 +79,8 @@ class Grafik extends CI_Controller
 			$config['per_page'] = 10;
 			$data['grafik'] = $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page);
 			$data['chanel']	= $this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel);
-
+			$data['bazzer_status'] = $this->Bazzer_model->getStatusBazzer();
+			$data['peta']	= $this->Feeds_model->get_peta($id_chanel);
 			$this->load->view('partials/header');
 			$this->load->view('partials/navbar');
 			$this->load->view('partials/sidebar', $listing);
@@ -123,5 +130,24 @@ class Grafik extends CI_Controller
 		$this->output
 			->set_content_type('application/json')
 			->set_output(json_encode($response));
+	}
+
+	public function update_map()
+	{
+		$chanel_id	= $this->input->post('chanel_id');
+		$data = [
+			'longitude'		=> $this->input->post('longitude'),
+			'latitude'		=> $this->input->post('latitude')
+		];
+
+		$update = $this->Feeds_model->update_map($chanel_id, $data);
+
+		if ($update){
+			$this->session->set_flashdata('sukses','Success Update Data');
+			redirect(base_url('user/grafik'));
+		}else {
+			$this->session->set_flashdata('gagal','wrong Update Data');
+			redirect(base_url('user/grafik'));
+		}
 	}
 }

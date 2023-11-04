@@ -43,6 +43,8 @@ $route['user/token_generate']		= 'User/Token/generate';
 $route['import']					= 'User/Import/import';
 $route['export']					= 'User/Export/export';
 
+$route['user/updateMap']			= 'User/Grafik/update_map';
+
 $route['bazzerStatus']				= 'Bazzer/Bazzer_setting/changeStatus';
 
 //settting
