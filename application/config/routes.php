@@ -53,4 +53,4 @@ $route['setting/add']				= 'Setting/Umum/store';
 $route['setting/update']			= 'Setting/Umum/update';
 $route['setting/reset']				=' Setting/Umum/reset';
 
-$route['home_setting']						= 'Backend/Home';
+$route['home_setting']				= 'Backend/Home';

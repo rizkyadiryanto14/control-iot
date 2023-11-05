@@ -48,7 +48,7 @@
 								foreach ($setting as $item) { ?>
 									<tr class="text-center">
 										<td><?= $no++ ?></td>
-										<td><?= $item->waktu?></td>
+										<td><?= $item->waktu?> second</td>
 										<td><?= $item->last_update?></td>
 										<td>
 											<button class="btn btn-primary" data-toggle="modal" data-target="#editWaktu"><i class="fas fa-edit"></i></button>
@@ -91,51 +91,27 @@
 	</div>
 </div>
 
-<div class="modal fade" id="tambahSetting">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title">Setting</h3>
-			</div>
-			<form action="<?= base_url('setting/update') ?>" method="POST">
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="waktu">Waktu</label>
-						<input type="text" name="waktu" id="waktu" class="form-control" placeholder="1 (menit)">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
-					<button class="btn btn-primary" type="submit">Simpan</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-
 <div class="modal fade" id="resetWaktu">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="modal-title">
-					Reset Waktu 
-				</h3>
+				<h3 class="modal-title">Reset Waktu</h3>
 			</div>
-			<form action="<?= base_url('setting/reset') ?>" method="post">
-				<div class="modal-body">
-					<div class="form-group">
-						<?php foreach ($setting as $item) { ?>
+			<?php foreach ($setting as $item) { ?>
+				<form action="<?= base_url('setting/update') ?>" method="post">
+					<div class="modal-body">
+						<div class="form-group">
 							<input type="hidden" name="id" id="id" value="<?= $item->id ?>">
-						<?php } ?>
-						<input type="hidden" name="waktu" id="waktu" value="1">
-						Apakah anda yakin ingin mereset waktu ?
+							<input type="hidden" name="waktu" id="waktu" value="1.5">
+							Apakah anda yakin ingin mereset waktu ?
+						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button class="btn btn-danger" type="submit">Reset</button>
-				</div>
-			</form>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button class="btn btn-danger" type="submit">Reset</button>
+					</div>
+				</form>
+			<?php } ?>
 		</div>
 	</div>
 </div>

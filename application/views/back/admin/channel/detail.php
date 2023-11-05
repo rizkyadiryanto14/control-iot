@@ -172,11 +172,11 @@ pre {
                                                 <input type="text" name="token" id="token" class="form-control"
                                                     value="<?php echo empty($token['token']) ? '' : $token['token']; ?>"
                                                     readonly>
-                                                <form action="<?= base_url('backend/token_generate') ?>" method="post">
-                                                    <button class="btn btn-warning mt-3" type="submit">Generate New
-                                                        Write API Keys
-                                                    </button>
-                                                </form>
+<!--                                                <form action="--><?php //= base_url('backend/token_generate') ?><!--" method="post">-->
+<!--                                                    <button class="btn btn-warning mt-3" type="submit">Generate New-->
+<!--                                                        Write API Keys-->
+<!--                                                    </button>-->
+<!--                                                </form>-->
                                             </div>
                                         </div>
                                     </div>

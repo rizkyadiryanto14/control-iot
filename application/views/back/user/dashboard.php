@@ -48,12 +48,12 @@
 						</button>
 					</div>
 				</div>
-				<div class="col-md-12 pb-2">
-					<form action="<?= base_url('bazzerStatus') ?>" method="post">
-						<input type="hidden" name="id" id="id" value="<?= $bazzer_status['id'] ?>">
-						<button class="btn btn-primary <?= $var = $bazzer_status['status'] == 1 ? 'btn btn-primary ' : 'btn btn-danger' ?>">Button Danger</button>
-					</form>
-				</div>
+<!--				<div class="col-md-12 pb-2">-->
+<!--					<form action="--><?php //= base_url('bazzerStatus') ?><!--" method="post">-->
+<!--						<input type="hidden" name="id" id="id" value="--><?php //= $bazzer_status['id'] ?><!--">-->
+<!--						<button class="btn btn-primary --><?php //= $var = $bazzer_status['status'] == 1 ? 'btn btn-primary ' : 'btn btn-danger' ?><!--">Button Danger</button>-->
+<!--					</form>-->
+<!--				</div>-->
 				<!-- /.col -->
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
@@ -92,11 +92,13 @@
 						<div class="info-box-content">
 							<span class="info-box-text">Help</span>
 							<span class="info-box-number">
-								<button class="btn btn-primary btn-sm">Help</button>
+								<form action="<?= base_url('bazzerStatus') ?>" method="post">
+									<input type="hidden" name="id" id="id" value="<?= $bazzer_status['id'] ?>">
+									<button class="btn btn-primary btn-xs <?= $var = $bazzer_status['status'] == 1 ? 'btn btn-primary btn-xs' : 'btn btn-danger btn-xs' ?>">Button Danger</button>
+								</form>
 							</span>
 						</div>
 					</div>
-
 				</div>
 				<!-- /.col -->
 			</div>

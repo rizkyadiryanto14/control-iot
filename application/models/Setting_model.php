@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+
 class Setting_model extends CI_Model
 {
 	public function getSetting()
@@ -18,9 +19,4 @@ class Setting_model extends CI_Model
 		return $this->db->update('setting', $data);
 	}
 
-	public function DeleteSetting($id)
-	{
-		$this->db->where('id', $id);
-		return $this->db->delete('setting');
-	}
 }

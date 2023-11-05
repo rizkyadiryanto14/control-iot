@@ -67,13 +67,16 @@ class Umum extends CI_Controller
 		}
 	}
 
-	public function reset()
+	public function resetWaktu()
 	{
 		$id = $this->input->post('id');
 		$data = [
-			'waktu'			=> $this->input->post('waktu'),
+			'waktu'			=> 1.5,
 			'last_update'	=> date('Y-m-d H:i:s')
 		];
+
+		var_dump($data);
+		die();
 
 		$reset = $this->Setting_model->updateSetting($id, $data);
 
@@ -82,21 +85,6 @@ class Umum extends CI_Controller
 			redirect(base_url('setting'));
 		}else {
 			$this->session->set_flashdata('gagal', 'Data Setting gagal di reset');
-			redirect(base_url('setting'));
-		}
-	}
-
-	public function DeleteSetting($id)
-	{
-		$id = $this->input->post('id');
-
-		$delete = $this->Setting_model->DeleteSetting($id);
-
-		if ($delete){
-			$this->session->set_flashdata('sukses', 'Data Setting Berhasil di Hapus');
-			redirect(base_url('setting'));
-		}else{
-			$this->session->set_flashdata('gagal', 'Data Setting Gagal di hapus');
 			redirect(base_url('setting'));
 		}
 	}
