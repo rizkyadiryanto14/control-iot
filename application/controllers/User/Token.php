@@ -19,8 +19,8 @@ class Token extends  CI_Controller
 		$key = $this->generateSecretKey();
 		$data = array(
 			"id_chanel" => $this->input->post('id_chanel'),
-			"id_users" => $id_users,
-			"token" => $key
+			"id_users" 	=> $id_users,
+			"token" 	=> $key
 		);
 
 		$insert = $this->Token_model->UpdateToken($data['id_chanel'], $data);

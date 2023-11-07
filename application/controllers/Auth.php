@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @property Auth_model $Auth_model
+ * @property Email_sender $Email_sender
  */
 
 class  Auth extends CI_Controller
@@ -11,6 +12,7 @@ class  Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Auth_model');
+		$this->load->model('Email_sender');
 	}
 
 	public function index(): void
@@ -80,6 +82,15 @@ class  Auth extends CI_Controller
 		$register = $this->Auth_model->insertuser($data);
 
 		if ($register){
+			$isi_email = '
+				<p>Anda telah berhasil mendaftar, harap bersabar sampai akun anda diverifikasi oleh admin kami.</p>
+				<b>Data untuk login: </b>
+				<ul>
+					<li>NISN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : ' . $data['email'] . '</li>
+					<li>Password &nbsp;&nbsp;&nbsp; : ' . $data['password'] . ' </li>
+				</ul>
+				';
+			$this->Email_sender->send("Berhasil Mendaftar", $data['email'], $isi_email);
 			$this->session->set_flashdata('sukses', 'Register Success');
 			redirect(base_url('auth'));
 		}else{

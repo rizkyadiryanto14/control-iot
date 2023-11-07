@@ -86,4 +86,9 @@ class User extends CI_Controller
 			redirect(base_url('admin/user'));
 		}
 	}
+
+	public function decodeJson()
+	{
+
+	}
 }

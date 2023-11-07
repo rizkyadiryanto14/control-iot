@@ -1,17 +1,17 @@
 <style>
-pre {
-    display: block;
-    padding: 10px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.42857143;
-    word-break: break-all;
-    word-wrap: break-word;
-    color: #333;
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+    pre {
+        display: block;
+        padding: 10px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
 </style>
 
 <div class="content-wrapper">
@@ -20,22 +20,22 @@ pre {
         <div class="container-fluid">
             <div class="row mb-2">
                 <?php if (isset($detail_chanel)) {
-					foreach ($detail_chanel as $item) { ?>
-                <div class="col-sm-6">
-                    <h1 class="m-0"><?= $item['nama'] ?></h1>
-                    <table>
-                        <td>Chanel ID</td>
-                        <td>: <?= $item['id_chanel'] ?></td>
-                    </table>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Detail Settings</li>
-                    </ol>
-                </div><!-- /.col -->
+                    foreach ($detail_chanel as $item) { ?>
+                        <div class="col-sm-6">
+                            <h1 class="m-0"><?= $item['nama'] ?></h1>
+                            <table>
+                                <td>Chanel ID</td>
+                                <td>: <?= $item['id_chanel'] ?></td>
+                            </table>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Detail Settings</li>
+                            </ol>
+                        </div><!-- /.col -->
                 <?php }
-				} ?>
+                } ?>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
@@ -48,17 +48,13 @@ pre {
                 <div class="card-header">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="umum-tab" data-toggle="tab" href="#umum" role="tab"
-                                aria-controls="umum" aria-selected="true">Channel Settings</a>
+                            <a class="nav-link active" id="umum-tab" data-toggle="tab" href="#umum" role="tab" aria-controls="umum" aria-selected="true">Channel Settings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab"
-                                aria-controls="logo" aria-selected="false">API Keys</a>
+                            <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab" aria-controls="logo" aria-selected="false">API Keys</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="icon-tab" data-toggle="tab" href="#icon" role="tab"
-                                aria-controls="icon" aria-selected="false">Data Import/Export <small
-                                    class="badge badge-danger">Beta</small></a>
+                            <a class="nav-link" id="icon-tab" data-toggle="tab" href="#icon" role="tab" aria-controls="icon" aria-selected="false">Data Import/Export <small class="badge badge-danger">Beta</small></a>
                         </li>
                     </ul>
                 </div>
@@ -72,62 +68,52 @@ pre {
                                 <div class="row">
                                     <form action="#" method="post">
                                         <?php if (isset($detail_chanel)) {
-											foreach ($detail_chanel as $item) { ?>
-                                        <div class="col-md-6 order-md-1">
-                                            <h3 class="col-md-12 order-md-1">Channel Settings</h3>
-                                            <div class="form-group">
-                                                <label for="nama">Nama</label>
-                                                <input type="text" name="nama" value="<?= $item['nama'] ?>" id="nama"
-                                                    class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <input type="text" name="description" id="description"
-                                                    value="<?= $item['description'] ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field1">Field 1</label>
-                                                <input type="text" name="field1" id="field1"
-                                                    value="<?= $item['field1'] ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field2">Field 2</label>
-                                                <input type="text" name="field2" id="field2"
-                                                    value="<?= $item['field2'] ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field3">Field 3</label>
-                                                <input type="text" name="field3" id="field3"
-                                                    value="<?= $item['field3'] ?>" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field4">Field 4</label>
-                                                <input type="text" name="field4" value="<?= $item['field4'] ?>"
-                                                    id="field4" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field5">Field 5</label>
-                                                <input type="text" name="field5" value="<?= $item['field5'] ?>"
-                                                    id="field5" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field6">Field 6</label>
-                                                <input type="text" name="field6" value="<?= $item['field6'] ?>"
-                                                    id="field6" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field7">Field 7</label>
-                                                <input type="text" name="field7" value="<?= $item['field7'] ?>"
-                                                    id="field7" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="field8">Field 8</label>
-                                                <input type="text" name="field8" value="<?= $item['field8'] ?>"
-                                                    id="field8" class="form-control">
-                                            </div>
-                                        </div>
+                                            foreach ($detail_chanel as $item) { ?>
+                                                <div class="col-md-6 order-md-1">
+                                                    <h3 class="col-md-12 order-md-1">Channel Settings</h3>
+                                                    <div class="form-group">
+                                                        <label for="nama">Nama</label>
+                                                        <input type="text" name="nama" value="<?= $item['nama'] ?>" id="nama" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="description">Description</label>
+                                                        <input type="text" name="description" id="description" value="<?= $item['description'] ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field1">Field 1</label>
+                                                        <input type="text" name="field1" id="field1" value="<?= $item['field1'] ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field2">Field 2</label>
+                                                        <input type="text" name="field2" id="field2" value="<?= $item['field2'] ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field3">Field 3</label>
+                                                        <input type="text" name="field3" id="field3" value="<?= $item['field3'] ?>" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field4">Field 4</label>
+                                                        <input type="text" name="field4" value="<?= $item['field4'] ?>" id="field4" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field5">Field 5</label>
+                                                        <input type="text" name="field5" value="<?= $item['field5'] ?>" id="field5" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field6">Field 6</label>
+                                                        <input type="text" name="field6" value="<?= $item['field6'] ?>" id="field6" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field7">Field 7</label>
+                                                        <input type="text" name="field7" value="<?= $item['field7'] ?>" id="field7" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="field8">Field 8</label>
+                                                        <input type="text" name="field8" value="<?= $item['field8'] ?>" id="field8" class="form-control">
+                                                    </div>
+                                                </div>
                                         <?php }
-										} ?>
+                                        } ?>
                                     </form>
                                     <div class="col-md-6 order-md-1">
                                         <h3 class="col-md-12 order-md-1">Help</h3>
@@ -153,8 +139,7 @@ pre {
                                 </div>
                                 <div class="row col-md-12">
                                     <input type="reset" name="reset" value="Reset" class="btn btn-secondary mr-2">
-                                    <input type="submit" name="submit" value="Simpan Konfigurasi"
-                                        class="btn btn-primary">
+                                    <input type="submit" name="submit" value="Simpan Konfigurasi" class="btn btn-primary">
                                 </div>
                             </form>
                         </div>
@@ -169,27 +154,25 @@ pre {
                                                 <label for="token">Key</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="token" id="token" class="form-control"
-                                                    value="<?php echo empty($token['token']) ? '' : $token['token']; ?>"
-                                                    readonly>
-<!--                                                <form action="--><?php //= base_url('backend/token_generate') ?><!--" method="post">-->
-<!--                                                    <button class="btn btn-warning mt-3" type="submit">Generate New-->
-<!--                                                        Write API Keys-->
-<!--                                                    </button>-->
-<!--                                                </form>-->
+                                                <input type="text" name="token" id="token" class="form-control" value="<?php echo empty($token['token']) ? '' : $token['token']; ?>" readonly>
+                                                <!--                                                <form action="--><?php //= base_url('backend/token_generate') 
+                                                                                                                        ?>
+                                                <!--" method="post">-->
+                                                <!--                                                    <button class="btn btn-warning mt-3" type="submit">Generate New-->
+                                                <!--                                                        Write API Keys-->
+                                                <!--                                                    </button>-->
+                                                <!--                                                </form>-->
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="col-md-12 order-md-1 mt-4">Read API Keys <small
-                                            class="badge badge-danger"> Beta</small></h3>
+                                    <h3 class="col-md-12 order-md-1 mt-4">Read API Keys <small class="badge badge-danger"> Beta</small></h3>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <label for="">Key</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" name="token" id="token" class="form-control"
-                                                    value="3255M9TDREGG5ZHP" readonly>
+                                                <input type="text" name="token" id="token" class="form-control" value="3255M9TDREGG5ZHP" readonly>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -260,8 +243,7 @@ pre {
                                             </div>
 
                                             <div class="form-group col-md-12">
-                                                <input type="submit" name="submit" value="Upload"
-                                                    class="btn btn-success">
+                                                <input type="submit" name="submit" value="Upload" class="btn btn-success">
                                             </div>
                                         </form>
                                     </div>
@@ -273,8 +255,7 @@ pre {
                                                 <label>Download all of this Channel's feeds in CSV format.</label>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <input type="submit" name="submit" value="Download"
-                                                    class="btn btn-success">
+                                                <input type="submit" name="submit" value="Download" class="btn btn-success">
                                             </div>
                                         </form>
                                     </div>

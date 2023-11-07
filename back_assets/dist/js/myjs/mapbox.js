@@ -1,4 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoicml6a3kxNDA4MjAiLCJhIjoiY2xvaGF1aG55MTN0bjJrbzN6ZjRmMjNkYiJ9.hKJ_ryY0aczg9Q_-kLB-tg';
+
 const defaultLngLat = [117.41358989412075, -8.47573120694598]; // Default longitude and latitude
 const longitudeInput = document.getElementById('longitude');
 const latitudeInput = document.getElementById('latitude');

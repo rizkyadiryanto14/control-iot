@@ -19,7 +19,7 @@ class Chanel extends CI_Controller
 		$this->load->model('Token_model');
 		$this->load->model('User_model');
 		$this->load->model('Listing_model');
-//				cek login
+		//				cek login
 		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'user') {
 			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
 			redirect(base_url('auth'));
@@ -54,7 +54,7 @@ class Chanel extends CI_Controller
 
 	public function Detail($id)
 	{
-		$role=[
+		$role = [
 			'listing_role' => $this->Listing_model->listing_role($this->session->userdata('role'))
 		];
 		$listing = $this->Chanel_model->listing($id);
@@ -71,18 +71,18 @@ class Chanel extends CI_Controller
 	public function Store(): void
 	{
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'description' => $this->input->post('description'),
-			'id_users' => $this->session->userdata('id_user'),
-			'field1' => $this->input->post('field1'),
-			'field2' => $this->input->post('field2'),
-			'field3' => $this->input->post('field3'),
-			'field4' => $this->input->post('field4'),
-			'field5' => $this->input->post('field5'),
-			'field6' => $this->input->post('field6'),
-			'field7' => $this->input->post('field7'),
-			'field8' => $this->input->post('field8'),
-			'created_at' => date('Y-m-d H:i:s')
+			'nama' 			=> $this->input->post('nama'),
+			'description' 	=> $this->input->post('description'),
+			'id_users' 		=> $this->session->userdata('id_user'),
+			'field1' 		=> $this->input->post('field1'),
+			'field2' 		=> $this->input->post('field2'),
+			'field3' 		=> $this->input->post('field3'),
+			'field4' 		=> $this->input->post('field4'),
+			'field5' 		=> $this->input->post('field5'),
+			'field6' 		=> $this->input->post('field6'),
+			'field7' 		=> $this->input->post('field7'),
+			'field8' 		=> $this->input->post('field8'),
+			'created_at' 	=> date('Y-m-d H:i:s')
 		);
 
 		$insert = $this->Chanel_model->InsertChanel($data);

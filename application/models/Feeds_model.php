@@ -68,6 +68,11 @@ class Feeds_model extends CI_Model
 		return $this->db->get('peta')->result();
 	}
 
-
+	public function getLastFeeds($id_chanel)
+	{
+		$this->db->where('chanel_id', $id_chanel);
+		$this->db->order_by('id', 'DESC');
+		return $this->db->get('feeds')->row_array();
+	}
 
 }

@@ -49,8 +49,12 @@
 						<div class="info-box-content">
 							<span class="info-box-text">Total Entry</span>
 							<span class="info-box-number">
-							 	<div class="total_entry"></div>
-                			</span>
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['id'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 						</div>
 						<!-- /.info-box-content -->
 					</div>
@@ -63,7 +67,11 @@
 						<div class="info-box-content">
 							<span class="info-box-text"><?= $chanel['field1'] ?></span>
 							<span class="info-box-number">
-								<div class="heartRateChar"></div>
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field1'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -80,7 +88,13 @@
 						<div class="info-box-content">
 							<span class="info-box-text"><?=$chanel['field2'] ?></span>
 							<span class="info-box-number">
-								<div class="temperatureChar"></div>
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field2'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -94,7 +108,13 @@
 						<div class="info-box-content">
 							<span class="info-box-text"><?= $chanel['field3'] ?></span>
 							<span class="info-box-number">
-								<div class="oxygen"></div>
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field3'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -118,9 +138,15 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text"><?= $var =  $chanel['field6'] ? $chanel['field6'] : 'Zero' ?></span>
+							<span class="info-box-text"><?= $var =  $chanel['field4'] ? $chanel['field4'] : 'Label Null' ?></span>
 							<span class="info-box-number">
-
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field4'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -131,9 +157,15 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text"><?= $var = $chanel['field7'] ? $chanel['field7'] : 'Zero' ?></span>
+							<span class="info-box-text"><?= $var = $chanel['field5'] ? $chanel['field5'] : 'Label Null' ?></span>
 							<span class="info-box-number">
-
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field5'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -144,9 +176,53 @@
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text"><?= $var = $chanel['field8'] != null ? $chanel['field8'] : 'Zero' ?></span>
+							<span class="info-box-text"><?= $var = $chanel['field6'] != null ? $chanel['field6'] : 'Label Null' ?></span>
 							<span class="info-box-number">
-
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field6'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text"><?= $var = $chanel['field7'] != null ? $chanel['field7'] : 'Label Null' ?></span>
+							<span class="info-box-number">
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field6'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
+							</span>
+						</div>
+						<!-- /.info-box-content -->
+					</div>
+					<!-- /.info-box -->
+				</div>
+				<div class="col-12 col-sm-6 col-md-3">
+					<div class="info-box mb-3">
+						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-temperature-high"></i></span>
+						<div class="info-box-content">
+							<span class="info-box-text"><?= $var = $chanel['field8'] != null ? $chanel['field8'] : 'Label Null' ?></span>
+							<span class="info-box-number">
+								<span class="info-box-number">
+								<?php if (!empty($last_feeds)) { ?>
+									<?= $last_feeds['field6'] ?>
+								<?php } else { ?>
+									0
+								<?php } ?>
+							</span>
 							</span>
 						</div>
 						<!-- /.info-box-content -->
@@ -376,7 +452,7 @@
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicml6a3kxNDA4MjAiLCJhIjoiY2xvaGF1aG55MTN0bjJrbzN6ZjRmMjNkYiJ9.hKJ_ryY0aczg9Q_-kLB-tg';
-	const defaultLngLat = [117.41358989412075, -8.47573120694598]; // Default longitude and latitude
+	const defaultLngLat = [117.41358989412075, -8.47573120694598];
 	const longitudeInput = document.getElementById('longitude');
 	const latitudeInput = document.getElementById('latitude');
 	const map = new mapboxgl.Map({
@@ -432,7 +508,7 @@
 		const lngLat = marker.getLngLat();
 		longitudeInput.value = lngLat.lng.toFixed(6);
 		latitudeInput.value = lngLat.lat.toFixed(6);
-		updateCircleRadius(); // Call the function to update the circle radius
+		updateCircleRadius();
 	});
 
 </script>

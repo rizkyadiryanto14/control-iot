@@ -48,13 +48,6 @@
 						</button>
 					</div>
 				</div>
-<!--				<div class="col-md-12 pb-2">-->
-<!--					<form action="--><?php //= base_url('bazzerStatus') ?><!--" method="post">-->
-<!--						<input type="hidden" name="id" id="id" value="--><?php //= $bazzer_status['id'] ?><!--">-->
-<!--						<button class="btn btn-primary --><?php //= $var = $bazzer_status['status'] == 1 ? 'btn btn-primary ' : 'btn btn-danger' ?><!--">Button Danger</button>-->
-<!--					</form>-->
-<!--				</div>-->
-				<!-- /.col -->
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-gradient-gray elevation-1"><i class="fas fa-users-cog"></i></span>

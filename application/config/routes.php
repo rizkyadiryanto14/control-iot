@@ -42,9 +42,9 @@ $route['chanelDataBar/(:num)']		= 'User/Chanel/ChanelBarGrafik/$1';
 $route['user/token_generate']		= 'User/Token/generate';
 $route['import']					= 'User/Import/import';
 $route['export']					= 'User/Export/export';
+$route['user/getJsonPeta/(:num)']	= 'User/Grafik/getJsonPeta/$1';
 
 $route['user/updateMap']			= 'User/Grafik/update_map';
-
 $route['bazzerStatus']				= 'Bazzer/Bazzer_setting/changeStatus';
 
 //settting
