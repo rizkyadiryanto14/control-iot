@@ -53,8 +53,11 @@ Application
 
 ## Instalasi
 
+- Clone project dari github kedalam folder xampp/htdocs
 - Masuk Kedalam folder xampp/htdocs/ (untuk pengguna xampp)
-- Masuk kedalam folder lampp/htdoct/ (untuk pengguna LAMPP)
+- Masuk kedalam folder lampp/htdocs/ (untuk pengguna LAMPP)
+- Import database dalam folder db kedalam phpmyadmin
+- Berikut merupakan langkah - langkah clone project sampai dengan menjalankan website
 
 ````
 git clone https://github.com/rizkyadiryanto14/control-iot.git

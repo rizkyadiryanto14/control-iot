@@ -334,9 +334,9 @@
 								<h3 class="card-title">Map</h3>
 							</div>
 							<div class="card-body">
-								<div class="form-group">
-									<div id='map' style='width: 100%; height: 300px;'></div>
-								</div>
+									<div class="form-group">
+										<div id='map' style='width: 100%; height: 300px;'></div>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -482,7 +482,7 @@
 			},
 			paint: {
 				'circle-radius': 20, // Increase the circle radius as desired
-				'circle-color': '#FF0000'
+				'circle-color': '<?php echo ($bazzer_status == 1) ? "rgba(255, 0, 0, 0.5)" : "rgba(0, 0, 255, 0.5)"; ?>'
 			}
 		});
 	});
@@ -512,6 +512,72 @@
 	});
 
 </script>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoicml6a3kxNDA4MjAiLCJhIjoiY2xvaGF1aG55MTN0bjJrbzN6ZjRmMjNkYiJ9.hKJ_ryY0aczg9Q_-kLB-tg';
+	const defaultLngLat = [117.41358989412075, -8.47573120694598];
+	const longitudeInput = document.getElementById('longitude');
+	const latitudeInput = document.getElementById('latitude');
+	const map2 = new mapboxgl.Map({
+		container: 'map2', // container ID
+		style: 'mapbox://styles/mapbox/streets-v12', // style URL
+		center: defaultLngLat, // starting position
+		zoom: 9 // starting zoom
+	});
+	// Add zoom and rotation controls to the map.
+	map2.addControl(new mapboxgl.NavigationControl());
+	const marker = new mapboxgl.Marker({ color: '#FF0000' })
+		.setLngLat(defaultLngLat)
+		.addTo(map);
+	map2.on('load', function() {
+		map2.addLayer({
+			id: 'circle',
+			type: 'circle',
+			source: {
+				type: 'geojson',
+				data: {
+					type: 'Feature',
+					geometry: {
+						type: 'Point',
+						coordinates: defaultLngLat
+					}
+				}
+			},
+			paint: {
+				'circle-radius': 20, // Increase the circle radius as desired
+				'circle-color': '<?= ($bazzer_status == 0) ? "rgba(255, 0, 0, 0.5" : "rgba(0, 0, 255, 0.5)"; ?>'
+			}
+		});
+	});
+
+	function updateMap() {
+		const lng = parseFloat(longitudeInput.value);
+		const lat = parseFloat(latitudeInput.value);
+		if (!isNaN(lng) && !isNaN(lat)) {
+			map2.setCenter([lng, lat]);
+			marker.setLngLat([lng, lat]);
+			updateCircleRadius(); // Call the function to update the circle radius
+		}
+	}
+
+	function updateCircleRadius() {
+		const radius = 20; // Set the desired circle radius
+		map2.setPaintProperty('circle', 'circle-radius', radius);
+	}
+
+	longitudeInput.addEventListener('input', updateMap);
+	latitudeInput.addEventListener('input', updateMap);
+	marker.on('dragend', () => {
+		const lngLat = marker.getLngLat();
+		longitudeInput.value = lngLat.lng.toFixed(6);
+		latitudeInput.value = lngLat.lat.toFixed(6);
+		updateCircleRadius();
+	});
+
+</script>
+
+
+
 
 
 

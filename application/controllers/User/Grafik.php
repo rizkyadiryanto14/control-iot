@@ -55,6 +55,7 @@ class Grafik extends CI_Controller
 					'grafik'		=>  $this->Feeds_model->getFeedsByIdWithLimit($id_chanel, $config['per_page'], $page, $mulai, $end),
 					'filterGrafik'	=> 	$this->Feeds_model->getFeedsByIdFIlter($id_chanel,$mulai,$end),
 					'chanel'		=> 	$this->Chanel_model->getChaneIdByIdUser($this->session->userdata('id_user'), $id_chanel),
+					'bazzer_status'	=>  $this->Bazzer_model->getStatusBazzer(),
 					'peta'			=> 	$this->Feeds_model->get_peta($id_chanel),
 					'last_feeds'	=>  $this->Feeds_model->getLastFeeds($id_chanel)
 				];

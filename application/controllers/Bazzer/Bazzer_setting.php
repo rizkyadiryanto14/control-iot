@@ -55,6 +55,5 @@ class Bazzer_setting extends CI_Controller
 				redirect(base_url('user/dashboard'));
 			}
 		}
-
 	}
 }
