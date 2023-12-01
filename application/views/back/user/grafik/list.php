@@ -27,25 +27,24 @@
 					<div class="table-responsive">
 						<table class="table table-bordered">
 							<thead class="table-primary">
-							<tr>
-								<th>Nama Chanel</th>
-								<th>ID Chanel</th>
-							</tr>
+								<tr>
+									<th>Name Chanel</th>
+									<th>ID Chanel</th>
+								</tr>
 							</thead>
 							<tbody>
-							<?php if (!empty($list_chanel)) {
-								foreach ($list_chanel as $item) { ?>
-									<tr>
-										<td>
-											<a href="<?= base_url('user/grafikId/' . $item->id_chanel) ?>"
-											   class="channel-link" data-id="<?= $item->id_chanel ?>">
-												<?= $item->nama ?>
-											</a>
-										</td>
-										<td><?= $item->id_chanel ?></td>
-									</tr>
+								<?php if (!empty($list_chanel)) {
+									foreach ($list_chanel as $item) { ?>
+										<tr>
+											<td>
+												<a href="<?= base_url('user/grafikId/' . $item->id_chanel) ?>" class="channel-link" data-id="<?= $item->id_chanel ?>">
+													<?= $item->nama ?>
+												</a>
+											</td>
+											<td><?= $item->id_chanel ?></td>
+										</tr>
 								<?php }
-							} ?>
+								} ?>
 							</tbody>
 						</table>
 					</div>
@@ -54,4 +53,3 @@
 		</div>
 	</section>
 </div>
-

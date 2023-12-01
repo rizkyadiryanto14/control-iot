@@ -1,11 +1,10 @@
 <style>
-	@media (min-width: 768px) and (max-width: 991px)
-
-	.hidden-sm {
+	@media (min-width: 768px) and (max-width: 991px) .hidden-sm {
 		display: none !important;
 	}
 
-	.btn-group, .btn-group-vertical {
+	.btn-group,
+	.btn-group-vertical {
 		position: relative;
 		display: inline-block;
 		vertical-align: middle;
@@ -19,13 +18,18 @@
 		text-align: left;
 	}
 
-	.channel_title_small > a {
+	.channel_title_small>a {
 		color: #333;
 		font-family: 'Raleway', 'sans-serif';
 		font-size: 19px;
 	}
 
-	.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	.table>thead>tr>th,
+	.table>tbody>tr>th,
+	.table>tfoot>tr>th,
+	.table>thead>tr>td,
+	.table>tbody>tr>td,
+	.table>tfoot>tr>td {
 		padding: 8px;
 		line-height: 1.42857143;
 		vertical-align: top;
@@ -89,35 +93,31 @@
 										</tr>
 									</thead>
 									<tbody>
-									<?php if (isset($list_chanel)) {
-										foreach ($list_chanel as $item) { ?>
-											<tr>
-												<td>
-													<em class="fa fa-unlock fa-fw"></em>
-													<div class="channel_title_small">
-														<a href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
-													</div>
-													<div class="btn-group btn-group-sm hidden-xs hidden-sm hidden-md"
-														 style="margin-top:5px">
-														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Settings</a>
-														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">API
-															Keys</a>
-														<a class="btn btn-default"
-														   href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Data
-															Import /
-															Export</a>
-													</div>
-												</td>
-												<td><?= $item->created_at ?></td>
-												<td><?= $item->username ?></td>
-												<td>
-													<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusChanel<?= $item->id_chanel ?>"><i class="fas fa-trash"></i></button>
-												</td>
-											</tr>
+										<?php if (isset($list_chanel)) {
+											foreach ($list_chanel as $item) { ?>
+												<tr>
+													<td>
+														<em class="fa fa-unlock fa-fw"></em>
+														<div class="channel_title_small">
+															<a href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>"><?= $item->nama ?> </a>
+														</div>
+														<div class="btn-group btn-group-sm hidden-xs hidden-sm hidden-md" style="margin-top:5px">
+															<a class="btn btn-default" href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Settings</a>
+															<a class="btn btn-default" href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">API
+																Keys</a>
+															<a class="btn btn-default" href="<?= base_url('admin/chanelDetail/' . $item->id_chanel) ?>">Data
+																Import /
+																Export</a>
+														</div>
+													</td>
+													<td><?= $item->created_at ?></td>
+													<td><?= $item->username ?></td>
+													<td>
+														<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusChanel<?= $item->id_chanel ?>"><i class="fas fa-trash"></i></button>
+													</td>
+												</tr>
 										<?php }
-									} ?>
+										} ?>
 									</tbody>
 								</table>
 							</div>
@@ -147,25 +147,25 @@
 </div>
 
 <?php foreach ($list_chanel as $item) { ?>
-<div class="modal fade" id="hapusChanel<?= $item->id_chanel ?>">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title">Konfirmasi</h3>
-			</div>
-			<form action="<?= base_url('admin/hapus_chanel') ?>" method="post">
-				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" name="id_chanel" value="<?= $item->id_chanel ?> " id="id_chanel">
-						Apakah anda yakin ingin menghapus data chanel <b><?= $item->nama ?></b>
+	<div class="modal fade" id="hapusChanel<?= $item->id_chanel ?>">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Konfirmasi</h3>
+				</div>
+				<form action="<?= base_url('admin/hapus_chanel') ?>" method="post">
+					<div class="modal-body">
+						<div class="form-group">
+							<input type="hidden" name="id_chanel" value="<?= $item->id_chanel ?> " id="id_chanel">
+							Apakah anda yakin ingin menghapus data chanel <b><?= $item->nama ?></b>
+						</div>
 					</div>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button class="btn btn-danger" type="submit">Hapus</button>
-				</div>
-			</form>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button class="btn btn-danger" type="submit">Hapus</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
 <?php } ?>

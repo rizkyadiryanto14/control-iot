@@ -20,7 +20,7 @@
 		<div class="container-fluid">
 			<div class="card">
 				<div class="card-header">
-						<h3 class="card-title">Keterangan : </h3>
+					<h3 class="card-title">Information : </h3>
 					<br>
 					<ul>
 						<li>
@@ -37,26 +37,26 @@
 							<thead>
 								<tr class="text-center">
 									<th>No</th>
-									<th>Waktu</th>
+									<th>Time</th>
 									<th>Updated</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-							<?php if (!empty($setting)) {
-								$no = 1;
-								foreach ($setting as $item) { ?>
-									<tr class="text-center">
-										<td><?= $no++ ?></td>
-										<td><?= $item->waktu?> second</td>
-										<td><?= $item->last_update?></td>
-										<td>
-											<button class="btn btn-primary" data-toggle="modal" data-target="#editWaktu"><i class="fas fa-edit"></i></button>
-											<button class="btn btn-danger" data-toggle="modal" data-target="#resetWaktu"><i class="fas fa-times-circle"></i></button>
-										</td>
-									</tr>
+								<?php if (!empty($setting)) {
+									$no = 1;
+									foreach ($setting as $item) { ?>
+										<tr class="text-center">
+											<td><?= $no++ ?></td>
+											<td><?= $item->waktu ?> second</td>
+											<td><?= $item->last_update ?></td>
+											<td>
+												<button class="btn btn-primary" data-toggle="modal" data-target="#editWaktu"><i class="fas fa-edit"></i></button>
+												<button class="btn btn-danger" data-toggle="modal" data-target="#resetWaktu"><i class="fas fa-times-circle"></i></button>
+											</td>
+										</tr>
 								<?php }
-							} ?>
+								} ?>
 							</tbody>
 						</table>
 					</div>
@@ -77,7 +77,7 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="waktu">Waktu</label>
-							<input type="hidden" name="id" id="id" value="<?= $item-> id?>">
+							<input type="hidden" name="id" id="id" value="<?= $item->id ?>">
 							<input type="text" name="waktu" id="waktu" class="form-control" value="<?= $item->waktu ?>">
 						</div>
 					</div>

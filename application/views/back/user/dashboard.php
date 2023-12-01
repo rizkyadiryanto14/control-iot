@@ -1,7 +1,8 @@
 <style>
 	.responsive-iframe {
 		position: relative;
-		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		padding-bottom: 56.25%;
+		/* 16:9 aspect ratio */
 		height: 0;
 		overflow: hidden;
 	}
@@ -40,21 +41,14 @@
 		<div class="container-fluid">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div id="alert" class="col-md-12">
-					<div class="alert alert-success" role="alert">
-						Selamat Datang <?= $this->session->userdata('username') ?>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</div>
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-gradient-gray elevation-1"><i class="fas fa-users-cog"></i></span>
 						<div class="info-box-content">
-							<span class="info-box-text">Total Chanel</span>
+							<span class="info-box-text">Many Chanel</span>
 							<span class="info-box-number">
-								<?= /** @var TYPE_NAME $chanelByUser */
+								<?=
+								/** @var TYPE_NAME $chanelByUser */
 								$chanelByUser ?>
 							</span>
 						</div>
@@ -110,9 +104,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-	$(document).ready(function () {
-		setInterval(function () {
-			$.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?', function (data) {
+	$(document).ready(function() {
+		setInterval(function() {
+			$.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?', function(data) {
 				$(".total_entry").html(data.entry_id);
 				$(".heartRateChar").html(data.field2);
 				$(".temperatureChar").html(data.field3);
@@ -129,12 +123,3 @@
 		$('#alert').fadeOut('slow');
 	}, 1500);
 </script>
-
-
-
-
-
-
-
-
-

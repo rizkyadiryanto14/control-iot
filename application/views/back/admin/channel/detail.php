@@ -72,7 +72,7 @@
                                                 <div class="col-md-6 order-md-1">
                                                     <h3 class="col-md-12 order-md-1">Channel Settings</h3>
                                                     <div class="form-group">
-                                                        <label for="nama">Nama</label>
+                                                        <label for="nama">Name</label>
                                                         <input type="text" name="nama" value="<?= $item['nama'] ?>" id="nama" class="form-control">
                                                     </div>
                                                     <div class="form-group">

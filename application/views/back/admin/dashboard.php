@@ -1,7 +1,8 @@
 <style>
 	.responsive-iframe {
 		position: relative;
-		padding-bottom: 56.25%; /* 16:9 aspect ratio */
+		padding-bottom: 56.25%;
+		/* 16:9 aspect ratio */
 		height: 0;
 		overflow: hidden;
 	}
@@ -44,15 +45,14 @@
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box">
 						<span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
-
 						<a href="<?= base_url('admin/user') ?>">
 							<div class="info-box-content">
-								<span class="info-box-text" style="color: black">Total Users</span>
+								<span class="info-box-text" style="color: black">Many Users</span>
 								<span class="info-box-number">
-							  <?php if (!empty($users)) {
-								  echo $users;
-							  } ?>
-                			</span>
+									<?php if (!empty($users)) {
+										echo $users;
+									} ?>
+								</span>
 							</div>
 						</a>
 						<!-- /.info-box-content -->
@@ -63,14 +63,14 @@
 				<div class="col-12 col-sm-6 col-md-3">
 					<div class="info-box mb-3">
 						<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users-cog"></i></span>
-						<a href="<?=  base_url('admin/chanel')?>">
+						<a href="<?= base_url('admin/chanel') ?>">
 							<div class="info-box-content">
-								<span class="info-box-text" style="color: black">Total Chanel</span>
+								<span class="info-box-text" style="color: black">Many Chanel</span>
 								<span class="info-box-number">
-								<?php if (!empty($chanel)) {
-									echo $chanel;
-								} ?>
-							</span>
+									<?php if (!empty($chanel)) {
+										echo $chanel;
+									} ?>
+								</span>
 							</div>
 						</a>
 						<!-- /.info-box-content -->
@@ -88,12 +88,12 @@
 
 						<a href="<?= base_url('admin/token') ?>">
 							<div class="info-box-content">
-								<span class="info-box-text" style="color: black">Token Write</span>
+								<span class="info-box-text" style="color: black">Many Write</span>
 								<span class="info-box-number">
-								<?php if (!empty($token_write)) {
-									echo $token_write;
-								} ?>
-							</span>
+									<?php if (!empty($token_write)) {
+										echo $token_write;
+									} ?>
+								</span>
 							</div>
 						</a>
 						<!-- /.info-box-content -->
@@ -106,14 +106,14 @@
 						<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-pencil-ruler"></i></span>
 						<a href="<?= base_url('admin/token') ?>">
 							<div class="info-box-content">
-								<span class="info-box-text" style="color: black">Token Read</span>
+								<span class="info-box-text" style="color: black">Many Read</span>
 								<span class="info-box-number">
-								<?php if (!empty($token_read)) {
-									echo $token_read;
-								}else { ?>
-									0
-								<?php } ?>
-							</span>
+									<?php if (!empty($token_read)) {
+										echo $token_read;
+									} else { ?>
+										0
+									<?php } ?>
+								</span>
 							</div>
 						</a>
 						<!-- /.info-box-content -->
@@ -128,8 +128,8 @@
 							<div class="info-box-content">
 								<span class="info-box-text" style="color: black">Alert Pasien</span>
 								<span class="info-box-number">
-								<?= $var = $bazzer_status['status'] == 1 ? 'there are patients who need help' : 'there are no patients' ?>
-							</span>
+									<?= $var = $bazzer_status['status'] == 1 ? 'there are patients who need help' : 'there are no patients' ?>
+								</span>
 							</div>
 						</a>
 						<!-- /.info-box-content -->
@@ -155,7 +155,7 @@
 							<div class="row">
 								<div class="col-md-8">
 									<p class="text-center">
-										<strong>Times Report : <?php echo date('Y-m-d H:i:s')?></strong>
+										<strong>Times Report : <?php echo date('Y-m-d H:i:s') ?></strong>
 									</p>
 									<div>
 										<label for="chartType">Choose Chart Type:</label>
@@ -165,7 +165,7 @@
 												<option value="bar">Bar Chart</option>
 											</select>
 										</div>
-<!--										<button onclick="updateChart()">Update Chart</button>-->
+										<!--										<button onclick="updateChart()">Update Chart</button>-->
 									</div>
 									<canvas id="salesChart" width="400" height="200"></canvas>
 									<!-- /.chart-responsive -->
@@ -179,24 +179,24 @@
 										Users
 										<span class="float-right"><b><?php echo $users ?></span>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-primary" style="width: <?= $users/100?>%">
+											<div class="progress-bar bg-primary" style="width: <?= $users / 100 ?>%">
 											</div>
 										</div>
 									</div>
 									<!-- /.progress-group -->
 									<div class="progress-group">
 										Chanel
-										<span class="float-right"><b><?php echo $chanel?></span>
+										<span class="float-right"><b><?php echo $chanel ?></span>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-danger" style="width: <?= $chanel/100?>%"></div>
+											<div class="progress-bar bg-danger" style="width: <?= $chanel / 100 ?>%"></div>
 										</div>
 									</div>
 									<!-- /.progress-group -->
 									<div class="progress-group">
 										<span class="progress-text">Token Read</span>
-										<span class="float-right"><?php echo $token_read?></span>
+										<span class="float-right"><?php echo $token_read ?></span>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-success" style="width: <?= $token_read/100?>%"></div>
+											<div class="progress-bar bg-success" style="width: <?= $token_read / 100 ?>%"></div>
 										</div>
 									</div>
 									<!-- /.progress-group -->
@@ -204,7 +204,7 @@
 										Token Write
 										<span class="float-right"><?= $token_write ?></span>
 										<div class="progress progress-sm">
-											<div class="progress-bar bg-warning" style="width: <?= $token_write/100?>%"></div>
+											<div class="progress-bar bg-warning" style="width: <?= $token_write / 100 ?>%"></div>
 										</div>
 									</div>
 									<!-- /.progress-group -->
@@ -302,9 +302,4 @@
 
 	// Initial chart update
 	updateChart();
-
 </script>
-
-
-
-

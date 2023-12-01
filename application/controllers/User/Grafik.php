@@ -16,6 +16,7 @@ class Grafik extends CI_Controller
 		$this->load->model('Feeds_model');
 		$this->load->model('Chanel_model');
 		$this->load->model('Bazzer_model');
+
 	}
 
 	public function index(): void
