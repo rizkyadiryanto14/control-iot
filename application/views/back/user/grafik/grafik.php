@@ -450,8 +450,8 @@
 	// Add zoom and rotation controls to the map.
 	map.addControl(new mapboxgl.NavigationControl());
 	const marker = new mapboxgl.Marker({
-			color: '#100c0d'
-		})
+		color: '<?php echo ($bazzer_status["status"] == 0) ? "rgba(0, 255, 0, 0.5)" : "#100c0d"; ?>'
+	})
 		.setLngLat(defaultLngLat)
 		.addTo(map);
 	map.on('load', function() {
@@ -498,3 +498,4 @@
 		updateCircleRadius();
 	});
 </script>
+
