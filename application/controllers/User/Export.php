@@ -21,7 +21,7 @@ class Export extends CI_Controller
 		$data = $this->Export_model->getData();
 
 		if (empty($data)){
-			$this->session->set_flashdata('gagal', 'Data Tidak Ditemukan');
+			$this->session->set_flashdata('gagal', 'Data not found');
 			redirect(base_url('user/chanel'));
 		}
 

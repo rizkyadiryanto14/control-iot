@@ -48,11 +48,11 @@ class  Auth extends CI_Controller
 					show_404();
 				}
 			} else {
-				$this->session->set_flashdata('gagal', 'username atau password salah');
+				$this->session->set_flashdata('gagal', 'wrong username or password');
 				redirect(base_url('auth'));
 			}
 		} else {
-			$this->session->set_flashdata('gagal', 'User Tidak Ditemukan');
+			$this->session->set_flashdata('gagal', 'User Not Found');
 			redirect(base_url('auth'));
 		}
 	}

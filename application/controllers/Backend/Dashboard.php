@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
 		$this->load->model('Dashboard_model');
 		$this->load->model('Bazzer_model');
 		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
-			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
+			$this->session->set_userdata('gagal', 'Your session was not found');
 			redirect(base_url('auth'));
 		}
 	}

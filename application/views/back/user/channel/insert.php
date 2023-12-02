@@ -28,7 +28,7 @@
 						<form action="<?= base_url('user/channelStore') ?>" method="post">
 							<div class="card-body">
 								<div class="form-group">
-									<label for="">Nama</label>
+									<label for="">Name</label>
 									<input type="text" name="nama" id="nama" class="form-control">
 								</div>
 								<div class="form-group">

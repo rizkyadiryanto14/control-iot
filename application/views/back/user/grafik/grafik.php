@@ -28,12 +28,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">Grafik</h1>
+					<h1 class="m-0">Chart</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Grafik</li>
+						<li class="breadcrumb-item active">Chart</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -320,7 +320,7 @@
 						<div class="card">
 							<div class="card-header">
 								<h3 class="card-title"><?= $var = $chanel['field8'] ? $chanel['field8'] : 'field8' ?></h3>
-							</div>
+							</div> 	
 							<div class="card-body">
 								<div class="form-group">
 									<canvas id="field8Chart"></canvas>
@@ -362,7 +362,7 @@
 									} ?>
 								</div>
 								<div class="card-footer">
-									<button class="btn btn-primary" type="submit">Simpan</button>
+									<button class="btn btn-primary" type="submit">Save</button>
 								</div>
 							</form>
 						</div>
@@ -435,19 +435,6 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!--<script>-->
-<!--	$(document).ready(function () {-->
-<!--		setInterval(function () {-->
-<!--			$.getJSON('https://api.thingspeak.com/channels/2244680/feeds/last.json?', function (data) {-->
-<!--				$(".total_entry").html(data.entry_id);-->
-<!--				$(".heartRateChar").html(data.field2);-->
-<!--				$(".temperatureChar").html(data.field3);-->
-<!--				$(".oxygen").html(data.field1);-->
-<!--			});-->
-<!---->
-<!--		}, 100);-->
-<!--	});-->
-<!--</script>-->
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicml6a3kxNDA4MjAiLCJhIjoiY2xvaGF1aG55MTN0bjJrbzN6ZjRmMjNkYiJ9.hKJ_ryY0aczg9Q_-kLB-tg';
@@ -463,7 +450,7 @@
 	// Add zoom and rotation controls to the map.
 	map.addControl(new mapboxgl.NavigationControl());
 	const marker = new mapboxgl.Marker({
-			color: '#FF0000'
+			color: '#100c0d'
 		})
 		.setLngLat(defaultLngLat)
 		.addTo(map);

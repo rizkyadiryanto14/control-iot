@@ -36,7 +36,7 @@
 							<a href="<?= base_url('admin/chanel') ?>" class="nav-link">
 								<i class="nav-icon fas fa-book-open pl-2"></i>
 								<p>
-									Chanel
+									Channel
 								</p>
 							</a>
 						</li>
@@ -64,14 +64,6 @@
 								</p>
 							</a>
 						</li>
-<!--						<li class="nav-item">-->
-<!--							<a href="--><?php //= base_url('home_setting') ?><!--" class="nav-link">-->
-<!--								<i class="nav-icon fas fa-cog pl-2"></i>-->
-<!--								<p>-->
-<!--									Home-->
-<!--								</p>-->
-<!--							</a>-->
-<!--						</li>-->
 					</ul>
 				</nav>
 			<?php } else if ($listing_role['role'] == 'user') { ?>
@@ -90,7 +82,7 @@
 							<a href="<?= base_url('user/chanel') ?>" class="nav-link">
 								<i class="nav-icon fas fa-book-open pl-2"></i>
 								<p>
-									Chanel
+									Channel
 								</p>
 							</a>
 						</li>
@@ -98,7 +90,7 @@
 							<a href="<?= base_url('user/grafik') ?>" class="nav-link">
 								<i class="nav-icon fas fa-pencil-alt pl-2"></i>
 								<p>
-									Grafik
+									Chart
 								</p>
 							</a>
 						</li>

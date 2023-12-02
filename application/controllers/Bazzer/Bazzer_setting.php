@@ -34,10 +34,10 @@ class Bazzer_setting extends CI_Controller
 			$update = $this->Bazzer_model->updateBazzer($data['id'],$data);
 
 			if ($update){
-				$this->session->set_flashdata('sukses', 'Status Buzzer Berhasil Di Perbaharui');
+				$this->session->set_flashdata('sukses', 'Buzzer Status Updated Successfully');
 				redirect(base_url('user/dashboard'));
 			}else {
-				$this->session->set_userdata('gagal', 'Status Buzzer Berhasil Di Gagal');
+				$this->session->set_userdata('gagal', 'Buzzer status failed to update');
 				redirect(base_url('user/dashboard'));
 			}
 		}else {
@@ -48,10 +48,10 @@ class Bazzer_setting extends CI_Controller
 			$update = $this->Bazzer_model->updateBazzer($id,$data);
 
 			if ($update){
-				$this->session->set_flashdata('sukses', 'Status Buzzer Berhasil Di Perbaharui');
+				$this->session->set_flashdata('sukses', 'Buzzer Status Updated Successfully');
 				redirect(base_url('user/dashboard'));
 			}else {
-				$this->session->set_userdata('gagal', 'Status Buzzer Berhasil Di Gagal');
+				$this->session->set_userdata('gagal', 'Buzzer Status Success On Failure');
 				redirect(base_url('user/dashboard'));
 			}
 		}

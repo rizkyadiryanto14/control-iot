@@ -22,7 +22,7 @@ class Chanel extends CI_Controller
 		$this->load->model('Listing_model');
 //				cek login
 		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
-			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
+			$this->session->set_userdata('gagal', 'Your session was not found');
 			redirect(base_url('auth'));
 		}
 	}
@@ -90,10 +90,10 @@ class Chanel extends CI_Controller
 		$this->generate($data['id_users']);
 
 		if ($insert) {
-			$this->session->set_flashdata('sukses', 'data chanel berhasil di tambahkan');
+			$this->session->set_flashdata('sukses', 'channel data added successfully');
 			redirect(base_url('admin/chanel'));
 		} else {
-			$this->session->set_flashdata('gagal', 'data chanel gagal di tambahkan');
+			$this->session->set_flashdata('gagal', 'channel data failed to add');
 			redirect(base_url('admin/chanel'));
 		}
 	}
@@ -132,10 +132,10 @@ class Chanel extends CI_Controller
 		$delete = $this->Chanel_model->Delete($id_chanel);
 
 		if ($delete) {
-			$this->session->set_flashdata('sukses', 'Data Chanel Berhasil Di hapus');
+			$this->session->set_flashdata('sukses', 'channel data delete successfully');
 			redirect(base_url('admin/chanel'));
 		} else {
-			$this->session->set_flashdata('gagal', 'Data Chanel Gagal di Hapus');
+			$this->session->set_flashdata('gagal', 'channel data failed to delelete');
 			redirect(base_url('admin/chanel'));
 		}
 	}

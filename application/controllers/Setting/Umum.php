@@ -59,10 +59,10 @@ class Umum extends CI_Controller
 		$update = $this->Setting_model->updateSetting($id, $data);
 
 		if ($update){
-			$this->session->set_flashdata('sukses', 'Data setting berhasil di update');
+			$this->session->set_flashdata('sukses', 'Data settings updated successfully');
 			redirect(base_url('setting'));
 		}else {
-			$this->session->set_flashdata('gagal', 'Data setting gagal di update');
+			$this->session->set_flashdata('gagal', 'Data settings failed to update');
 			redirect(base_url('setting'));
 		}
 	}
@@ -81,10 +81,10 @@ class Umum extends CI_Controller
 		$reset = $this->Setting_model->updateSetting($id, $data);
 
 		if ($reset){
-			$this->session->set_flashdata('sukses', 'Data Setting berhasil di reset');
+			$this->session->set_flashdata('sukses', 'Data Settings successfully reset');
 			redirect(base_url('setting'));
 		}else {
-			$this->session->set_flashdata('gagal', 'Data Setting gagal di reset');
+			$this->session->set_flashdata('gagal', 'Data Settings failed to reset');
 			redirect(base_url('setting'));
 		}
 	}

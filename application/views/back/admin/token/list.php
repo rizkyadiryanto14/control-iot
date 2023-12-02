@@ -23,7 +23,7 @@
 				<div class="col-md-6">
 					<div class="card">
 						<div class="card-header">
-							<button class="btn btn-primary">Tambah Write</button>
+							<button class="btn btn-primary">Add Write</button>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -59,7 +59,7 @@
 				<div class="col-md-6">
 					<div class="card">
 						<div class="card-header">
-							<button class="btn btn-primary">Tambah Token Read</button>
+							<button class="btn btn-primary">Add Token Read</button>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">

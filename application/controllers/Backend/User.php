@@ -15,7 +15,7 @@ class User extends CI_Controller
 		$this->load->model('User_model');
 		$this->load->model('Chanel_model');
 		if (!$this->session->userdata('login') && $this->session->userdata('role') != 'admin') {
-			$this->session->set_userdata('gagal', 'session anda tidak ditemukan');
+			$this->session->set_userdata('gagal', 'Your session was not found');
 			redirect(base_url('auth'));
 		}
 	}
@@ -48,10 +48,10 @@ class User extends CI_Controller
 		$insert = $this->User_model->insert_user($data);
 
 		if ($insert) {
-			$this->session->set_flashdata('sukses', 'Data user berhasil di tambahkan');
+			$this->session->set_flashdata('sukses', 'User data added successful');
 			redirect(base_url('admin/user'));
 		} else {
-			$this->session->set_flashdata('gagal', 'Data user gagal di tambahkan');
+			$this->session->set_flashdata('gagal', 'User data failed to added');
 			redirect(base_url('admin/user'));
 		}
 	}
@@ -68,10 +68,10 @@ class User extends CI_Controller
 		$update = $this->User_model->update_user($update_data, $update_data['id']);
 
 		if ($update) {
-			$this->session->set_flashdata('sukses', 'Data user berhasil di update');
+			$this->session->set_flashdata('sukses', 'User data has been updated successfully');
 			redirect(base_url('admin/user'));
 		} else {
-			$this->session->set_flashdata('gagal', 'Data user gagal di update');
+			$this->session->set_flashdata('gagal', 'User data failed to update');
 			redirect(base_url('admin/user'));
 		}
 	}
@@ -82,7 +82,7 @@ class User extends CI_Controller
 		$delete = $this->User_model->delete_user($id);
 
 		if ($delete) {
-			$this->session->set_flashdata('sukses', 'Data User Berhasil di hapus');
+			$this->session->set_flashdata('sukses', 'User data has been delete successfully');
 			redirect(base_url('admin/user'));
 		}
 	}

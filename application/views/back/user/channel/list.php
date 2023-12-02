@@ -144,13 +144,13 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="modal-title">Konfirmasi</h3>
+				<h3 class="modal-title">Alert</h3>
 			</div>
 			<form action="<?= base_url('user/hapus_chanel') ?>" method="post">
 				<div class="modal-body">
 					<div class="form-group">
 						<input type="hidden" name="id_chanel" value="<?= $item->id_chanel ?> " id="id_chanel">
-						Apakah anda yakin ingin menghapus data chanel <b><?= $item->nama ?></b>
+						Are you sure delete this channel ? <b><?= $item->nama ?></b>
 					</div>
 				</div>
 				<div class="modal-footer">

@@ -26,10 +26,10 @@ class Token extends  CI_Controller
 		$insert = $this->Token_model->UpdateToken($data['id_chanel'], $data);
 
 		if ($insert) {
-			$this->session->set_flashdata('sukses', 'Token berhasil di generate');
+			$this->session->set_flashdata('sukses', 'Token successfully generated');
 			redirect(base_url('user/chanel'));
 		} else {
-			$this->session->set_flashdata('gagal', 'Token gagal di generate');
+			$this->session->set_flashdata('gagal', 'Token failed to generate');
 			redirect(base_url('user/chanel'));
 		}
 	}

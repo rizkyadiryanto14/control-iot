@@ -5,12 +5,12 @@
 		<div class="container-fluid">
 			<div class="row mb-2">
 				<div class="col-sm-6">
-					<h1 class="m-0">Grafik</h1>
+					<h1 class="m-0">Chart</h1>
 				</div><!-- /.col -->
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item active">Grafik</li>
+						<li class="breadcrumb-item active">Chart</li>
 					</ol>
 				</div><!-- /.col -->
 			</div><!-- /.row -->
@@ -21,15 +21,15 @@
 		<div class="container-fluid">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">List Grafik</h3>
+					<h3 class="card-title">List Chart</h3>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered">
 							<thead class="table-primary">
 								<tr>
-									<th>Name Chanel</th>
-									<th>ID Chanel</th>
+									<th>Name Channel</th>
+									<th>ID Channel</th>
 								</tr>
 							</thead>
 							<tbody>
