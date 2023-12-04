@@ -55,11 +55,22 @@ class Feeds_model extends CI_Model
 		return $this->db->count_all_results('feeds');
 	}
 
+	public function insert_peta($data)
+	{
+		return $this->db->insert('peta',$data);
+	}
+
 
 	public function update_map($id, $data)
 	{
 		$this->db->where('chanel_id', $id);
 		return $this->db->update('peta', $data);
+	}
+
+	public function getAllPeta()
+	{
+		$this->db->select('chanel_id');
+		return $this->db->get('peta')->result_array();
 	}
 
 	public function get_peta($chanel_id)

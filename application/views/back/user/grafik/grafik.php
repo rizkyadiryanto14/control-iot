@@ -79,7 +79,6 @@
 					<!-- /.info-box -->
 				</div>
 				<!-- /.col -->
-
 				<!-- fix for small devices only -->
 				<div class="clearfix hidden-md-up"></div>
 				<div class="col-12 col-sm-6 col-md-3">
@@ -347,7 +346,8 @@
 							</div>
 							<form action="<?= base_url('user/updateMap') ?>" method="post">
 								<div class="card-body">
-									<?php if (!empty($peta)) {
+									<?php
+									if (!empty($peta)) {
 										foreach ($peta as $item) { ?>
 											<div class="form-group">
 												<input type="hidden" name="chanel_id" id="chanel_id" value="<?= $chanel['id_chanel'] ?>">
@@ -358,8 +358,18 @@
 												<label for="latitude">Latitude</label>
 												<input type="text" name="latitude" id="latitude" class="form-control" value="<?= $item->latitude ?>">
 											</div>
-									<?php }
-									} ?>
+										<?php }
+									} else { ?>
+										<div class="form-group">
+											<input type="hidden" name="chanel_id" id="chanel_id" value="<?= $chanel['id_chanel'] ?>">
+											<label for="longitude">Longitude</label>
+											<input type="text" name="longitude" id="longitude" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="latitude">Latitude</label>
+											<input type="text" name="latitude" id="latitude" class="form-control">
+										</div>
+									<?php } ?>
 								</div>
 								<div class="card-footer">
 									<button class="btn btn-primary" type="submit">Save</button>
@@ -438,9 +448,9 @@
 
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoicml6a3kxNDA4MjAiLCJhIjoiY2xvaGF1aG55MTN0bjJrbzN6ZjRmMjNkYiJ9.hKJ_ryY0aczg9Q_-kLB-tg';
-	const defaultLngLat = [117.41358989412075, -8.47573120694598];
 	const longitudeInput = document.getElementById('longitude');
 	const latitudeInput = document.getElementById('latitude');
+	const defaultLngLat = [longitudeInput.value, latitudeInput.value];
 	const map = new mapboxgl.Map({
 		container: 'map', // container ID
 		style: 'mapbox://styles/mapbox/streets-v12', // style URL
@@ -450,7 +460,7 @@
 	// Add zoom and rotation controls to the map.
 	map.addControl(new mapboxgl.NavigationControl());
 	const marker = new mapboxgl.Marker({
-		color: '<?php echo ($bazzer_status["status"] == 0) ? "rgba(0, 255, 0, 0.5)" : "#100c0d"; ?>'
+		color: '<?php echo ($bazzer_status["status"] == 0) ? "#D90C3F" : "#100c0d"; ?>'
 	})
 		.setLngLat(defaultLngLat)
 		.addTo(map);

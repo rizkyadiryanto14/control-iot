@@ -141,13 +141,33 @@ class Grafik extends CI_Controller
 	public function update_map()
 	{
 		$chanel_id	= $this->input->post('chanel_id');
-		$data = [
-			'longitude'		=> $this->input->post('longitude'),
-			'latitude'		=> $this->input->post('latitude')
-		];
+		$cekData = $this->Feeds_model->get_peta($chanel_id);
+
+		foreach ($cekData as $cekDatum) {
+			if ($cekDatum->chanel_id == $chanel_id){
+				$data = [
+					'longitude'		=> $this->input->post('longitude'),
+					'latitude'		=> $this->input->post('latitude')
+				];
+
+			}else {
+				$datas = [
+					'longitude'		=> $this->input->post('longitude'),
+					'latitude'		=> $this->input->post('latitude'),
+					'chanel_id'		=> $chanel_id
+				];
+				$update = $this->Feeds_model->insert_peta($datas);
+				if ($update){
+					$this->session->set_flashdata('sukses','Success Update Data');
+					redirect(base_url('user/grafik'));
+				}else {
+					$this->session->set_flashdata('gagal','wrong Update Data');
+					redirect(base_url('user/grafik'));
+				}
+			}
+		}
 
 		$update = $this->Feeds_model->update_map($chanel_id, $data);
-
 		if ($update){
 			$this->session->set_flashdata('sukses','Success Update Data');
 			redirect(base_url('user/grafik'));
@@ -155,6 +175,7 @@ class Grafik extends CI_Controller
 			$this->session->set_flashdata('gagal','wrong Update Data');
 			redirect(base_url('user/grafik'));
 		}
+
 	}
 
 	public function getJsonPeta($chanel_id)
